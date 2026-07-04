@@ -18,3 +18,5 @@ https://github.com/esthersjw/esther-design-system
 - 小红书图文卡片：`references/scene-cards.md`
 
 从 `assets/template-*.html` 复制对应模板开始改，不从零写。
+
+组件总览可打开 `assets/components-preview.html` 查看。
