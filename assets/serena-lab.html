@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Serena Lab - HTML Preview Workspace</title>
+  <title>Serena Lab - Template Source + Live Preview</title>
   <style>
     @font-face {
       font-family: "ChillHuoKai Con";
@@ -96,7 +96,7 @@
     .app {
       min-height: 100vh;
       display: grid;
-      grid-template-rows: auto 1fr;
+      grid-template-rows: auto auto 1fr;
     }
 
     .topbar {
@@ -156,6 +156,57 @@
       overflow: hidden;
       text-overflow: ellipsis;
       white-space: nowrap;
+    }
+
+    .doc-strip {
+      display: grid;
+      grid-template-columns: minmax(260px, 0.72fr) minmax(320px, 1fr);
+      gap: 18px;
+      padding: 18px;
+      border-bottom: 1px solid var(--line);
+      background: rgba(255, 255, 255, 0.58);
+    }
+
+    .doc-title {
+      margin: 0 0 7px;
+      font-family: "ChillHuoKai Con", var(--sans);
+      font-size: clamp(1.55rem, 3vw, 2.25rem);
+      line-height: 1.05;
+      letter-spacing: 0;
+    }
+
+    .doc-desc {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.7;
+      font-size: 0.92rem;
+      max-width: 760px;
+    }
+
+    .template-pills {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .template-pill {
+      min-height: 32px;
+      padding: 0 11px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: #fff;
+      color: var(--ink);
+      font-size: 0.78rem;
+      font-weight: 750;
+      cursor: pointer;
+    }
+
+    .template-pill.active {
+      background: var(--ink);
+      border-color: var(--ink);
+      color: #fff;
     }
 
     .workspace {
@@ -280,7 +331,7 @@
     iframe {
       display: block;
       width: 100%;
-      min-height: calc(100vh - 138px);
+      min-height: calc(100vh - 250px);
       border: 0;
       background: #fff;
     }
@@ -315,6 +366,14 @@
       .status {
         width: 100%;
         text-align: left;
+      }
+
+      .doc-strip {
+        grid-template-columns: 1fr;
+      }
+
+      .template-pills {
+        justify-content: flex-start;
       }
 
       .workspace {
@@ -360,11 +419,19 @@
       <div id="status" class="status">准备加载模板</div>
     </header>
 
+    <section class="doc-strip" aria-label="Template documentation">
+      <div>
+        <h1 id="docTitle" class="doc-title">Template Landing</h1>
+        <p id="docDesc" class="doc-desc">左边是模板源码，右边是同一份 HTML 的实时预览。这里适合对照调整 Serena 的品牌色、字体、头像、布局和组件细节。</p>
+      </div>
+      <div id="templatePills" class="template-pills" aria-label="Template quick links"></div>
+    </section>
+
     <section class="workspace">
       <div class="editor-panel">
         <div class="panel-head">
-          <div class="panel-title"><span class="dot"></span><span id="sourceName">source</span></div>
-          <div class="panel-note">实时渲染，改完右侧马上看</div>
+          <div class="panel-title"><span class="dot"></span><span>source</span></div>
+          <div id="sourceName" class="panel-note">template-landing.html</div>
         </div>
         <div class="editor-shell">
           <pre id="lineNumbers" class="line-numbers">1</pre>
@@ -374,7 +441,7 @@
 
       <div class="preview-panel">
         <div class="panel-head">
-          <div class="panel-title"><span class="dot"></span><span>preview</span></div>
+          <div class="panel-title"><span class="dot"></span><span>live preview</span></div>
           <div id="previewMeta" class="panel-note">fluid</div>
         </div>
         <div class="preview-stage">
@@ -388,11 +455,31 @@
 
   <script>
     const templates = {
-      "template-landing.html": "Landing 模板",
-      "template-tutorial.html": "教程模板",
-      "template-app.html": "App 模板",
-      "template-cards.html": "图文卡片模板",
-      "components-preview.html": "组件总览页"
+      "template-landing.html": {
+        label: "Landing 模板",
+        title: "Template Landing",
+        desc: "活动页、发布页、个人项目首页的起点。左边改 hero、section 和 CTA，右边马上看 Serena 风格是否成立。"
+      },
+      "template-tutorial.html": {
+        label: "教程模板",
+        title: "Template Tutorial",
+        desc: "教程、介绍、科普型长页面的起点。适合调正文档节奏、代码块、步骤卡和引用组件。"
+      },
+      "template-app.html": {
+        label: "App 模板",
+        title: "Template App",
+        desc: "功能型页面、工作台、列表/卡片应用的起点。适合看按钮、筛选、卡片密度和操作区域。"
+      },
+      "template-cards.html": {
+        label: "图文卡片模板",
+        title: "Template Cards",
+        desc: "小红书图文卡片导出模板。适合检查封面、内页、结尾页和头像署名是否符合 Serena IP。"
+      },
+      "components-preview.html": {
+        label: "组件总览页",
+        title: "Components Preview",
+        desc: "Serena 组件总览页。左边可以直接查看整页源码，右边实时观察组件组合后的页面效果。"
+      }
     };
 
     const fallbackHtml = `<!DOCTYPE html>
@@ -427,6 +514,9 @@
     const fileInput = document.getElementById("fileInput");
     const saveFileBtn = document.getElementById("saveFileBtn");
     const pickFileBtn = document.getElementById("pickFileBtn");
+    const docTitle = document.getElementById("docTitle");
+    const docDesc = document.getElementById("docDesc");
+    const templatePills = document.getElementById("templatePills");
 
     let currentFileName = templateSelect.value;
     let fileHandle = null;
@@ -451,6 +541,32 @@
       previewMeta.textContent = `${frameWrap.dataset.width} · ${html.length.toLocaleString()} chars`;
     }
 
+    function getTemplateInfo(fileName) {
+      return templates[fileName] || {
+        label: fileName || "本地 HTML",
+        title: fileName || "Local HTML",
+        desc: "当前是手动打开的 HTML。左边修改源码，右边实时预览。"
+      };
+    }
+
+    function updateDocHeader(fileName) {
+      const info = getTemplateInfo(fileName);
+      docTitle.textContent = info.title;
+      docDesc.textContent = info.desc;
+      sourceName.textContent = fileName || "local-file.html";
+      templateSelect.value = templates[fileName] ? fileName : "";
+
+      document.querySelectorAll(".template-pill").forEach((button) => {
+        button.classList.toggle("active", button.dataset.template === fileName);
+      });
+
+      if (templates[fileName]) {
+        const url = new URL(window.location.href);
+        url.searchParams.set("template", fileName);
+        history.replaceState(null, "", url);
+      }
+    }
+
     function scheduleRender() {
       dirty = true;
       window.clearTimeout(renderTimer);
@@ -460,8 +576,8 @@
     async function loadTemplate(fileName) {
       currentFileName = fileName;
       fileHandle = null;
-      sourceName.textContent = fileName;
-      setStatus(`加载 ${templates[fileName] || fileName}`);
+      updateDocHeader(fileName);
+      setStatus(`加载 ${getTemplateInfo(fileName).label}`);
 
       try {
         const response = await fetch(fileName, { cache: "no-store" });
@@ -524,6 +640,7 @@
         const file = await fileHandle.getFile();
         currentFileName = file.name;
         sourceName.textContent = file.name;
+        updateDocHeader(file.name);
         editor.value = await file.text();
         templateSelect.value = "";
         dirty = false;
@@ -591,7 +708,7 @@
       if (!file) return;
       fileHandle = null;
       currentFileName = file.name;
-      sourceName.textContent = file.name;
+      updateDocHeader(file.name);
       editor.value = await file.text();
       templateSelect.value = "";
       renderNow();
@@ -602,13 +719,26 @@
       button.addEventListener("click", () => setPreviewSize(button.dataset.size));
     });
 
+    Object.entries(templates).forEach(([fileName, info]) => {
+      const button = document.createElement("button");
+      button.type = "button";
+      button.className = "template-pill";
+      button.dataset.template = fileName;
+      button.textContent = info.label;
+      button.addEventListener("click", () => loadTemplate(fileName));
+      templatePills.appendChild(button);
+    });
+
     window.addEventListener("beforeunload", (event) => {
       if (!dirty) return;
       event.preventDefault();
       event.returnValue = "";
     });
 
-    loadTemplate(templateSelect.value);
+    const params = new URLSearchParams(window.location.search);
+    const requestedTemplate = params.get("template");
+    const initialTemplate = templates[requestedTemplate] ? requestedTemplate : templateSelect.value;
+    loadTemplate(initialTemplate);
   </script>
 </body>
 </html>
