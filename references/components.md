@@ -3403,7 +3403,7 @@ CSS Grid两栏布局、2px粗边框系统、酒店名跨列、日期用天蓝大
   padding: 20px 0; -webkit-overflow-scrolling: touch;
 }
 .hscroll-track::-webkit-scrollbar { height: 4px; }
-.hscroll-track::-webkit-scrollbar-thumb { background: var(--accent-light, #d4a06a); border-radius: 2px; }
+.hscroll-track::-webkit-scrollbar-thumb { background: var(--sky-blue, #2B7FD8); border-radius: 2px; }
 .hscroll-card {
   min-width: 340px; max-width: 380px; flex-shrink: 0; scroll-snap-align: center;
   background: #fff; border-radius: 16px; padding: 32px 28px;
@@ -3411,11 +3411,11 @@ CSS Grid两栏布局、2px粗边框系统、酒店名跨列、日期用天蓝大
 }
 .hscroll-card .hscroll-num {
   position: absolute; top: 16px; right: 20px; font-family: 'Schoolbell', cursive;
-  font-size: 2rem; color: var(--accent-light, #d4a06a); opacity: 0.4;
+  font-size: 2rem; color: var(--sky-blue, #2B7FD8); opacity: 0.4;
 }
 .hscroll-card h3 { font-size: 1.1rem; font-weight: 700; margin-bottom: 12px; }
-.hscroll-card p { font-size: 0.82rem; color: var(--ink-light, #5a4f3f); line-height: 1.9; }
-.hscroll-hint { font-size: 0.75rem; color: var(--ink-faint, #8a7e6d); margin-top: 1rem; font-family: 'Schoolbell', cursive; }
+.hscroll-card p { font-size: 0.82rem; color: var(--ink-light, #4A4A5A); line-height: 1.9; }
+.hscroll-hint { font-size: 0.75rem; color: var(--ink-faint, #8A8A9A); margin-top: 1rem; font-family: 'Schoolbell', cursive; }
 ```
 
 **使用原则**：
@@ -3469,20 +3469,20 @@ function switchTab(el, idx) {
 ```
 
 ```css
-.tab-bar { display: flex; gap: 0; margin-bottom: 2rem; border-bottom: 2px solid var(--accent-light, #d4a06a); }
+.tab-bar { display: flex; gap: 0; margin-bottom: 2rem; border-bottom: 2px solid var(--sky-blue, #2B7FD8); }
 .tab-item {
   padding: 10px 20px; font-size: 0.82rem; font-weight: 500; cursor: pointer;
   border-bottom: 3px solid transparent; margin-bottom: -2px; transition: all 0.2s;
-  color: var(--ink-faint, #8a7e6d);
+  color: var(--ink-faint, #8A8A9A);
 }
-.tab-item.active { border-bottom-color: var(--accent, #8b4513); color: var(--ink, #2c2416); font-weight: 700; }
-.tab-item:hover { color: var(--ink-light, #5a4f3f); }
+.tab-item.active { border-bottom-color: var(--coral, #F07040); color: var(--ink, #1A1A2E); font-weight: 700; }
+.tab-item:hover { color: var(--ink-light, #4A4A5A); }
 .tab-panels { position: relative; }
 .tab-panel { display: none; animation: tabFadeIn 0.3s; }
 .tab-panel.active { display: block; }
 .tab-panel h3 { font-size: 1.3rem; font-weight: 700; margin-bottom: 12px; }
-.tab-panel p { font-size: 0.88rem; color: var(--ink-light, #5a4f3f); line-height: 2; max-width: 550px; }
-.tab-example { margin-top: 1rem; background: #fff; border-radius: 10px; padding: 16px 20px; font-size: 0.9rem; color: var(--accent, #8b4513); border-left: 3px solid var(--accent-light, #d4a06a); }
+.tab-panel p { font-size: 0.88rem; color: var(--ink-light, #4A4A5A); line-height: 2; max-width: 550px; }
+.tab-example { margin-top: 1rem; background: #fff; border-radius: 10px; padding: 16px 20px; font-size: 0.9rem; color: var(--coral, #F07040); border-left: 3px solid var(--sky-blue, #2B7FD8); }
 @keyframes tabFadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
 ```
 
@@ -3534,21 +3534,21 @@ function toggleAccordion(header) {
 
 ```css
 .accordion-list { max-width: 600px; }
-.accordion-item { border-bottom: 1px solid rgba(139,69,19,0.15); }
+.accordion-item { border-bottom: 1px solid rgba(240,112,64,0.18); }
 .accordion-header {
   display: flex; align-items: center; gap: 16px; padding: 18px 0; cursor: pointer; transition: all 0.2s;
 }
 .accordion-header:hover { padding-left: 8px; }
 .accordion-step {
-  width: 32px; height: 32px; border-radius: 50%; background: var(--accent, #8b4513);
+  width: 32px; height: 32px; border-radius: 50%; background: var(--coral, #F07040);
   color: #fff; font-size: 0.8rem; font-weight: 700; display: flex; align-items: center; justify-content: center; flex-shrink: 0;
 }
 .accordion-header h4 { font-size: 0.95rem; font-weight: 700; }
-.accordion-arrow { margin-left: auto; font-size: 0.8rem; color: var(--ink-faint, #8a7e6d); transition: transform 0.2s; }
+.accordion-arrow { margin-left: auto; font-size: 0.8rem; color: var(--ink-faint, #8A8A9A); transition: transform 0.2s; }
 .accordion-item.open .accordion-arrow { transform: rotate(180deg); }
 .accordion-body { padding: 0 0 18px 48px; display: none; }
 .accordion-item.open .accordion-body { display: block; animation: tabFadeIn 0.3s; }
-.accordion-body p { font-size: 0.82rem; color: var(--ink-light, #5a4f3f); line-height: 1.9; }
+.accordion-body p { font-size: 0.82rem; color: var(--ink-light, #4A4A5A); line-height: 1.9; }
 ```
 
 **使用原则**：
@@ -3606,16 +3606,16 @@ function moveSlide(dir) {
 .carousel-slide { min-width: 100%; padding: 40px; text-align: center; }
 .carousel-icon { font-size: 2.5rem; margin-bottom: 1rem; }
 .carousel-slide h3 { font-size: 1.4rem; font-weight: 700; margin-bottom: 16px; }
-.carousel-slide p { font-size: 0.85rem; color: var(--ink-light, #5a4f3f); line-height: 2; max-width: 450px; margin: 0 auto; }
+.carousel-slide p { font-size: 0.85rem; color: var(--ink-light, #4A4A5A); line-height: 2; max-width: 450px; margin: 0 auto; }
 .carousel-arrows { display: flex; justify-content: center; gap: 16px; margin-top: 2rem; }
 .carousel-arrow {
-  width: 40px; height: 40px; border-radius: 50%; border: 1.5px solid var(--accent-light, #d4a06a);
-  background: transparent; cursor: pointer; font-size: 1rem; color: var(--accent, #8b4513); transition: all 0.2s;
+  width: 40px; height: 40px; border-radius: 50%; border: 1.5px solid var(--sky-blue, #2B7FD8);
+  background: transparent; cursor: pointer; font-size: 1rem; color: var(--coral, #F07040); transition: all 0.2s;
 }
-.carousel-arrow:hover { background: var(--accent, #8b4513); color: #fff; }
+.carousel-arrow:hover { background: var(--coral, #F07040); color: #fff; }
 .carousel-dots { display: flex; justify-content: center; gap: 8px; margin-top: 1rem; }
-.carousel-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--accent-light, #d4a06a); opacity: 0.4; transition: all 0.2s; }
-.carousel-dot.active { opacity: 1; transform: scale(1.3); background: var(--accent, #8b4513); }
+.carousel-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--sky-blue, #2B7FD8); opacity: 0.4; transition: all 0.2s; }
+.carousel-dot.active { opacity: 1; transform: scale(1.3); background: var(--coral, #F07040); }
 ```
 
 **使用原则**：
@@ -3685,9 +3685,9 @@ function flipStack() {
 .stack-card:nth-child(3) { z-index: 2; transform: translateY(24px) scale(0.92); opacity: 0.6; }
 .stack-card:nth-child(4) { z-index: 1; transform: translateY(36px) scale(0.88); opacity: 0.4; }
 .stack-card h3 { font-size: 1.2rem; font-weight: 700; margin-bottom: 12px; }
-.stack-card p { font-size: 0.82rem; color: var(--ink-light, #5a4f3f); line-height: 1.9; }
-.stack-tag { display: inline-block; background: var(--accent, #8b4513); color: #fff; font-size: 0.7rem; padding: 2px 8px; border-radius: 3px; margin-bottom: 10px; }
-.stack-hint { font-size: 0.75rem; color: var(--ink-faint, #8a7e6d); text-align: center; margin-top: 3.5rem; font-family: 'Schoolbell', cursive; }
+.stack-card p { font-size: 0.82rem; color: var(--ink-light, #4A4A5A); line-height: 1.9; }
+.stack-tag { display: inline-block; background: var(--coral, #F07040); color: #fff; font-size: 0.7rem; padding: 2px 8px; border-radius: 3px; margin-bottom: 10px; }
+.stack-hint { font-size: 0.75rem; color: var(--ink-faint, #8A8A9A); text-align: center; margin-top: 3.5rem; font-family: 'Schoolbell', cursive; }
 ```
 
 **使用原则**：
@@ -3731,9 +3731,9 @@ function flipStack() {
 }
 .flip-front { background: #fff; box-shadow: 0 8px 32px rgba(0,0,0,0.08); }
 .flip-front h2 { font-size: clamp(2.2rem, 5vw, 3.2rem); line-height: 1.6; text-align: center; }
-.flip-front .flip-hint { font-size: 0.75rem; color: var(--ink-faint, #8a7e6d); margin-top: 2rem; }
+.flip-front .flip-hint { font-size: 0.75rem; color: var(--ink-faint, #8A8A9A); margin-top: 2rem; }
 .flip-back {
-  background: var(--accent, #8b4513); color: #fff;
+  background: var(--coral, #F07040); color: #fff;
   transform: rotateY(180deg); text-align: center;
 }
 .flip-back h3 { font-size: 1rem; font-weight: 400; opacity: 0.8; margin-bottom: 1rem; }
@@ -3772,18 +3772,18 @@ function flipStack() {
 }
 .reveal-text {
   font-size: clamp(2.5rem, 6vw, 3.5rem); line-height: 1.5;
-  color: var(--ink, #2c2416); position: relative; z-index: 2;
+  color: var(--ink, #1A1A2E); position: relative; z-index: 2;
 }
-.reveal-sub { font-size: 0.8rem; color: var(--ink-faint, #8a7e6d); margin-top: 0.5rem; letter-spacing: 0.1em; position: relative; z-index: 2; }
+.reveal-sub { font-size: 0.8rem; color: var(--ink-faint, #8A8A9A); margin-top: 0.5rem; letter-spacing: 0.1em; position: relative; z-index: 2; }
 .reveal-overlay {
-  position: absolute; inset: 0; background: var(--accent, #8b4513); color: #fff;
+  position: absolute; inset: 0; background: var(--coral, #F07040); color: #fff;
   display: flex; flex-direction: column; justify-content: center; align-items: center;
   padding: 40px; opacity: 0; transition: opacity 0.4s ease; z-index: 3; border-radius: 20px;
 }
 .reveal-card:hover .reveal-overlay { opacity: 1; }
 .reveal-overlay p { font-size: 0.9rem; line-height: 2; text-align: center; max-width: 380px; }
 .reveal-note { margin-top: 1rem; font-size: 0.82rem; opacity: 0.7; }
-.reveal-hint { font-size: 0.75rem; color: var(--ink-faint, #8a7e6d); margin-top: 1rem; text-align: center; }
+.reveal-hint { font-size: 0.75rem; color: var(--ink-faint, #8A8A9A); margin-top: 1rem; text-align: center; }
 ```
 
 **使用原则**：
@@ -3813,7 +3813,7 @@ function flipStack() {
 ```
 
 ```css
-/* 需要深色背景容器 background: #1a1510; color: #f0e9dc; */
+/* 需要深色背景容器 background: #1A1A2E; color: #faf6eb; */
 .dark-reveal-bgchar {
   position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
   font-size: clamp(20rem, 40vw, 35rem); color: rgba(255,255,255,0.03);
@@ -3823,22 +3823,22 @@ function flipStack() {
 .dark-reveal-content h2 {
   font-size: clamp(2.5rem, 7vw, 4rem); line-height: 1.6; color: #fff; margin-bottom: 2rem;
 }
-.dark-reveal-divider { width: 40px; height: 2px; background: var(--accent-light, #d4a06a); margin: 0 auto 2rem; }
+.dark-reveal-divider { width: 40px; height: 2px; background: var(--sky-blue, #2B7FD8); margin: 0 auto 2rem; }
 .dark-reveal-trans {
   font-size: 0.88rem; color: rgba(255,255,255,0.6); line-height: 2;
   opacity: 0; transition: opacity 0.5s;
 }
 .dark-reveal-trans.show { opacity: 1; }
 .dark-reveal-btn {
-  margin-top: 2rem; padding: 8px 20px; border: 1px solid var(--accent-light, #d4a06a);
-  background: transparent; color: var(--accent-light, #d4a06a); border-radius: 20px;
+  margin-top: 2rem; padding: 8px 20px; border: 1px solid var(--sky-blue, #2B7FD8);
+  background: transparent; color: var(--sky-blue, #2B7FD8); border-radius: 20px;
   font-size: 0.78rem; cursor: pointer; transition: all 0.2s;
 }
-.dark-reveal-btn:hover { background: var(--accent-light, #d4a06a); color: #1a1510; }
+.dark-reveal-btn:hover { background: var(--sky-blue, #2B7FD8); color: #1A1A2E; }
 ```
 
 **使用原则**：
-- 背景用深色（#1a1510 或 #0d1117），文字白/米色
+- 背景用深色（#1A1A2E 或 #0d1117），文字白/米色
 - 超大装饰字用极低透明度（0.03），做氛围不干扰
 - 按钮触发比悬停更有仪式感，适合正式教学场景
 - 适合名言金句、品牌slogan、演讲稿重点句展示
@@ -3880,19 +3880,19 @@ function flipStack() {
 .split-qa-left h2 { font-family: 'Noto Serif SC', serif; font-weight: 900; font-size: clamp(1.8rem, 4vw, 2.5rem); margin-bottom: 1.5rem; }
 .split-qa-item { display: flex; gap: 14px; margin-bottom: 1.5rem; align-items: flex-start; }
 .split-qa-num {
-  width: 28px; height: 28px; border-radius: 50%; background: var(--accent, #8b4513);
+  width: 28px; height: 28px; border-radius: 50%; background: var(--coral, #F07040);
   color: #fff; font-size: 0.75rem; font-weight: 700; flex-shrink: 0;
   display: flex; align-items: center; justify-content: center;
 }
-.split-qa-item p { font-size: 0.85rem; color: var(--ink-light, #5a4f3f); line-height: 1.8; }
+.split-qa-item p { font-size: 0.85rem; color: var(--ink-light, #4A4A5A); line-height: 1.8; }
 .split-qa-right {
   background: #fff; border-radius: 16px; padding: 28px 24px;
-  border: 1px solid rgba(139,69,19,0.1);
+  border: 1px solid rgba(240,112,64,0.14);
 }
-.split-qa-right h3 { font-size: 0.85rem; font-weight: 700; color: var(--accent, #8b4513); margin-bottom: 12px; }
+.split-qa-right h3 { font-size: 0.85rem; font-weight: 700; color: var(--coral, #F07040); margin-bottom: 12px; }
 .split-qa-flow { display: flex; align-items: center; flex-wrap: wrap; gap: 8px; }
-.split-qa-step { background: var(--cream-dark, #f0e9dc); padding: 6px 14px; border-radius: 20px; font-size: 0.78rem; color: var(--ink-light, #5a4f3f); }
-.split-qa-arrow { font-size: 0.7rem; color: var(--accent-light, #d4a06a); }
+.split-qa-step { background: var(--cream-dark, #faf6eb); padding: 6px 14px; border-radius: 20px; font-size: 0.78rem; color: var(--ink-light, #4A4A5A); }
+.split-qa-arrow { font-size: 0.7rem; color: var(--sky-blue, #2B7FD8); }
 @media (max-width: 768px) { .split-qa { grid-template-columns: 1fr; } }
 ```
 
@@ -3934,10 +3934,10 @@ function flipStack() {
 .numgrid-card:hover { transform: translateY(-3px); }
 .numgrid-card::before {
   content: attr(data-num); position: absolute; top: -8px; right: 12px;
-  font-family: 'Schoolbell', cursive; font-size: 3rem; color: var(--accent-light, #d4a06a); opacity: 0.2;
+  font-family: 'Schoolbell', cursive; font-size: 3rem; color: var(--sky-blue, #2B7FD8); opacity: 0.2;
 }
-.numgrid-card h4 { font-size: 0.82rem; font-weight: 700; margin-bottom: 6px; color: var(--accent, #8b4513); }
-.numgrid-card p { font-size: 0.78rem; color: var(--ink-light, #5a4f3f); line-height: 1.8; }
+.numgrid-card h4 { font-size: 0.82rem; font-weight: 700; margin-bottom: 6px; color: var(--coral, #F07040); }
+.numgrid-card p { font-size: 0.78rem; color: var(--ink-light, #4A4A5A); line-height: 1.8; }
 .numgrid-card.full { grid-column: 1 / -1; }
 @media (max-width: 768px) { .numgrid { grid-template-columns: 1fr; } }
 ```
@@ -3979,18 +3979,18 @@ function flipStack() {
 .checklist { max-width: 550px; }
 .checklist-item {
   display: flex; align-items: flex-start; gap: 14px; padding: 14px 0;
-  border-bottom: 1px solid rgba(139,69,19,0.1);
+  border-bottom: 1px solid rgba(240,112,64,0.14);
 }
 .checklist-check {
-  width: 22px; height: 22px; border-radius: 6px; border: 2px solid var(--accent-light, #d4a06a);
+  width: 22px; height: 22px; border-radius: 6px; border: 2px solid var(--sky-blue, #2B7FD8);
   flex-shrink: 0; margin-top: 2px; cursor: pointer; transition: all 0.2s;
   display: flex; align-items: center; justify-content: center;
 }
-.checklist-check.checked { background: var(--accent, #8b4513); border-color: var(--accent, #8b4513); }
+.checklist-check.checked { background: var(--coral, #F07040); border-color: var(--coral, #F07040); }
 .checklist-check.checked::after { content: '✓'; color: #fff; font-size: 0.7rem; }
 .checklist-content h4 { font-size: 0.85rem; font-weight: 600; margin-bottom: 2px; }
-.checklist-content p { font-size: 0.78rem; color: var(--ink-light, #5a4f3f); line-height: 1.7; }
-.checklist-tag { display: inline-block; font-size: 0.65rem; background: var(--cream-dark, #f0e9dc); color: var(--ink-faint, #8a7e6d); padding: 2px 8px; border-radius: 3px; margin-top: 4px; }
+.checklist-content p { font-size: 0.78rem; color: var(--ink-light, #4A4A5A); line-height: 1.7; }
+.checklist-tag { display: inline-block; font-size: 0.65rem; background: var(--cream-dark, #faf6eb); color: var(--ink-faint, #8A8A9A); padding: 2px 8px; border-radius: 3px; margin-top: 4px; }
 ```
 
 **使用原则**：
@@ -4025,12 +4025,12 @@ function flipStack() {
 .postcard {
   background: #fff; border-radius: 4px; padding: 48px 44px;
   max-width: 520px; box-shadow: 0 4px 24px rgba(0,0,0,0.06);
-  border: 1px solid rgba(139,69,19,0.08); position: relative;
+  border: 1px solid rgba(240,112,64,0.12); position: relative;
   transform: rotate(-0.5deg);
 }
 .postcard::before {
   content: ''; position: absolute; top: 20px; right: 20px;
-  width: 50px; height: 50px; border: 2px solid var(--accent-light, #d4a06a); opacity: 0.3;
+  width: 50px; height: 50px; border: 2px solid var(--sky-blue, #2B7FD8); opacity: 0.3;
 }
 .postcard-title {
   font-family: 'Ma Shan Zheng', cursive; font-size: 1.8rem;
@@ -4038,15 +4038,15 @@ function flipStack() {
 }
 .postcard-body {
   font-family: 'Schoolbell', cursive; font-size: 1.05rem; line-height: 2.8;
-  color: var(--ink-light, #5a4f3f);
+  color: var(--ink-light, #4A4A5A);
 }
-.postcard-num { color: var(--accent, #8b4513); font-weight: 700; }
-.postcard-divider { border: none; border-top: 1px dashed var(--accent-light, #d4a06a); margin: 1.5rem 0; }
-.postcard-footer { font-size: 0.8rem; color: var(--ink-faint, #8a7e6d); line-height: 2; }
-.postcard-footer strong { color: var(--accent, #8b4513); }
+.postcard-num { color: var(--coral, #F07040); font-weight: 700; }
+.postcard-divider { border: none; border-top: 1px dashed var(--sky-blue, #2B7FD8); margin: 1.5rem 0; }
+.postcard-footer { font-size: 0.8rem; color: var(--ink-faint, #8A8A9A); line-height: 2; }
+.postcard-footer strong { color: var(--coral, #F07040); }
 .postcard-stamp {
   position: absolute; bottom: -12px; right: 24px; font-family: 'Schoolbell', cursive;
-  font-size: 0.75rem; color: var(--ink-faint, #8a7e6d); transform: rotate(2deg);
+  font-size: 0.75rem; color: var(--ink-faint, #8A8A9A); transform: rotate(2deg);
 }
 ```
 
@@ -4079,11 +4079,11 @@ function flipStack() {
 <!-- Modal -->
 <div class="modal-overlay" id="modal" onclick="closeModal(event)" style="display: none; position: fixed; inset: 0; z-index: 1000; background: rgba(0,0,0,0.88); align-items: center; justify-content: center; padding: 24px;">
   <span onclick="closeModal()" style="position: fixed; top: 20px; right: 24px; font-size: 2rem; color: #fff; cursor: pointer; z-index: 1001;">&times;</span>
-  <div style="background: #F5F5F0; border-radius: 16px; max-width: 900px; width: 100%; max-height: 90vh; overflow-y: auto;" onclick="event.stopPropagation()">
+  <div style="background: #fefcf6; border-radius: 16px; max-width: 900px; width: 100%; max-height: 90vh; overflow-y: auto;" onclick="event.stopPropagation()">
     <img src="[hero-image]" style="width: 100%; aspect-ratio: 21/9; object-fit: cover; border-radius: 16px 16px 0 0;">
     <div style="padding: 28px 32px 32px;">
       <h2>Title</h2>
-      <span style="font-size: 0.75rem; color: var(--copper);">Year · Location</span>
+      <span style="font-size: 0.75rem; color: var(--newyork-red, #CC2936);">Year · Location</span>
       <p>Description with rich detail...</p>
       <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin: 16px 0;">
         <img src="[gallery-1]" style="width: 100%; aspect-ratio: 4/3; object-fit: cover; border-radius: 8px;">
@@ -4091,7 +4091,7 @@ function flipStack() {
         <img src="[gallery-3]" style="...">
       </div>
       <div style="display: flex; gap: 6px; flex-wrap: wrap; margin-top: 16px;">
-        <span style="font-size: 0.65rem; background: #EFE8D8; color: #8B4513; padding: 4px 10px; border-radius: 4px; font-weight: 600;">Tag</span>
+        <span style="font-size: 0.65rem; background: #faf6eb; color: #F07040; padding: 4px 10px; border-radius: 4px; font-weight: 600;">Tag</span>
       </div>
     </div>
   </div>
@@ -4115,7 +4115,7 @@ function flipStack() {
 ```html
 <div style="display: flex; gap: 0; max-width: 850px; height: 420px; border-radius: 14px; overflow: hidden; box-shadow: 0 8px 30px rgba(0,0,0,0.08);">
   <!-- Thumbnail rail -->
-  <div style="width: 100px; background: #2C2A26; display: flex; flex-direction: column; gap: 2px; flex-shrink: 0; overflow-y: auto;">
+  <div style="width: 100px; background: #1A1A2E; display: flex; flex-direction: column; gap: 2px; flex-shrink: 0; overflow-y: auto;">
     <img src="[thumb-1]" style="width: 100%; aspect-ratio: 1; object-fit: cover; cursor: pointer; opacity: 1;" onclick="switchPanel(0)">
     <img src="[thumb-2]" style="width: 100%; aspect-ratio: 1; object-fit: cover; cursor: pointer; opacity: 0.5;" onclick="switchPanel(1)">
     <img src="[thumb-3]" style="...opacity: 0.5;" onclick="switchPanel(2)">
@@ -4126,10 +4126,10 @@ function flipStack() {
     <img src="[full-2]" style="...opacity: 0; transition: opacity 0.4s;">
   </div>
   <!-- Side panel -->
-  <div style="width: 280px; background: #fff; padding: 28px 20px; overflow-y: auto; flex-shrink: 0; border-left: 1px solid #EFE8D8;">
+  <div style="width: 280px; background: #fff; padding: 28px 20px; overflow-y: auto; flex-shrink: 0; border-left: 1px solid #faf6eb;">
     <h3 style="font-size: 1rem; font-weight: 800;">Title</h3>
-    <p style="font-size: 0.72rem; color: #B87333; font-weight: 600;">Year · Location</p>
-    <p style="font-size: 0.78rem; color: #5A5650; line-height: 1.8;">Description text...</p>
+    <p style="font-size: 0.72rem; color: #CC2936; font-weight: 600;">Year · Location</p>
+    <p style="font-size: 0.78rem; color: #4A4A5A; line-height: 1.8;">Description text...</p>
   </div>
 </div>
 ```
@@ -4156,9 +4156,9 @@ function flipStack() {
         <div style="position: absolute; bottom: 0; left: 0; right: 0; padding: 10px 12px; background: linear-gradient(to top, rgba(0,0,0,0.7), transparent); color: #fff; font-size: 0.72rem; font-weight: 600;">Label</div>
       </div>
       <!-- Back -->
-      <div style="position: absolute; inset: 0; backface-visibility: hidden; transform: rotateY(180deg); background: #2C2A26; border-radius: 12px; padding: 20px; display: flex; flex-direction: column; justify-content: center; color: #fff;">
+      <div style="position: absolute; inset: 0; backface-visibility: hidden; transform: rotateY(180deg); background: #1A1A2E; border-radius: 12px; padding: 20px; display: flex; flex-direction: column; justify-content: center; color: #fff;">
         <h4 style="font-size: 0.85rem; font-weight: 700;">Title</h4>
-        <span style="font-size: 0.68rem; color: #D4A574;">Year</span>
+        <span style="font-size: 0.68rem; color: #2B7FD8;">Year</span>
         <p style="font-size: 0.72rem; color: rgba(255,255,255,0.7); line-height: 1.7; margin-top: 8px;">Description</p>
       </div>
     </div>
@@ -4176,7 +4176,7 @@ function flipStack() {
 - transform-style: preserve-3d 保持子元素3D空间
 - backface-visibility: hidden 隐藏背面
 - 正面底部gradient标签提示内容
-- 背面深色底+木色accent统一风格
+- 背面深色底+Serena accent统一风格
 - 3:4竖向比例适合人像/建筑
 
 ---
@@ -4186,10 +4186,10 @@ function flipStack() {
 **用途**：结尾页/金句页。奶油底色+大字号引号居中，极简但有力。
 
 ```html
-<section style="min-height: 100vh; display: flex; align-items: center; justify-content: center; background: #EFE8D8; text-align: center; padding: 60px;">
+<section style="min-height: 100vh; display: flex; align-items: center; justify-content: center; background: #faf6eb; text-align: center; padding: 60px;">
   <div>
-    <p style="font-family: 'Libre Baskerville', serif; font-style: italic; font-size: clamp(1.5rem, 3.5vw, 2.5rem); line-height: 1.8; max-width: 750px; color: #2C2A26;">"Quote text here."</p>
-    <p style="font-size: 0.75rem; color: #8E8880; margin-top: 24px; letter-spacing: 0.15em; text-transform: uppercase;">— Attribution</p>
+    <p style="font-family: 'Spectral', serif; font-style: italic; font-size: clamp(1.5rem, 3.5vw, 2.5rem); line-height: 1.8; max-width: 750px; color: #1A1A2E;">"Quote text here."</p>
+    <p style="font-size: 0.75rem; color: #8A8A9A; margin-top: 24px; letter-spacing: 0.15em; text-transform: uppercase;">— Attribution</p>
   </div>
 </section>
 ```
@@ -4208,9 +4208,9 @@ function flipStack() {
     <img src="[portrait]" style="width: 100%; height: 100%; object-fit: cover;">
   </div>
   <div style="width: 55%; padding: 60px 80px;">
-    <p style="font-family: 'Libre Baskerville', serif; font-style: italic; font-size: clamp(1.1rem, 2.2vw, 1.5rem); line-height: 2;">"Quote"</p>
-    <p style="font-size: 0.72rem; color: #B87333; margin-top: 20px; font-weight: 600; letter-spacing: 0.1em;">ATTRIBUTION</p>
-    <p style="font-size: 0.78rem; color: #8E8880; margin-top: 16px; line-height: 1.8;">Summary text.</p>
+    <p style="font-family: 'Spectral', serif; font-style: italic; font-size: clamp(1.1rem, 2.2vw, 1.5rem); line-height: 2;">"Quote"</p>
+    <p style="font-size: 0.72rem; color: #CC2936; margin-top: 20px; font-weight: 600; letter-spacing: 0.1em;">ATTRIBUTION</p>
+    <p style="font-size: 0.78rem; color: #8A8A9A; margin-top: 16px; line-height: 1.8;">Summary text.</p>
   </div>
 </section>
 ```
@@ -4222,11 +4222,11 @@ function flipStack() {
 **用途**：深色全屏+巨大水印文字背景+居中引号，电影感结尾。
 
 ```html
-<section style="min-height: 100vh; display: flex; align-items: center; justify-content: center; background: #2C2A26; text-align: center; position: relative;">
-  <div style="font-size: clamp(4rem, 10vw, 8rem); font-weight: 800; color: rgba(212,165,116,0.08); position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); white-space: nowrap;">WATERMARK</div>
+<section style="min-height: 100vh; display: flex; align-items: center; justify-content: center; background: #1A1A2E; text-align: center; position: relative;">
+  <div style="font-size: clamp(4rem, 10vw, 8rem); font-weight: 800; color: rgba(43,127,216,0.08); position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); white-space: nowrap;">WATERMARK</div>
   <div style="position: relative; max-width: 600px; padding: 40px;">
-    <p style="font-family: 'Libre Baskerville', serif; font-style: italic; font-size: clamp(1.1rem, 2.2vw, 1.4rem); line-height: 2; color: rgba(255,255,255,0.85);">"Quote"</p>
-    <div style="width: 40px; height: 2px; background: #D4A574; margin: 24px auto;"></div>
+    <p style="font-family: 'Spectral', serif; font-style: italic; font-size: clamp(1.1rem, 2.2vw, 1.4rem); line-height: 2; color: rgba(255,255,255,0.85);">"Quote"</p>
+    <div style="width: 40px; height: 2px; background: #2B7FD8; margin: 24px auto;"></div>
     <p style="font-size: 0.72rem; color: rgba(255,255,255,0.4); letter-spacing: 0.15em; text-transform: uppercase;">Attribution</p>
   </div>
 </section>
@@ -4239,12 +4239,12 @@ function flipStack() {
 **用途**：纯白底+左对齐引号+巨大留白。最克制的结尾方式。
 
 ```html
-<section style="min-height: 100vh; display: flex; align-items: center; justify-content: center; background: #F5F5F0; padding: 60px;">
+<section style="min-height: 100vh; display: flex; align-items: center; justify-content: center; background: #fefcf6; padding: 60px;">
   <div style="max-width: 500px; text-align: left;">
-    <p style="font-family: 'Libre Baskerville', serif; font-size: 1.1rem; line-height: 2.2; color: #2C2A26;">"Quote text here."</p>
+    <p style="font-family: 'Spectral', serif; font-size: 1.1rem; line-height: 2.2; color: #1A1A2E;">"Quote text here."</p>
     <div style="display: flex; align-items: center; gap: 12px; margin-top: 32px;">
-      <div style="width: 32px; height: 1px; background: #D4A574;"></div>
-      <span style="font-size: 0.68rem; color: #8E8880; letter-spacing: 0.12em; text-transform: uppercase;">Attribution</span>
+      <div style="width: 32px; height: 1px; background: #2B7FD8;"></div>
+      <span style="font-size: 0.68rem; color: #8A8A9A; letter-spacing: 0.12em; text-transform: uppercase;">Attribution</span>
     </div>
   </div>
 </section>
@@ -4260,8 +4260,8 @@ function flipStack() {
 <section style="min-height: 100vh; display: flex; align-items: center; justify-content: center; position: relative; text-align: center;">
   <img src="[portrait]" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; filter: brightness(0.3) grayscale(0.3);">
   <div style="position: relative; z-index: 2; max-width: 600px; padding: 40px;">
-    <p style="font-family: 'Libre Baskerville', serif; font-style: italic; font-size: clamp(1.2rem, 2.5vw, 1.8rem); line-height: 2; color: #fff;">"Quote"</p>
-    <div style="width: 40px; height: 2px; background: #D4A574; margin: 28px auto;"></div>
+    <p style="font-family: 'Spectral', serif; font-style: italic; font-size: clamp(1.2rem, 2.5vw, 1.8rem); line-height: 2; color: #fff;">"Quote"</p>
+    <div style="width: 40px; height: 2px; background: #2B7FD8; margin: 28px auto;"></div>
     <p style="font-size: 0.75rem; color: rgba(255,255,255,0.6); letter-spacing: 0.12em; text-transform: uppercase;">Attribution</p>
   </div>
 </section>
