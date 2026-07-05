@@ -17,7 +17,6 @@ https://github.com/esthersjw/esther-design-system
 - 活动页 / Landing 起点：`demo-landing.html`
 - App 型 / 功能型起点：`demo-app.html`
 - 小红书图文卡片起点：`demo-cards.html`
-- 实时预览编辑器：`serena-lab.html`
 
 ## 使用方式
 
