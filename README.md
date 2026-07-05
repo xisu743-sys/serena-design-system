@@ -8,6 +8,17 @@ https://github.com/esthersjw/esther-design-system
 
 原始工作流和文件结构作为基础保留，`brand-dna.md`、`assets/`、`references/` 和模板文件已按 Serena 的个人 IP 重新调整。
 
+## Demo
+
+这些文件可以直接在浏览器打开，也可以作为 agent 生成页面时的真实参照：
+
+- 组件库全览：`components-preview.html`
+- 布局/组件 Playground：`demo-layouts.html`
+- 活动页 / Landing 起点：`demo-landing.html`
+- App 型 / 功能型起点：`demo-app.html`
+- 小红书图文卡片起点：`demo-cards.html`
+- 实时预览编辑器：`serena-lab.html`
+
 ## 使用方式
 
 做页面前先读 `SKILL.md`，再根据任务类型读取对应场景文件：
@@ -19,4 +30,4 @@ https://github.com/esthersjw/esther-design-system
 
 从 `assets/template-*.html` 复制对应模板开始改，不从零写。
 
-组件总览可打开 `assets/components-preview.html` 查看。
+组件总览优先打开根目录的 `components-preview.html` 查看；模板源文件仍保留在 `assets/` 目录中。

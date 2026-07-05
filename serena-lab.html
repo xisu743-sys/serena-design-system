@@ -1,0 +1,744 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Serena Lab - Template Source + Live Preview</title>
+  <style>
+    @font-face {
+      font-family: "ChillHuoKai Con";
+      src: url("./assets/ChillHuoKai_ConRegular.otf") format("opentype");
+      font-weight: 400;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    :root {
+      --cream: #fefcf6;
+      --ink: #1A1A2E;
+      --muted: #6f6b75;
+      --line: rgba(26, 26, 46, 0.14);
+      --soft: rgba(240, 112, 64, 0.12);
+      --coral: #F07040;
+      --red: #CC2936;
+      --blue: #2B7FD8;
+      --panel: #ffffff;
+      --shadow: 0 20px 70px rgba(26, 26, 46, 0.12);
+      --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+      --sans: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    * { box-sizing: border-box; }
+
+    html,
+    body {
+      margin: 0;
+      min-height: 100%;
+      background:
+        linear-gradient(rgba(26, 26, 46, 0.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(26, 26, 46, 0.035) 1px, transparent 1px),
+        var(--cream);
+      background-size: 32px 32px;
+      color: var(--ink);
+      font-family: var(--sans);
+    }
+
+    button,
+    select,
+    textarea,
+    input {
+      font: inherit;
+    }
+
+    button,
+    select,
+    label.file-button {
+      border: 1px solid var(--line);
+      background: #fff;
+      color: var(--ink);
+      border-radius: 8px;
+      min-height: 36px;
+      padding: 0 12px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 7px;
+      cursor: pointer;
+      white-space: nowrap;
+    }
+
+    button:hover,
+    select:hover,
+    label.file-button:hover {
+      border-color: rgba(240, 112, 64, 0.55);
+      box-shadow: 0 0 0 3px var(--soft);
+    }
+
+    button.primary {
+      border-color: var(--coral);
+      background: var(--coral);
+      color: #fff;
+      font-weight: 800;
+    }
+
+    button.icon {
+      width: 36px;
+      padding: 0;
+      font-weight: 800;
+    }
+
+    button.active {
+      background: var(--ink);
+      border-color: var(--ink);
+      color: #fff;
+    }
+
+    .app {
+      min-height: 100vh;
+      display: grid;
+      grid-template-rows: auto auto 1fr;
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      min-height: 68px;
+      padding: 12px 18px;
+      background: rgba(254, 252, 246, 0.9);
+      border-bottom: 1px solid var(--line);
+      backdrop-filter: blur(18px);
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      min-width: 190px;
+      font-weight: 900;
+      letter-spacing: 0;
+    }
+
+    .brand img {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid var(--coral);
+      background: #fff;
+    }
+
+    .brand span {
+      display: block;
+      font-family: "ChillHuoKai Con", var(--sans);
+      font-size: 1.35rem;
+      line-height: 1;
+    }
+
+    .controls {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex: 1;
+      min-width: 0;
+      overflow-x: auto;
+      padding-bottom: 2px;
+    }
+
+    .status {
+      min-width: 180px;
+      color: var(--muted);
+      font-size: 0.86rem;
+      text-align: right;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .doc-strip {
+      display: grid;
+      grid-template-columns: minmax(260px, 0.72fr) minmax(320px, 1fr);
+      gap: 18px;
+      padding: 18px;
+      border-bottom: 1px solid var(--line);
+      background: rgba(255, 255, 255, 0.58);
+    }
+
+    .doc-title {
+      margin: 0 0 7px;
+      font-family: "ChillHuoKai Con", var(--sans);
+      font-size: clamp(1.55rem, 3vw, 2.25rem);
+      line-height: 1.05;
+      letter-spacing: 0;
+    }
+
+    .doc-desc {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.7;
+      font-size: 0.92rem;
+      max-width: 760px;
+    }
+
+    .template-pills {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .template-pill {
+      min-height: 32px;
+      padding: 0 11px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: #fff;
+      color: var(--ink);
+      font-size: 0.78rem;
+      font-weight: 750;
+      cursor: pointer;
+    }
+
+    .template-pill.active {
+      background: var(--ink);
+      border-color: var(--ink);
+      color: #fff;
+    }
+
+    .workspace {
+      min-height: 0;
+      display: grid;
+      grid-template-columns: minmax(360px, 44vw) minmax(0, 1fr);
+      gap: 0;
+    }
+
+    .editor-panel,
+    .preview-panel {
+      min-width: 0;
+      min-height: 0;
+      display: grid;
+      grid-template-rows: auto 1fr;
+    }
+
+    .panel-head {
+      min-height: 46px;
+      padding: 9px 14px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      border-bottom: 1px solid var(--line);
+      background: rgba(255, 255, 255, 0.7);
+    }
+
+    .panel-title {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      min-width: 0;
+      font-size: 0.88rem;
+      font-weight: 850;
+    }
+
+    .dot {
+      width: 9px;
+      height: 9px;
+      border-radius: 99px;
+      background: var(--coral);
+      box-shadow: 14px 0 0 var(--red), 28px 0 0 var(--blue);
+      flex: 0 0 auto;
+    }
+
+    .panel-note {
+      color: var(--muted);
+      font-size: 0.78rem;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .editor-shell {
+      min-height: 0;
+      display: grid;
+      grid-template-columns: 54px 1fr;
+      background: #151520;
+      border-right: 1px solid var(--line);
+    }
+
+    .line-numbers {
+      overflow: hidden;
+      padding: 16px 10px 16px 0;
+      background: #10101a;
+      color: rgba(255, 255, 255, 0.36);
+      font-family: var(--mono);
+      font-size: 13px;
+      line-height: 1.55;
+      text-align: right;
+      user-select: none;
+      white-space: pre;
+    }
+
+    textarea {
+      width: 100%;
+      height: 100%;
+      resize: none;
+      border: 0;
+      outline: 0;
+      padding: 16px 18px;
+      background: #151520;
+      color: #f6f2ec;
+      caret-color: var(--coral);
+      font-family: var(--mono);
+      font-size: 13px;
+      line-height: 1.55;
+      tab-size: 2;
+      white-space: pre;
+      overflow: auto;
+    }
+
+    .preview-panel {
+      background: rgba(255, 255, 255, 0.54);
+    }
+
+    .preview-stage {
+      min-height: 0;
+      overflow: auto;
+      padding: 22px;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+    }
+
+    .frame-wrap {
+      width: 100%;
+      max-width: none;
+      min-height: 100%;
+      background: #fff;
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+      transition: width 160ms ease, max-width 160ms ease;
+    }
+
+    .frame-wrap[data-width="390"] { width: 390px; }
+    .frame-wrap[data-width="768"] { width: 768px; }
+    .frame-wrap[data-width="1440"] { width: 100%; max-width: 1440px; }
+    .frame-wrap[data-width="fluid"] { width: 100%; }
+
+    iframe {
+      display: block;
+      width: 100%;
+      min-height: calc(100vh - 250px);
+      border: 0;
+      background: #fff;
+    }
+
+    .empty-state {
+      padding: 40px 24px;
+      color: var(--muted);
+      font-size: 0.95rem;
+      line-height: 1.7;
+    }
+
+    .hidden { display: none !important; }
+
+    input[type="file"] {
+      position: absolute;
+      inline-size: 1px;
+      block-size: 1px;
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    @media (max-width: 920px) {
+      .topbar {
+        align-items: flex-start;
+        flex-wrap: wrap;
+      }
+
+      .brand {
+        width: 100%;
+      }
+
+      .status {
+        width: 100%;
+        text-align: left;
+      }
+
+      .doc-strip {
+        grid-template-columns: 1fr;
+      }
+
+      .template-pills {
+        justify-content: flex-start;
+      }
+
+      .workspace {
+        grid-template-columns: 1fr;
+        grid-template-rows: minmax(420px, 48vh) minmax(520px, 1fr);
+      }
+
+      .editor-shell {
+        border-right: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="app">
+    <header class="topbar">
+      <div class="brand">
+        <img src="./assets/avatar.jpg" alt="">
+        <span>Serena Lab</span>
+      </div>
+
+      <div class="controls" aria-label="Preview controls">
+        <select id="templateSelect" aria-label="选择模板">
+          <option value="template-landing.html">Landing 模板</option>
+          <option value="template-tutorial.html">教程模板</option>
+          <option value="template-app.html">App 模板</option>
+          <option value="template-cards.html">图文卡片模板</option>
+          <option value="components-preview.html">组件总览页</option>
+        </select>
+        <button id="reloadBtn" title="重新读取当前模板">刷新</button>
+        <button class="icon active" data-size="fluid" title="自适应宽度">↔</button>
+        <button class="icon" data-size="1440" title="桌面宽度">D</button>
+        <button class="icon" data-size="768" title="平板宽度">T</button>
+        <button class="icon" data-size="390" title="手机宽度">M</button>
+        <label class="file-button" for="fileInput">打开 HTML</label>
+        <input id="fileInput" type="file" accept=".html,text/html">
+        <button id="pickFileBtn">选择文件</button>
+        <button id="saveFileBtn">保存</button>
+        <button id="downloadBtn">下载</button>
+        <button id="copyBtn" class="primary">复制代码</button>
+      </div>
+
+      <div id="status" class="status">准备加载模板</div>
+    </header>
+
+    <section class="doc-strip" aria-label="Template documentation">
+      <div>
+        <h1 id="docTitle" class="doc-title">Template Landing</h1>
+        <p id="docDesc" class="doc-desc">左边是模板源码，右边是同一份 HTML 的实时预览。这里适合对照调整 Serena 的品牌色、字体、头像、布局和组件细节。</p>
+      </div>
+      <div id="templatePills" class="template-pills" aria-label="Template quick links"></div>
+    </section>
+
+    <section class="workspace">
+      <div class="editor-panel">
+        <div class="panel-head">
+          <div class="panel-title"><span class="dot"></span><span>source</span></div>
+          <div id="sourceName" class="panel-note">template-landing.html</div>
+        </div>
+        <div class="editor-shell">
+          <pre id="lineNumbers" class="line-numbers">1</pre>
+          <textarea id="codeEditor" spellcheck="false" autocomplete="off" autocapitalize="off"></textarea>
+        </div>
+      </div>
+
+      <div class="preview-panel">
+        <div class="panel-head">
+          <div class="panel-title"><span class="dot"></span><span>live preview</span></div>
+          <div id="previewMeta" class="panel-note">fluid</div>
+        </div>
+        <div class="preview-stage">
+          <div id="frameWrap" class="frame-wrap" data-width="fluid">
+            <iframe id="previewFrame" title="Serena HTML Preview"></iframe>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    const templates = {
+      "template-landing.html": {
+        label: "Landing 模板",
+        title: "Template Landing",
+        desc: "活动页、发布页、个人项目首页的起点。左边改 hero、section 和 CTA，右边马上看 Serena 风格是否成立。"
+      },
+      "template-tutorial.html": {
+        label: "教程模板",
+        title: "Template Tutorial",
+        desc: "教程、介绍、科普型长页面的起点。适合调正文档节奏、代码块、步骤卡和引用组件。"
+      },
+      "template-app.html": {
+        label: "App 模板",
+        title: "Template App",
+        desc: "功能型页面、工作台、列表/卡片应用的起点。适合看按钮、筛选、卡片密度和操作区域。"
+      },
+      "template-cards.html": {
+        label: "图文卡片模板",
+        title: "Template Cards",
+        desc: "小红书图文卡片导出模板。适合检查封面、内页、结尾页和头像署名是否符合 Serena IP。"
+      },
+      "components-preview.html": {
+        label: "组件总览页",
+        title: "Components Preview",
+        desc: "Serena 组件总览页。左边可以直接查看整页源码，右边实时观察组件组合后的页面效果。"
+      }
+    };
+
+    const fallbackHtml = `<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Serena Lab</title>
+  <style>
+    body { margin: 0; min-height: 100vh; display: grid; place-items: center; background: #fefcf6; color: #1A1A2E; font-family: system-ui, sans-serif; }
+    .note { max-width: 560px; padding: 32px; border: 1px solid rgba(26,26,46,.14); background: #fff; border-radius: 8px; box-shadow: 0 20px 70px rgba(26,26,46,.12); line-height: 1.7; }
+    strong { color: #F07040; }
+  </style>
+</head>
+<body>
+  <div class="note">
+    <h1>Serena Lab</h1>
+    <p><strong>模板没有自动加载。</strong> 如果你是直接双击 file:// 打开的，浏览器可能限制了读取同目录 HTML。</p>
+    <p>请在仓库根目录运行本地服务，再打开 <code>http://localhost:8787/assets/serena-lab.html</code>。</p>
+  </div>
+</body>
+</html>`;
+
+    const editor = document.getElementById("codeEditor");
+    const lineNumbers = document.getElementById("lineNumbers");
+    const frame = document.getElementById("previewFrame");
+    const frameWrap = document.getElementById("frameWrap");
+    const templateSelect = document.getElementById("templateSelect");
+    const statusEl = document.getElementById("status");
+    const sourceName = document.getElementById("sourceName");
+    const previewMeta = document.getElementById("previewMeta");
+    const fileInput = document.getElementById("fileInput");
+    const saveFileBtn = document.getElementById("saveFileBtn");
+    const pickFileBtn = document.getElementById("pickFileBtn");
+    const docTitle = document.getElementById("docTitle");
+    const docDesc = document.getElementById("docDesc");
+    const templatePills = document.getElementById("templatePills");
+
+    let currentFileName = templateSelect.value;
+    let fileHandle = null;
+    let renderTimer = null;
+    let dirty = false;
+
+    function setStatus(message) {
+      statusEl.textContent = message;
+    }
+
+    function updateLineNumbers() {
+      const lines = editor.value.split("\n").length;
+      let text = "";
+      for (let i = 1; i <= lines; i += 1) text += i + "\n";
+      lineNumbers.textContent = text;
+    }
+
+    function renderNow() {
+      const html = editor.value || fallbackHtml;
+      frame.srcdoc = html;
+      updateLineNumbers();
+      previewMeta.textContent = `${frameWrap.dataset.width} · ${html.length.toLocaleString()} chars`;
+    }
+
+    function getTemplateInfo(fileName) {
+      return templates[fileName] || {
+        label: fileName || "本地 HTML",
+        title: fileName || "Local HTML",
+        desc: "当前是手动打开的 HTML。左边修改源码，右边实时预览。"
+      };
+    }
+
+    function updateDocHeader(fileName) {
+      const info = getTemplateInfo(fileName);
+      docTitle.textContent = info.title;
+      docDesc.textContent = info.desc;
+      sourceName.textContent = fileName || "local-file.html";
+      templateSelect.value = templates[fileName] ? fileName : "";
+
+      document.querySelectorAll(".template-pill").forEach((button) => {
+        button.classList.toggle("active", button.dataset.template === fileName);
+      });
+
+      if (templates[fileName]) {
+        const url = new URL(window.location.href);
+        url.searchParams.set("template", fileName);
+        history.replaceState(null, "", url);
+      }
+    }
+
+    function scheduleRender() {
+      dirty = true;
+      window.clearTimeout(renderTimer);
+      renderTimer = window.setTimeout(renderNow, 180);
+    }
+
+    async function loadTemplate(fileName) {
+      currentFileName = fileName;
+      fileHandle = null;
+      updateDocHeader(fileName);
+      setStatus(`加载 ${getTemplateInfo(fileName).label}`);
+
+      try {
+        const response = await fetch(fileName, { cache: "no-store" });
+        if (!response.ok) throw new Error(`HTTP ${response.status}`);
+        editor.value = await response.text();
+        dirty = false;
+        setStatus(`已加载 ${fileName}`);
+      } catch (error) {
+        editor.value = fallbackHtml;
+        setStatus("未能自动读取模板，请用本地服务打开或手动选择 HTML");
+      }
+
+      renderNow();
+    }
+
+    function setPreviewSize(size) {
+      frameWrap.dataset.width = size;
+      document.querySelectorAll("[data-size]").forEach((button) => {
+        button.classList.toggle("active", button.dataset.size === size);
+      });
+      renderNow();
+    }
+
+    function downloadCurrent() {
+      const blob = new Blob([editor.value], { type: "text/html;charset=utf-8" });
+      const url = URL.createObjectURL(blob);
+      const link = document.createElement("a");
+      link.href = url;
+      link.download = currentFileName || "serena-preview.html";
+      document.body.appendChild(link);
+      link.click();
+      link.remove();
+      URL.revokeObjectURL(url);
+      setStatus(`已下载 ${link.download}`);
+    }
+
+    async function copyCurrent() {
+      try {
+        await navigator.clipboard.writeText(editor.value);
+        setStatus("代码已复制");
+      } catch (error) {
+        editor.select();
+        document.execCommand("copy");
+        setStatus("代码已复制");
+      }
+    }
+
+    async function openFileWithPicker() {
+      if (!window.showOpenFilePicker) {
+        fileInput.click();
+        return;
+      }
+
+      try {
+        const handles = await window.showOpenFilePicker({
+          multiple: false,
+          types: [{ description: "HTML files", accept: { "text/html": [".html", ".htm"] } }]
+        });
+        fileHandle = handles[0];
+        const file = await fileHandle.getFile();
+        currentFileName = file.name;
+        sourceName.textContent = file.name;
+        updateDocHeader(file.name);
+        editor.value = await file.text();
+        templateSelect.value = "";
+        dirty = false;
+        renderNow();
+        setStatus(`已打开 ${file.name}`);
+      } catch (error) {
+        setStatus("已取消选择文件");
+      }
+    }
+
+    async function saveToHandle() {
+      if (!fileHandle || !fileHandle.createWritable) {
+        downloadCurrent();
+        return;
+      }
+
+      try {
+        const writable = await fileHandle.createWritable();
+        await writable.write(editor.value);
+        await writable.close();
+        dirty = false;
+        setStatus(`已保存 ${currentFileName}`);
+      } catch (error) {
+        setStatus("保存失败，已改为下载");
+        downloadCurrent();
+      }
+    }
+
+    editor.addEventListener("input", scheduleRender);
+    editor.addEventListener("scroll", () => {
+      lineNumbers.scrollTop = editor.scrollTop;
+    });
+    editor.addEventListener("keydown", (event) => {
+      if (event.key === "Tab") {
+        event.preventDefault();
+        const start = editor.selectionStart;
+        const end = editor.selectionEnd;
+        editor.value = editor.value.slice(0, start) + "  " + editor.value.slice(end);
+        editor.selectionStart = editor.selectionEnd = start + 2;
+        scheduleRender();
+      }
+
+      if ((event.metaKey || event.ctrlKey) && event.key.toLowerCase() === "s") {
+        event.preventDefault();
+        saveToHandle();
+      }
+    });
+
+    templateSelect.addEventListener("change", () => {
+      if (templateSelect.value) loadTemplate(templateSelect.value);
+    });
+
+    document.getElementById("reloadBtn").addEventListener("click", () => {
+      if (templateSelect.value) loadTemplate(templateSelect.value);
+      else renderNow();
+    });
+
+    document.getElementById("downloadBtn").addEventListener("click", downloadCurrent);
+    document.getElementById("copyBtn").addEventListener("click", copyCurrent);
+    pickFileBtn.addEventListener("click", openFileWithPicker);
+    saveFileBtn.addEventListener("click", saveToHandle);
+
+    fileInput.addEventListener("change", async () => {
+      const file = fileInput.files && fileInput.files[0];
+      if (!file) return;
+      fileHandle = null;
+      currentFileName = file.name;
+      updateDocHeader(file.name);
+      editor.value = await file.text();
+      templateSelect.value = "";
+      renderNow();
+      setStatus(`已打开 ${file.name}`);
+    });
+
+    document.querySelectorAll("[data-size]").forEach((button) => {
+      button.addEventListener("click", () => setPreviewSize(button.dataset.size));
+    });
+
+    Object.entries(templates).forEach(([fileName, info]) => {
+      const button = document.createElement("button");
+      button.type = "button";
+      button.className = "template-pill";
+      button.dataset.template = fileName;
+      button.textContent = info.label;
+      button.addEventListener("click", () => loadTemplate(fileName));
+      templatePills.appendChild(button);
+    });
+
+    window.addEventListener("beforeunload", (event) => {
+      if (!dirty) return;
+      event.preventDefault();
+      event.returnValue = "";
+    });
+
+    const params = new URLSearchParams(window.location.search);
+    const requestedTemplate = params.get("template");
+    const initialTemplate = templates[requestedTemplate] ? requestedTemplate : templateSelect.value;
+    loadTemplate(initialTemplate);
+  </script>
+</body>
+</html>
