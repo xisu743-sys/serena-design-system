@@ -91,9 +91,7 @@ img{display:block;max-width:100%}
 .chair-dash h3{font-family:'Noto Serif SC',serif;font-size:1rem;font-weight:700;margin-bottom:6px;margin-top:4px}
 .chair-dash p{font-size:.82rem;color:var(--ink-light);line-height:1.7}
 .chair-grad{position:relative;border-radius:18px;padding:28px 22px;box-shadow:0 1px 0 rgba(0,0,0,.03);overflow:hidden}
-.chair-grad::before,.chair-grad::after{content:"";position:absolute;width:38px;height:38px;pointer-events:none;opacity:.72;box-shadow:0 4px 12px color-mix(in srgb,var(--card-accent) 24%,transparent)}
-.chair-grad::before{top:0;left:0;border-top:3px solid var(--card-accent);border-left:3px solid var(--card-accent);border-radius:18px 0 0 0}
-.chair-grad::after{right:0;bottom:0;border-right:3px solid var(--card-accent);border-bottom:3px solid var(--card-accent);border-radius:0 0 18px 0}
+.chair-grad::before{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;background:radial-gradient(circle at top left,color-mix(in srgb,var(--card-accent) 24%,transparent),transparent 42%),radial-gradient(circle at bottom right,color-mix(in srgb,var(--card-accent) 20%,transparent),transparent 44%);opacity:.82}
 .chair-grad .em{font-size:1.8rem;margin-bottom:12px}
 .chair-grad h3{font-family:'Noto Serif SC',serif;font-size:1rem;font-weight:700;margin-bottom:8px}
 .chair-grad p{font-size:.82rem;color:var(--ink-light);line-height:1.7}
