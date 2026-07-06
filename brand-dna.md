@@ -35,7 +35,7 @@
 | 英文装饰/标题 | `Spectral` (italic) | 有品质的衬线体，Google Fonts |
 | 英文手写/轻松 | `Schoolbell` | 手写感、标注、注释，Google Fonts |
 | 英文等宽/终端 | `Fira Code` | 技术/终端场景专用 |
-| 中文标题首选 | `ChillHuoKai Con`（寒蝉活楷体） | 品牌真正使用的标题字体；已随 skill 打包在 `assets/ChillHuoKai_ConRegular.otf` |
+| 中文标题首选 | `ChillHuoFangSong`（寒蝉活方宋 Regular） | 品牌真正使用的标题字体；已随 skill 打包在 `assets/ChillHuoFangSong_Regular.otf` |
 | 中文标题备选 | `Noto Serif SC` (900) | 无本地字体时的衬线体 fallback |
 | 中文正文 | `Noto Sans SC` + 系统栈 | 跨平台无衬线 |
 | 中文正文系统栈 | `-apple-system, 'PingFang SC', 'Helvetica Neue', sans-serif` | 本地渲染最快 |
