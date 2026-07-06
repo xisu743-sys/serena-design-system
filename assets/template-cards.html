@@ -19,15 +19,11 @@
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
 :root {
-  --coral: #F07040;
-  --coral-soft: #FFF3EE;
-  --newyork-red: #CC2936;
-  --sky-blue: #2B7FD8;
-  --yellow: var(--coral);
-  --yellow-soft: var(--coral-soft);
-  --blue: var(--sky-blue);
-  --blue-deep: #1E5BA8;
-  --red: var(--newyork-red);
+  --primary: #F07040;
+  --primary-soft: #FFF3EE;
+  --accent: #CC2936;
+  --decor: #2B7FD8;
+  --decor-deep: #1E5BA8;
   --cream: #fefcf6;
   --cream-dark: #faf6eb;
   --ink: #1A1A2E;
@@ -58,7 +54,7 @@ body {
 }
 
 .export-bar button {
-  background: var(--sky-blue);
+  background: var(--decor);
   color: #fff;
   border: none;
   padding: 10px 28px;
@@ -110,14 +106,14 @@ body {
   position: absolute;
   top: 0; left: 0; right: 0;
   height: 8px;
-  background: linear-gradient(90deg, var(--sky-blue) 60%, var(--coral) 80%, var(--newyork-red) 100%);
+  background: linear-gradient(90deg, var(--primary) 55%, var(--decor) 82%, var(--accent) 100%);
 }
 
 .p-cover .tag {
   font-size: 28px;
   font-weight: 700;
   color: #fff;
-  background: var(--sky-blue);
+  background: var(--decor);
   display: inline-block;
   padding: 8px 24px;
   border-radius: 6px;
@@ -134,7 +130,7 @@ body {
   margin-bottom: 24px;
 }
 
-.p-cover h1 .highlight { color: var(--sky-blue); }
+.p-cover h1 .highlight { color: var(--decor); }
 
 .p-cover .subtitle {
   font-size: 42px;
@@ -156,7 +152,7 @@ body {
   height: 88px;
   border-radius: 50%;
   object-fit: cover;
-  border: 3px solid var(--coral);
+  border: 3px solid var(--primary);
 }
 
 .p-cover .author-name {
@@ -183,7 +179,7 @@ body {
   font-family: 'Spectral', serif;
   font-style: italic;
   font-size: 120px;
-  color: var(--coral);
+  color: var(--primary);
   opacity: 0.15;
   position: absolute;
   top: 40px;
@@ -201,7 +197,7 @@ body {
 
 .p-dark .sub {
   font-size: 32px;
-  color: var(--coral);
+  color: var(--primary);
   margin-bottom: 60px;
   font-weight: 500;
 }
@@ -245,7 +241,7 @@ body {
   left: 80px;
   right: 80px;
   height: 4px;
-  background: linear-gradient(90deg, var(--sky-blue) 50%, var(--coral) 75%, var(--newyork-red) 100%);
+  background: linear-gradient(90deg, var(--primary) 50%, var(--decor) 78%, var(--accent) 100%);
   border-radius: 2px;
   opacity: 0.6;
 }
@@ -262,7 +258,7 @@ body {
   font-family: 'Spectral', serif;
   font-style: italic;
   font-size: 120px;
-  color: var(--sky-blue);
+  color: var(--decor);
   opacity: 0.12;
   position: absolute;
   top: 40px;
@@ -283,7 +279,7 @@ body {
   display: block;
   width: 80px;
   height: 6px;
-  background: var(--coral);
+  background: var(--primary);
   margin-top: 16px;
   border-radius: 3px;
 }
@@ -311,14 +307,14 @@ body {
   position: absolute;
   bottom: 0; left: 0; right: 0;
   height: 8px;
-  background: linear-gradient(90deg, var(--sky-blue) 60%, var(--coral) 80%, var(--newyork-red) 100%);
+  background: linear-gradient(90deg, var(--primary) 55%, var(--decor) 82%, var(--accent) 100%);
 }
 
 .p-end .quote-mark {
   font-family: 'Spectral', serif;
   font-style: italic;
   font-size: 200px;
-  color: var(--sky-blue);
+  color: var(--decor);
   opacity: 0.15;
   line-height: 0.6;
   margin-bottom: -20px;
@@ -335,9 +331,9 @@ body {
 }
 
 .p-end .quote .highlight {
-  color: var(--sky-blue);
+  color: var(--decor);
   text-decoration: underline;
-  text-decoration-color: var(--coral);
+  text-decoration-color: var(--primary);
   text-underline-offset: 8px;
   text-decoration-thickness: 4px;
 }
@@ -347,7 +343,7 @@ body {
   height: 100px;
   border-radius: 50%;
   object-fit: cover;
-  border: 3px solid var(--coral);
+  border: 3px solid var(--primary);
   margin-bottom: 20px;
 }
 
@@ -360,7 +356,7 @@ body {
 
 .p-end .cta {
   font-size: 32px;
-  color: var(--sky-blue);
+  color: var(--decor);
   font-weight: 600;
   margin-bottom: 48px;
 }

@@ -18,13 +18,10 @@
 
     /* === CSS变量（简化版） === */
     :root {
-      --coral: #F07040;
-      --coral-soft: #FFF3EE;
-      --newyork-red: #CC2936;
-      --sky-blue: #2B7FD8;
-      --blue: var(--sky-blue);
-      --yellow: var(--coral);
-      --red: var(--newyork-red);
+      --primary: #F07040;
+      --primary-soft: #FFF3EE;
+      --accent: #CC2936;
+      --decor: #2B7FD8;
       --cream: #fefcf6;
       --ink: #1A1A2E;
       --ink-light: #4A4A5A;
@@ -44,7 +41,7 @@
     }
 
     ::selection {
-      background: var(--coral);
+      background: var(--primary);
       color: var(--ink);
     }
 
@@ -98,8 +95,8 @@
     }
 
     .tab.active {
-      border-bottom-color: var(--sky-blue);
-      color: var(--sky-blue);
+      border-bottom-color: var(--decor);
+      color: var(--decor);
       font-weight: 600;
     }
 
@@ -152,7 +149,7 @@
       border-radius: 8px;
       font-size: 0.7rem;
       background: rgba(43,127,216,0.1);
-      color: var(--sky-blue);
+      color: var(--decor);
       margin-bottom: 0.5rem;
     }
 
@@ -213,7 +210,7 @@
 
     .app-input:focus {
       outline: none;
-      border-color: var(--sky-blue);
+      border-color: var(--decor);
       box-shadow: 0 0 0 3px rgba(43,127,216,0.1);
     }
 

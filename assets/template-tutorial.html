@@ -18,15 +18,11 @@
 
     /* === CSS变量 === */
     :root {
-      --coral: #F07040;
-      --coral-soft: #FFF3EE;
-      --newyork-red: #CC2936;
-      --sky-blue: #2B7FD8;
-      --blue: var(--sky-blue);
-      --blue-deep: #1E5BA8;
-      --yellow: var(--coral);
-      --yellow-soft: var(--coral-soft);
-      --red: var(--newyork-red);
+      --primary: #F07040;
+      --primary-soft: #FFF3EE;
+      --accent: #CC2936;
+      --decor: #2B7FD8;
+      --decor-deep: #1E5BA8;
       --cream: #fefcf6;
       --cream-dark: #faf6eb;
       --ink: #1A1A2E;
@@ -47,7 +43,7 @@
     }
 
     ::selection {
-      background: var(--coral);
+      background: var(--primary);
       color: var(--ink);
     }
 
@@ -112,7 +108,7 @@
       font-family: 'Spectral', serif;
       font-style: italic;
       font-size: clamp(1.4rem, 3vw, 2rem);
-      color: var(--sky-blue);
+      color: var(--decor);
       opacity: 0.3;
       display: block;
       margin-bottom: 0.25rem;
@@ -129,7 +125,7 @@
       background: var(--cream-dark);
       border-radius: 16px;
       padding: clamp(24px, 3vw, 36px);
-      border-left: 4px solid var(--coral);
+      border-left: 4px solid var(--primary);
       transition: transform 0.3s ease;
     }
     .feature-card:hover { transform: translateY(-4px); }
