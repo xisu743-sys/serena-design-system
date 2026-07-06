@@ -11,11 +11,11 @@
 @font-face{font-family:'ChillHuoKai Con';src:url('./assets/ChillHuoKai_ConRegular.otf') format('opentype');font-weight:400;font-style:normal;font-display:swap;}
     /* === CSS变量 === */
     :root {
-      --blue: #2B7FD8;
-      --blue-deep: #1E5BA8;
-      --yellow: #F07040;
-      --yellow-soft: #FFF3CD;
-      --red: #CC2936;
+      --decor: #2B7FD8;
+      --decor-deep: #1E5BA8;
+      --primary: #F07040;
+      --primary-soft: #FFF3CD;
+      --accent: #CC2936;
       --cream: #fefcf6;
       --cream-dark: #faf6eb;
       --ink: #1A1A2E;
@@ -35,7 +35,7 @@
     }
 
     ::selection {
-      background: var(--yellow);
+      background: var(--primary);
       color: var(--ink);
     }
 
@@ -82,7 +82,7 @@
       position: absolute;
       bottom: -4px; left: 0; right: 0;
       height: 2px;
-      background: var(--yellow);
+      background: var(--primary);
       transform: scaleX(0);
       transition: transform .25s ease-out;
     }
@@ -108,7 +108,7 @@
       top: -20%; right: -10%;
       width: 500px; height: 500px;
       border-radius: 50%;
-      background: radial-gradient(circle, rgba(244,215,88,0.12) 0%, transparent 70%);
+      background: radial-gradient(circle, rgba(240,112,64,0.10) 0%, transparent 70%);
       pointer-events: none;
     }
     .hero::after {
@@ -140,7 +140,7 @@
       position: relative;
     }
     .hero h1 .hl {
-      background: linear-gradient(transparent 60%, rgba(244,215,88,0.4) 60%);
+      background: linear-gradient(transparent 60%, rgba(240,112,64,0.22) 60%);
       padding: 0 6px;
     }
 
@@ -167,7 +167,7 @@
     .hero-meta .dot {
       width: 6px; height: 6px;
       border-radius: 50%;
-      background: var(--yellow);
+      background: var(--primary);
     }
 
     /* === Sections === */
@@ -181,7 +181,7 @@
       font-family: 'ChillHuoKai Con', serif;
       font-style: italic;
       font-size: clamp(1.4rem, 3vw, 2rem);
-      color: var(--blue);
+      color: var(--decor);
       opacity: 0.3;
       display: block;
       margin-bottom: 0.25rem;
@@ -216,9 +216,9 @@
       top: 0; left: 0; right: 0;
       height: 4px;
     }
-    .speaker-card:nth-child(1)::before { background: var(--blue); }
-    .speaker-card:nth-child(2)::before { background: var(--yellow); }
-    .speaker-card:nth-child(3)::before { background: var(--red); }
+    .speaker-card:nth-child(1)::before { background: var(--primary); }
+    .speaker-card:nth-child(2)::before { background: var(--decor); }
+    .speaker-card:nth-child(3)::before { background: var(--accent); }
 
     .speaker-avatar {
       width: 64px; height: 64px;
@@ -229,9 +229,9 @@
       justify-content: center;
       font-size: 1.8rem;
     }
-    .speaker-card:nth-child(1) .speaker-avatar { background: rgba(43,127,216,0.08); }
-    .speaker-card:nth-child(2) .speaker-avatar { background: rgba(244,215,88,0.15); }
-    .speaker-card:nth-child(3) .speaker-avatar { background: rgba(232,74,95,0.08); }
+    .speaker-card:nth-child(1) .speaker-avatar { background: rgba(240,112,64,0.12); }
+    .speaker-card:nth-child(2) .speaker-avatar { background: rgba(43,127,216,0.08); }
+    .speaker-card:nth-child(3) .speaker-avatar { background: rgba(204,41,54,0.08); }
 
     .speaker-name {
       font-family: 'Noto Serif SC', serif;
@@ -241,7 +241,7 @@
     }
     .speaker-role {
       font-size: 0.78rem;
-      color: var(--blue);
+      color: var(--decor);
       font-weight: 500;
       margin-bottom: 12px;
     }
@@ -272,9 +272,9 @@
       justify-content: center;
       font-size: 1.8rem;
     }
-    .highlight-card:nth-child(1) .highlight-icon { background: rgba(43,127,216,0.06); }
-    .highlight-card:nth-child(2) .highlight-icon { background: rgba(244,215,88,0.12); }
-    .highlight-card:nth-child(3) .highlight-icon { background: rgba(232,74,95,0.06); }
+    .highlight-card:nth-child(1) .highlight-icon { background: rgba(240,112,64,0.10); }
+    .highlight-card:nth-child(2) .highlight-icon { background: rgba(43,127,216,0.06); }
+    .highlight-card:nth-child(3) .highlight-icon { background: rgba(204,41,54,0.06); }
     .highlight-card:nth-child(4) .highlight-icon { background: rgba(43,127,216,0.06); }
     .highlight-content {
       flex: 1;
@@ -311,7 +311,7 @@
       text-align: center;
     }
     .dark-section .quote-text em {
-      color: var(--yellow);
+      color: var(--primary);
       font-style: normal;
     }
     .dark-section .quote-attr {
@@ -324,7 +324,7 @@
 
     /* === 品牌色面板（时间线） === */
     .brand-section {
-      background: var(--blue);
+      background: var(--decor);
       color: #fff;
       padding: clamp(80px, 12vh, 160px) 0;
       position: relative;
@@ -372,7 +372,7 @@
       top: 8px;
       width: 12px; height: 12px;
       border-radius: 50%;
-      background: var(--yellow);
+      background: var(--primary);
       border: 2px solid rgba(255,255,255,0.3);
     }
     .timeline-time {
@@ -398,7 +398,7 @@
       padding: 36px 40px;
       background: var(--cream);
       border-radius: 16px;
-      border: 2px solid var(--yellow);
+      border: 2px solid var(--primary);
       position: relative;
       max-width: 720px;
       margin: 0 auto;
@@ -407,7 +407,7 @@
       content: '"';
       font-family: 'ChillHuoKai Con', serif;
       font-size: 5rem;
-      color: var(--yellow);
+      color: var(--primary);
       position: absolute;
       top: -10px; left: 20px;
       opacity: 0.5;
@@ -450,7 +450,7 @@
       align-items: center;
       gap: 8px;
       padding: 16px 36px;
-      background: var(--blue);
+      background: var(--decor);
       color: #fff;
       border-radius: 12px;
       text-decoration: none;
