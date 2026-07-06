@@ -1,0 +1,1213 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>YouTube Signal Hub · Serena</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700;900&family=Noto+Serif+SC:wght@400;700;900&family=Schoolbell&family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    @font-face {
+      font-family: 'ChillHuoFangSong';
+      src: url('./assets/ChillHuoFangSong_Regular.otf') format('opentype');
+      font-weight: 400;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    :root {
+      --primary: #F07040;
+      --accent: #CC2936;
+      --decor: #2B7FD8;
+      --decor-deep: #1E5BA8;
+      --ink: #1A1A2E;
+      --ink-light: #4A4A5A;
+      --ink-faint: #8A8A9A;
+      --cream: #F9F8F6;
+      --cream-dark: #FFFDF9;
+      --cream-warm: #FFF3EE;
+      --decor-soft: #F5FAFF;
+      --dark-panel: #151821;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Noto Sans SC', -apple-system, 'PingFang SC', 'Helvetica Neue', sans-serif;
+      background: var(--cream);
+      color: var(--ink);
+      font-size: 16px;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+    img { display: block; max-width: 100%; }
+    ::selection { background: var(--accent); color: #fff; }
+
+    .container { width: min(1180px, calc(100% - 40px)); margin: 0 auto; }
+    .section { padding: clamp(82px, 11vh, 148px) 0; }
+    .section--alt { background: var(--cream-dark); }
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      font-family: 'Fira Code', monospace;
+      font-size: .68rem;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--primary);
+      margin-bottom: 14px;
+    }
+    .eyebrow::before {
+      content: '';
+      width: 28px;
+      height: 2px;
+      background: var(--primary);
+    }
+    .section-title {
+      font-family: 'ChillHuoFangSong', 'Noto Serif SC', serif;
+      font-size: clamp(1.8rem, 4vw, 3rem);
+      font-weight: 900;
+      line-height: 1.18;
+      letter-spacing: 0;
+      max-width: 760px;
+    }
+    .section-lead {
+      max-width: 650px;
+      margin-top: 18px;
+      color: var(--ink-light);
+      font-size: clamp(.98rem, 1.6vw, 1.08rem);
+      line-height: 1.95;
+    }
+    .hl-accent {
+      background: linear-gradient(180deg, transparent 58%, rgba(204,41,54,.28) 58%);
+      padding: 0 3px;
+    }
+    .hl-decor {
+      border: 2.5px solid var(--decor);
+      border-radius: 50% 45% 55% 40% / 48% 55% 43% 52%;
+      padding: 1px 7px;
+      display: inline-block;
+    }
+
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      height: 58px;
+      padding: 0 clamp(18px, 4vw, 48px);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      background: rgba(249, 248, 246, .92);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(26,26,46,.07);
+    }
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      color: var(--ink);
+      text-decoration: none;
+      font-family: 'ChillHuoFangSong', 'Noto Serif SC', serif;
+      font-weight: 900;
+      white-space: nowrap;
+    }
+    .brand-mark {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 13px 0 0 var(--decor), 26px 0 0 var(--primary);
+    }
+    .nav-links { display: flex; gap: 6px; list-style: none; overflow-x: auto; }
+    .nav-links::-webkit-scrollbar { display: none; }
+    .nav-links a {
+      display: block;
+      color: var(--ink-light);
+      text-decoration: none;
+      font-size: .76rem;
+      padding: 6px 10px;
+      border-radius: 999px;
+      white-space: nowrap;
+      transition: background .2s, color .2s;
+    }
+    .nav-links a:hover { background: rgba(43,127,216,.08); color: var(--decor); }
+
+    .hero {
+      min-height: calc(100vh - 58px);
+      display: grid;
+      grid-template-columns: minmax(0, 1.05fr) minmax(360px, .95fr);
+      align-items: center;
+      gap: clamp(34px, 6vw, 90px);
+      padding: clamp(54px, 8vh, 94px) 0 clamp(64px, 8vh, 100px);
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: 'SIGNAL';
+      position: absolute;
+      left: 50%;
+      top: 46%;
+      transform: translate(-50%, -50%);
+      font-family: 'ChillHuoFangSong', 'Noto Serif SC', serif;
+      font-size: clamp(8rem, 21vw, 19rem);
+      color: var(--primary);
+      opacity: .045;
+      letter-spacing: .04em;
+      pointer-events: none;
+      white-space: nowrap;
+    }
+    .hero-copy, .hero-visual { position: relative; z-index: 1; }
+    .hero-kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      padding: 5px 13px;
+      border: 1px solid rgba(240,112,64,.18);
+      border-radius: 999px;
+      background: rgba(255,253,249,.72);
+      color: var(--primary);
+      font-family: 'Fira Code', monospace;
+      font-size: .68rem;
+      letter-spacing: .09em;
+      text-transform: uppercase;
+      margin-bottom: 24px;
+    }
+    .hero-kicker::before {
+      content: '';
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--accent);
+    }
+    .hero h1 {
+      font-family: 'ChillHuoFangSong', 'Noto Serif SC', serif;
+      font-size: clamp(3rem, 7vw, 6.2rem);
+      line-height: .98;
+      letter-spacing: 0;
+      font-weight: 900;
+      max-width: 720px;
+    }
+    .hero h1 .decor-word { color: var(--decor); }
+    .hero-sub {
+      max-width: 560px;
+      margin-top: 28px;
+      color: var(--ink-light);
+      font-size: clamp(1rem, 1.7vw, 1.13rem);
+      line-height: 2;
+    }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 34px; }
+    .cta {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      min-height: 46px;
+      padding: 12px 22px;
+      border-radius: 12px;
+      color: #fff;
+      background: var(--decor);
+      text-decoration: none;
+      font-weight: 700;
+      border: 0;
+      transition: transform .2s, box-shadow .2s;
+    }
+    .cta:hover { transform: translateY(-2px); box-shadow: 0 12px 28px rgba(43,127,216,.24); }
+    .cta.secondary {
+      background: #fff;
+      color: var(--primary);
+      border: 1.5px solid rgba(240,112,64,.3);
+      box-shadow: none;
+    }
+    .hero-stats {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 42px;
+      max-width: 590px;
+    }
+    .stat-card {
+      background: rgba(255,255,255,.74);
+      border: 1px solid rgba(26,26,46,.06);
+      border-radius: 14px;
+      padding: 18px 16px;
+    }
+    .stat-card strong {
+      display: block;
+      font-family: 'ChillHuoFangSong', 'Noto Serif SC', serif;
+      font-size: clamp(1.8rem, 4vw, 2.7rem);
+      line-height: 1;
+      color: var(--primary);
+    }
+    .stat-card:nth-child(2) strong { color: var(--decor); }
+    .stat-card:nth-child(3) strong { color: var(--accent); }
+    .stat-card span {
+      display: block;
+      margin-top: 8px;
+      color: var(--ink-faint);
+      font-size: .74rem;
+    }
+
+    .signal-board {
+      background: #fff;
+      border-radius: 18px;
+      box-shadow: 0 22px 70px rgba(26,26,46,.11);
+      border: 1px solid rgba(26,26,46,.06);
+      overflow: hidden;
+      transform: rotate(1deg);
+    }
+    .board-top {
+      height: 46px;
+      background: var(--ink);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 16px;
+      color: rgba(255,255,255,.56);
+      font-family: 'Fira Code', monospace;
+      font-size: .68rem;
+    }
+    .window-dots { display: flex; gap: 6px; }
+    .window-dots i { width: 10px; height: 10px; display: block; border-radius: 50%; }
+    .window-dots i:nth-child(1) { background: #ff5f56; }
+    .window-dots i:nth-child(2) { background: #ffbd2e; }
+    .window-dots i:nth-child(3) { background: #27c93f; }
+    .board-body { padding: clamp(20px, 3vw, 30px); }
+    .metric-strip {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-bottom: 18px;
+    }
+    .metric {
+      border-radius: 14px;
+      padding: 16px;
+      background: var(--decor-soft);
+      border: 1px solid rgba(43,127,216,.12);
+    }
+    .metric:nth-child(2) {
+      background: var(--cream-warm);
+      border-color: rgba(240,112,64,.14);
+    }
+    .metric b {
+      display: block;
+      font-family: 'Fira Code', monospace;
+      font-size: 1.35rem;
+      color: var(--decor);
+      line-height: 1;
+    }
+    .metric:nth-child(2) b { color: var(--primary); }
+    .metric span { display: block; margin-top: 8px; font-size: .72rem; color: var(--ink-light); }
+    .signal-list { display: grid; gap: 10px; }
+    .signal-item {
+      display: grid;
+      grid-template-columns: 42px 1fr auto;
+      gap: 12px;
+      align-items: center;
+      padding: 12px;
+      border-radius: 12px;
+      background: var(--cream-dark);
+      border: 1px solid rgba(26,26,46,.04);
+    }
+    .signal-icon {
+      width: 42px;
+      height: 42px;
+      border-radius: 10px;
+      display: grid;
+      place-items: center;
+      background: var(--primary);
+      color: #fff;
+      font-weight: 900;
+    }
+    .signal-item:nth-child(2) .signal-icon { background: var(--decor); }
+    .signal-item:nth-child(3) .signal-icon { background: var(--accent); }
+    .signal-copy h3 { font-size: .86rem; line-height: 1.25; margin-bottom: 3px; }
+    .signal-copy p { font-size: .7rem; color: var(--ink-faint); line-height: 1.4; }
+    .signal-growth {
+      color: var(--accent);
+      font-family: 'Fira Code', monospace;
+      font-size: .78rem;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+    .note-bubble {
+      margin: -8px 24px 0 auto;
+      max-width: 330px;
+      background: var(--decor);
+      color: #fff;
+      border-radius: 16px 16px 4px 16px;
+      padding: 12px 16px;
+      font-size: .78rem;
+      line-height: 1.65;
+      box-shadow: 0 14px 28px rgba(43,127,216,.22);
+      transform: rotate(-1.2deg);
+      position: relative;
+      z-index: 2;
+    }
+
+    .pain-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: clamp(14px, 2vw, 22px);
+      margin-top: clamp(36px, 5vw, 58px);
+    }
+    .num-card {
+      position: relative;
+      padding: 28px 22px 24px;
+      background: #fff;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 1px 8px rgba(0,0,0,.04);
+      min-height: 210px;
+    }
+    .num-card .big {
+      position: absolute;
+      top: -12px;
+      right: 8px;
+      font-family: 'ChillHuoFangSong', 'Noto Serif SC', serif;
+      font-size: 5.4rem;
+      line-height: 1;
+      opacity: .16;
+      pointer-events: none;
+    }
+    .num-card:nth-child(1) .big,
+    .num-card:nth-child(4) .big { color: var(--primary); }
+    .num-card:nth-child(2) .big { color: var(--decor); }
+    .num-card:nth-child(3) .big { color: var(--accent); }
+    .num-card h3 {
+      position: relative;
+      font-family: 'Noto Serif SC', serif;
+      font-weight: 900;
+      font-size: 1.03rem;
+      line-height: 1.38;
+      margin: 42px 0 10px;
+    }
+    .num-card p { position: relative; font-size: .84rem; color: var(--ink-light); line-height: 1.8; }
+
+    .timeline {
+      position: relative;
+      display: grid;
+      gap: 0;
+      margin-top: clamp(38px, 5vw, 62px);
+    }
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 21px;
+      top: 28px;
+      bottom: 28px;
+      width: 2px;
+      background: linear-gradient(var(--primary), var(--decor), var(--accent));
+      opacity: .42;
+    }
+    .timeline-step {
+      display: grid;
+      grid-template-columns: 44px 1fr;
+      gap: 24px;
+      padding: 26px 0;
+      border-bottom: 1px solid rgba(26,26,46,.07);
+    }
+    .timeline-step:last-child { border-bottom: 0; }
+    .step-dot {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      position: relative;
+      z-index: 1;
+      box-shadow: 0 0 0 5px var(--cream-dark);
+      background: var(--primary);
+      color: #fff;
+      font-family: 'Fira Code', monospace;
+      font-weight: 700;
+      font-size: .8rem;
+    }
+    .timeline-step:nth-child(2) .step-dot,
+    .timeline-step:nth-child(3) .step-dot { background: var(--decor); }
+    .timeline-step:nth-child(4) .step-dot { background: var(--accent); }
+    .timeline-step h3 {
+      font-family: 'Noto Serif SC', serif;
+      font-weight: 900;
+      font-size: 1.05rem;
+      margin-bottom: 7px;
+    }
+    .timeline-step p { color: var(--ink-light); font-size: .88rem; line-height: 1.85; max-width: 830px; }
+    .commit-tag {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 3px 9px;
+      border-radius: 5px;
+      background: rgba(240,112,64,.08);
+      border: 1px solid rgba(240,112,64,.2);
+      color: var(--primary);
+      font-family: 'Fira Code', monospace;
+      font-size: .66rem;
+    }
+
+    .evidence-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: clamp(16px, 2vw, 24px);
+      margin-top: 42px;
+    }
+    .flip-card {
+      background: #fff;
+      border-radius: 16px;
+      padding: 28px 24px;
+      min-height: 185px;
+      box-shadow: 0 5px 26px rgba(26,26,46,.06);
+      position: relative;
+      overflow: hidden;
+    }
+    .flip-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at top left, rgba(240,112,64,.17), transparent 42%),
+                  radial-gradient(circle at bottom right, rgba(43,127,216,.12), transparent 44%);
+      opacity: .9;
+    }
+    .flip-card:nth-child(3)::before {
+      background: radial-gradient(circle at top left, rgba(204,41,54,.13), transparent 42%),
+                  radial-gradient(circle at bottom right, rgba(240,112,64,.12), transparent 44%);
+    }
+    .flip-card strong {
+      position: relative;
+      display: block;
+      font-family: 'ChillHuoFangSong', 'Noto Serif SC', serif;
+      font-size: clamp(2.7rem, 6vw, 4.2rem);
+      color: var(--primary);
+      line-height: .9;
+    }
+    .flip-card:nth-child(2) strong { color: var(--decor); }
+    .flip-card:nth-child(3) strong { color: var(--accent); }
+    .flip-card h3 {
+      position: relative;
+      margin: 16px 0 7px;
+      font-family: 'Noto Serif SC', serif;
+      font-size: 1rem;
+      font-weight: 900;
+    }
+    .flip-card p { position: relative; color: var(--ink-light); font-size: .82rem; line-height: 1.75; }
+
+    .tech-grid {
+      display: grid;
+      grid-template-columns: 1.05fr .95fr;
+      gap: clamp(24px, 5vw, 58px);
+      align-items: start;
+      margin-top: clamp(40px, 6vw, 72px);
+    }
+    .code-mac {
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 12px 45px rgba(0,0,0,.16);
+      background: var(--ink);
+    }
+    .code-mac .tb {
+      background: #2d2d3a;
+      padding: 12px 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .code-mac .fn {
+      flex: 1;
+      text-align: center;
+      font-family: 'Fira Code', monospace;
+      color: var(--ink-faint);
+      font-size: .68rem;
+    }
+    .code-mac .bd { background: #1a1b26; padding: 24px; }
+    .code-mac pre {
+      font-family: 'Fira Code', monospace;
+      font-size: .79rem;
+      color: #a9b1d6;
+      line-height: 1.95;
+      white-space: pre-wrap;
+    }
+    .kw { color: #bb9af7; }
+    .fnc { color: #7aa2f7; }
+    .str { color: #9ece6a; }
+    .cmt { color: #565f89; }
+    .nm { color: #ff9e64; }
+    .tech-notes { display: grid; gap: 14px; }
+    .key-note {
+      position: relative;
+      padding: 22px 24px;
+      background: #fff;
+      border-radius: 10px;
+      border: 1.5px dashed rgba(240,112,64,.34);
+    }
+    .key-note .kt {
+      position: absolute;
+      top: -12px;
+      left: 18px;
+      background: var(--cream);
+      padding: 0 8px;
+      font-family: 'Schoolbell', cursive;
+      color: var(--primary);
+      font-weight: 700;
+      font-size: 1rem;
+    }
+    .key-note h3 {
+      font-family: 'Noto Serif SC', serif;
+      font-size: 1rem;
+      margin-bottom: 8px;
+    }
+    .key-note p { color: var(--ink-light); font-size: .84rem; line-height: 1.8; }
+
+    .quote-band {
+      background: var(--primary);
+      color: #fff;
+      padding: clamp(84px, 12vh, 150px) 0;
+      position: relative;
+      overflow: hidden;
+    }
+    .quote-band::before {
+      content: '"';
+      position: absolute;
+      top: -82px;
+      left: clamp(8px, 6vw, 80px);
+      font-family: 'ChillHuoFangSong', 'Noto Serif SC', serif;
+      font-size: clamp(13rem, 28vw, 24rem);
+      opacity: .14;
+      line-height: 1;
+    }
+    .quote-inner {
+      max-width: 860px;
+      margin: 0 auto;
+      text-align: center;
+      position: relative;
+    }
+    .quote-inner p {
+      font-family: 'ChillHuoFangSong', 'Noto Serif SC', serif;
+      font-size: clamp(1.5rem, 3.2vw, 2.35rem);
+      font-weight: 900;
+      line-height: 1.8;
+    }
+    .quote-inner span {
+      display: inline-block;
+      margin-top: 20px;
+      font-family: 'Fira Code', monospace;
+      font-size: .72rem;
+      color: rgba(255,255,255,.7);
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    .evolve-layout {
+      display: grid;
+      grid-template-columns: minmax(210px, .32fr) 1fr;
+      gap: clamp(36px, 6vw, 78px);
+      align-items: start;
+      margin-top: 44px;
+    }
+    .sticky-copy {
+      position: sticky;
+      top: 96px;
+    }
+    .sticky-copy .ghost {
+      display: block;
+      font-family: 'ChillHuoFangSong', 'Noto Serif SC', serif;
+      font-size: clamp(4rem, 9vw, 7rem);
+      color: var(--accent);
+      opacity: .13;
+      line-height: .8;
+      margin-bottom: 8px;
+    }
+    .sticky-copy p { color: var(--ink-light); font-size: .88rem; line-height: 1.9; }
+    .icon-list { display: grid; gap: 16px; }
+    .icon-card {
+      display: grid;
+      grid-template-columns: 94px 1fr;
+      align-items: stretch;
+      background: #fff;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 1px 10px rgba(0,0,0,.04);
+    }
+    .icon-card .ia {
+      display: grid;
+      place-items: center;
+      font-size: 2rem;
+      background: var(--cream-warm);
+    }
+    .icon-card:nth-child(2) .ia,
+    .icon-card:nth-child(4) .ia { background: var(--decor-soft); }
+    .icon-card .ic { padding: 20px 22px; }
+    .icon-card h3 {
+      font-family: 'Noto Serif SC', serif;
+      font-size: 1rem;
+      font-weight: 900;
+      margin-bottom: 7px;
+    }
+    .icon-card .why {
+      display: inline-block;
+      margin-bottom: 7px;
+      font-family: 'Schoolbell', cursive;
+      color: var(--primary);
+      font-size: 1rem;
+      transform: rotate(-1deg);
+    }
+    .icon-card p { color: var(--ink-light); font-size: .84rem; line-height: 1.8; }
+    .chips { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
+    .chip {
+      padding: 2px 8px;
+      border-radius: 6px;
+      background: rgba(43,127,216,.08);
+      color: var(--decor);
+      font-family: 'Fira Code', monospace;
+      font-size: .64rem;
+    }
+    .chip.primary { background: rgba(240,112,64,.09); color: var(--primary); }
+
+    .skills-row {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: clamp(18px, 2.4vw, 28px);
+      margin-top: 46px;
+      position: relative;
+    }
+    .skills-row::before {
+      content: '';
+      position: absolute;
+      top: 24px;
+      left: 42px;
+      right: 42px;
+      height: 2px;
+      background: linear-gradient(90deg, var(--primary), var(--decor), var(--accent));
+      opacity: .28;
+    }
+    .skill-step { position: relative; text-align: center; padding: 0 8px; }
+    .skill-dot {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      display: inline-grid;
+      place-items: center;
+      color: #fff;
+      background: var(--primary);
+      font-family: 'ChillHuoFangSong', 'Noto Serif SC', serif;
+      font-weight: 900;
+      box-shadow: 0 0 0 5px var(--cream);
+      margin-bottom: 16px;
+    }
+    .skill-step:nth-child(2) .skill-dot { background: var(--decor); }
+    .skill-step:nth-child(3) .skill-dot { background: var(--accent); }
+    .skill-step:nth-child(4) .skill-dot { background: var(--primary); }
+    .skill-step h3 {
+      font-family: 'Noto Serif SC', serif;
+      font-size: .95rem;
+      font-weight: 900;
+      margin-bottom: 7px;
+      line-height: 1.45;
+    }
+    .skill-step p { color: var(--ink-light); font-size: .78rem; line-height: 1.75; }
+
+    .next-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 22px;
+      margin-top: 42px;
+    }
+    .next-card {
+      background: #fff;
+      border-radius: 16px;
+      padding: 30px 28px;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 2px 14px rgba(0,0,0,.04);
+    }
+    .next-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 5px;
+      background: linear-gradient(90deg, var(--primary), var(--decor));
+    }
+    .next-card:nth-child(2)::before { background: linear-gradient(90deg, var(--decor), var(--accent)); }
+    .next-card .label {
+      font-family: 'Fira Code', monospace;
+      color: var(--primary);
+      font-size: .68rem;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+    }
+    .next-card:nth-child(2) .label { color: var(--accent); }
+    .next-card h3 {
+      font-family: 'Noto Serif SC', serif;
+      font-weight: 900;
+      font-size: 1.1rem;
+      margin-bottom: 14px;
+    }
+    .next-items { list-style: none; display: grid; gap: 10px; }
+    .next-items li {
+      position: relative;
+      padding-left: 20px;
+      color: var(--ink-light);
+      font-size: .86rem;
+      line-height: 1.7;
+    }
+    .next-items li::before {
+      content: '→';
+      position: absolute;
+      left: 0;
+      color: var(--decor);
+      font-size: .8rem;
+    }
+    .boundary {
+      margin-top: 24px;
+      padding: 30px 34px;
+      border-radius: 14px;
+      background: var(--decor-soft);
+      border: 2px solid var(--decor);
+      position: relative;
+    }
+    .boundary::before {
+      content: '\201C';
+      position: absolute;
+      top: -14px;
+      left: 18px;
+      font-family: 'ChillHuoFangSong', 'Noto Serif SC', serif;
+      font-size: 4.8rem;
+      color: var(--decor);
+      opacity: .42;
+      line-height: 1;
+    }
+    .boundary p {
+      position: relative;
+      font-family: 'Noto Serif SC', serif;
+      font-weight: 700;
+      font-size: 1rem;
+      line-height: 1.9;
+    }
+    .boundary small {
+      display: block;
+      margin-top: 12px;
+      color: var(--ink-faint);
+      font-family: 'Fira Code', monospace;
+      font-size: .68rem;
+    }
+
+    .footer {
+      padding: 54px 0;
+      background: var(--ink);
+      color: rgba(255,255,255,.68);
+      text-align: center;
+    }
+    .footer strong {
+      display: block;
+      font-family: 'ChillHuoFangSong', 'Noto Serif SC', serif;
+      color: #fff;
+      font-size: 1.25rem;
+      margin-bottom: 8px;
+    }
+    .footer a {
+      display: inline-block;
+      margin-top: 18px;
+      color: #fff;
+      text-decoration: none;
+      border-bottom: 1px solid rgba(255,255,255,.3);
+      font-size: .78rem;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity .72s cubic-bezier(.16,1,.3,1), transform .72s cubic-bezier(.16,1,.3,1);
+    }
+    .reveal.visible { opacity: 1; transform: none; }
+    .reveal-d1 { transition-delay: .08s; }
+    .reveal-d2 { transition-delay: .16s; }
+    .reveal-d3 { transition-delay: .24s; }
+    .reveal-d4 { transition-delay: .32s; }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .reveal { opacity: 1; transform: none; transition: none; }
+      .cta, .nav-links a { transition: none; }
+    }
+    @media (max-width: 980px) {
+      .hero { grid-template-columns: 1fr; min-height: auto; }
+      .hero::before { top: 21%; font-size: clamp(6rem, 28vw, 11rem); }
+      .signal-board { transform: none; }
+      .pain-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .evidence-grid { grid-template-columns: 1fr; }
+      .tech-grid { grid-template-columns: 1fr; }
+      .evolve-layout { grid-template-columns: 1fr; }
+      .sticky-copy { position: static; }
+      .skills-row { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .skills-row::before { display: none; }
+      .next-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 680px) {
+      body { font-size: 15px; }
+      .container { width: min(100% - 28px, 1180px); }
+      .nav { justify-content: flex-start; }
+      .nav-links { display: none; }
+      .hero { padding-top: 42px; }
+      .hero h1 { font-size: clamp(2.7rem, 15vw, 4.1rem); }
+      .hero-stats, .pain-grid, .metric-strip, .skills-row { grid-template-columns: 1fr; }
+      .signal-item { grid-template-columns: 42px 1fr; }
+      .signal-growth { grid-column: 2; }
+      .note-bubble { margin: 12px 0 0; max-width: none; }
+      .timeline::before { display: none; }
+      .timeline-step { grid-template-columns: 1fr; gap: 12px; }
+      .step-dot { box-shadow: none; }
+      .icon-card { grid-template-columns: 76px 1fr; }
+      .hero-actions .cta { width: 100%; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="nav">
+    <a class="brand" href="#top"><span class="brand-mark"></span><span>YouTube Signal Hub</span></a>
+    <ul class="nav-links">
+      <li><a href="#pain">困境</a></li>
+      <li><a href="#build">搭建</a></li>
+      <li><a href="#tech">卡点</a></li>
+      <li><a href="#evolve">演进</a></li>
+      <li><a href="#next">下一步</a></li>
+    </ul>
+  </nav>
+
+  <main id="top">
+    <header class="container hero">
+      <div class="hero-copy">
+        <span class="hero-kicker reveal">side project · signal monitor</span>
+        <h1 class="reveal reveal-d1">让爆款信号<br><span class="decor-word">主动找上门</span></h1>
+        <p class="hero-sub reveal reveal-d2">
+          从每天手动刷 YouTube，到把频道监控、增量判断、规则触发和企业微信通知串成一条链。
+          这不是一个概念 demo，而是一套真的跑起来的内容信号系统。
+        </p>
+        <div class="hero-actions reveal reveal-d3">
+          <a class="cta" href="#build">看搭建过程</a>
+          <a class="cta secondary" href="#tech">看技术卡点</a>
+        </div>
+        <div class="hero-stats reveal reveal-d4">
+          <div class="stat-card"><strong>11</strong><span>天跑通闭环</span></div>
+          <div class="stat-card"><strong>158</strong><span>次提交迭代</span></div>
+          <div class="stat-card"><strong>1×</strong><span>关键 API 配额优化</span></div>
+        </div>
+      </div>
+
+      <div class="hero-visual reveal reveal-d2">
+        <div class="signal-board">
+          <div class="board-top">
+            <div class="window-dots"><i></i><i></i><i></i></div>
+            <span>signal-dashboard.ts</span>
+          </div>
+          <div class="board-body">
+            <div class="metric-strip">
+              <div class="metric"><b>+42K</b><span>24h 观看增量</span></div>
+              <div class="metric"><b>5.8x</b><span>低粉频道异常增长</span></div>
+            </div>
+            <div class="signal-list">
+              <div class="signal-item">
+                <div class="signal-icon">01</div>
+                <div class="signal-copy"><h3>动画科普频道出现新信号</h3><p>订阅 8.6k · 12h 前发布</p></div>
+                <div class="signal-growth">+18.4k</div>
+              </div>
+              <div class="signal-item">
+                <div class="signal-icon">02</div>
+                <div class="signal-copy"><h3>讽刺类短视频进入观察池</h3><p>订阅 5.2k · 完播潜力高</p></div>
+                <div class="signal-growth">+9.7k</div>
+              </div>
+              <div class="signal-item">
+                <div class="signal-icon">03</div>
+                <div class="signal-copy"><h3>企业微信推送已触发</h3><p>命中规则：24h 增量阈值</p></div>
+                <div class="signal-growth">sent</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="note-bubble">你的爆款视频，已送达。真正重要的不是刷新页面，而是让信号自己敲门。</div>
+      </div>
+    </header>
+
+    <section class="section" id="pain">
+      <div class="container">
+        <span class="eyebrow reveal">01 · before</span>
+        <h2 class="section-title reveal reveal-d1">手动刷的那段时间，问题其实很清楚。</h2>
+        <p class="section-lead reveal reveal-d2">
+          为了找 YouTube 频道定位，我空下来就刷视频，<span class="hl-accent">每天两三个小时</span>。
+          最想捕捉的是低粉异常爆款，但现有工具不是太贵，就是只把数据被动放在侧边栏。
+        </p>
+        <div class="pain-grid">
+          <article class="num-card reveal reveal-d1">
+            <span class="big">01</span>
+            <h3>看不到增量</h3>
+            <p>插件只显示发布时间和当前播放量，无法判断最近 24 小时到底有没有爆发。</p>
+          </article>
+          <article class="num-card reveal reveal-d2">
+            <span class="big">02</span>
+            <h3>付费门槛高</h3>
+            <p>vidIQ、ViewStats 信息零散，前期不想为一个还没验证的需求持续订阅。</p>
+          </article>
+          <article class="num-card reveal reveal-d3">
+            <span class="big">03</span>
+            <h3>没有主动提醒</h3>
+            <p>工具都在等我打开页面。爆款发生时，它不会主动推门进来告诉我。</p>
+          </article>
+          <article class="num-card reveal reveal-d4">
+            <span class="big">04</span>
+            <h3>低粉爆款被淹没</h3>
+            <p>5k-10k 小频道的异常增长最有参考价值，但它们最容易被大频道内容盖过去。</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--alt" id="build">
+      <div class="container">
+        <span class="eyebrow reveal">02 · build</span>
+        <h2 class="section-title reveal reveal-d1">11 天，158 次提交，一条链路跑通了。</h2>
+        <p class="section-lead reveal reveal-d2">
+          这个项目最有意思的地方不是功能列表，而是每一步都来自真实使用里的摩擦：
+          想看增量、想要通知、想沉淀样本、想在刷 YouTube 的时候直接加频道。
+        </p>
+
+        <div class="timeline">
+          <div class="timeline-step reveal reveal-d1">
+            <div class="step-dot">1</div>
+            <div>
+              <h3>先把数据拉回来</h3>
+              <p>接入 YouTube Data API，拉取频道和视频基础数据。MVP 雏形先跑起来，再用真实数据校准需求。</p>
+            </div>
+          </div>
+          <div class="timeline-step reveal reveal-d2">
+            <div class="step-dot">2</div>
+            <div>
+              <h3>增量计算绕了弯路</h3>
+              <p>一开始从发布时间起算，结果数值固定，完全不能判断最近有没有爆。后来改成以当前时间为基点倒推 24h / 7d。</p>
+              <span class="commit-tag">commit: 增量改为滚动倒推窗口</span>
+            </div>
+          </div>
+          <div class="timeline-step reveal reveal-d3">
+            <div class="step-dot">3</div>
+            <div>
+              <h3>定时任务第一天没动静</h3>
+              <p>接入 QStash 后首日静默，排查后发现是 Upstash regional endpoint URL 配错。这个 bug 很安静，但很关键。</p>
+              <span class="commit-tag">00fe7aa · fix regional URL</span>
+            </div>
+          </div>
+          <div class="timeline-step reveal reveal-d4">
+            <div class="step-dot">4</div>
+            <div>
+              <h3>第一条企业微信通知送达</h3>
+              <p>自定义触发条件跑通，企业微信收到第一条爆款预警推送。到这里，系统从页面变成了闭环。</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="evidence-grid">
+          <article class="flip-card reveal reveal-d1">
+            <strong>158</strong>
+            <h3>提交不是装饰数字</h3>
+            <p>峰值单日 36 次提交，主要集中在增量计算和规则逻辑反复调试。</p>
+          </article>
+          <article class="flip-card reveal reveal-d2">
+            <strong>11</strong>
+            <h3>从 init 到闭环</h3>
+            <p>数据、调度、规则、通知、插件入口在 11 天内串起来。</p>
+          </article>
+          <article class="flip-card reveal reveal-d3">
+            <strong>1×</strong>
+            <h3>配额从 100 降到 1</h3>
+            <p>频道搜索换 forHandle，视频列表换 playlistItems，关键调用各省 99 单位。</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="tech">
+      <div class="container">
+        <span class="eyebrow reveal">03 · hard parts</span>
+        <h2 class="section-title reveal reveal-d1">真正卡住的，不是写页面，是把判断逻辑写对。</h2>
+        <div class="tech-grid">
+          <div class="code-mac reveal reveal-d2">
+            <div class="tb">
+              <div class="window-dots"><i></i><i></i><i></i></div>
+              <span class="fn">growth-window.ts</span>
+            </div>
+            <div class="bd">
+              <pre><span class="cmt">// 正确：滚动倒推窗口，而不是从发布时间累计</span>
+<span class="kw">const</span> cutoff = <span class="fnc">Date.now</span>() - <span class="nm">24</span> * HOUR;
+<span class="kw">const</span> baseline = <span class="kw">await</span> <span class="fnc">findSnapshotBefore</span>(videoId, cutoff);
+<span class="kw">const</span> delta = current.views - baseline.views;
+
+<span class="kw">if</span> (delta &gt; rule.threshold) {
+  <span class="kw">await</span> <span class="fnc">sendNotification</span>(<span class="str">'企业微信'</span>, video);
+}</pre>
+            </div>
+          </div>
+          <div class="tech-notes">
+            <article class="key-note reveal reveal-d1">
+              <span class="kt">note one</span>
+              <h3>滚动窗口，不是累计</h3>
+              <p>从发布时间起算只能得到一个静态差值。真正要看的，是“现在往前推 24 小时”的增长。</p>
+            </article>
+            <article class="key-note reveal reveal-d2">
+              <span class="kt">note two</span>
+              <h3>endpoint 错误不会替你尖叫</h3>
+              <p>QStash 第一天完全静默，最后发现是 regional endpoint 配错。生产环境里，沉默也是一种报错。</p>
+            </article>
+            <article class="key-note reveal reveal-d3">
+              <span class="kt">note three</span>
+              <h3>配额优化就是产品能力</h3>
+              <p>如果一次同步消耗太高，功能就无法常态运行。把 100 单位降到 1 单位，本质上是在扩大产品边界。</p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="quote-band">
+      <div class="container">
+        <div class="quote-inner reveal">
+          <p>第一次收到爆款通知时，我知道这个工具的闭环成立了。<br>这次跑在生产环境里的，不是 demo。</p>
+          <span>rules triggered · wecom notification · real signal delivered</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--alt" id="evolve">
+      <div class="container">
+        <span class="eyebrow reveal">04 · evolution</span>
+        <h2 class="section-title reveal reveal-d1">每个功能，背后都有一个具体的发现。</h2>
+        <div class="evolve-layout">
+          <aside class="sticky-copy reveal reveal-d2">
+            <span class="ghost">04</span>
+            <p>MVP 跑通之后，功能不是凭空堆上去的。每加一块，都是因为我真的在用，然后发现“这里断了”。</p>
+          </aside>
+          <div class="icon-list">
+            <article class="icon-card reveal reveal-d1">
+              <div class="ia">⚡</div>
+              <div class="ic">
+                <h3>爆款规则引擎</h3>
+                <span class="why">↳ 通知了，但不知道为什么触发</span>
+                <p>从单一阈值升级成自定义条件组合，任意/全部匹配都支持，命中后能看到触发原因。</p>
+                <div class="chips"><span class="chip">24h 增量</span><span class="chip primary">条件组合</span><span class="chip">企业微信</span></div>
+              </div>
+            </article>
+            <article class="icon-card reveal reveal-d2">
+              <div class="ia">📁</div>
+              <div class="ic">
+                <h3>对标组</h3>
+                <span class="why">↳ 爆款看完就忘，没地方沉淀</span>
+                <p>把爆款视频归入“动画科普”“讽刺类”等样本组，从监控变成可复盘的内容库。</p>
+                <div class="chips"><span class="chip">动画科普</span><span class="chip">样本沉淀</span></div>
+              </div>
+            </article>
+            <article class="icon-card reveal reveal-d3">
+              <div class="ia">🔌</div>
+              <div class="ic">
+                <h3>Chrome 插件</h3>
+                <span class="why">↳ 加频道要复制链接，太麻烦</span>
+                <p>刷 YouTube 时遇到感兴趣的频道，点一下就加入监控列表，不用离开页面。</p>
+                <div class="chips"><span class="chip primary">一键操作</span><span class="chip">设备码同步</span></div>
+              </div>
+            </article>
+            <article class="icon-card reveal reveal-d4">
+              <div class="ia">📊</div>
+              <div class="ic">
+                <h3>多维度排行榜</h3>
+                <span class="why">↳ 只有通知，看不到全局</span>
+                <p>按播放量、内容形态、时间窗口、订阅区间筛选，监控频道的视频可以一屏内对比。</p>
+                <div class="chips"><span class="chip">播放量排序</span><span class="chip primary">时间窗口</span><span class="chip">标签分组</span></div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="skills">
+      <div class="container">
+        <span class="eyebrow reveal">05 · proof</span>
+        <h2 class="section-title reveal reveal-d1">这个项目证明了什么。</h2>
+        <div class="skills-row">
+          <div class="skill-step reveal reveal-d1">
+            <div class="skill-dot">一</div>
+            <h3>真实需求<br>定义产品</h3>
+            <p>没有 PRD，需求从每天刷视频的痛点里长出来。</p>
+          </div>
+          <div class="skill-step reveal reveal-d2">
+            <div class="skill-dot">二</div>
+            <h3>自动化<br>闭环能力</h3>
+            <p>数据采集、判断、通知全链路独立打通。</p>
+          </div>
+          <div class="skill-step reveal reveal-d3">
+            <div class="skill-dot">三</div>
+            <h3>全栈<br>工程实现</h3>
+            <p>Serverless、Redis、调度、插件，一个人串起来。</p>
+          </div>
+          <div class="skill-step reveal reveal-d4">
+            <div class="skill-dot">四</div>
+            <h3>产品<br>边界意识</h3>
+            <p>知道当前解决了哪个环节，也知道下一步要补什么。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--alt" id="next">
+      <div class="container">
+        <span class="eyebrow reveal">06 · next</span>
+        <h2 class="section-title reveal reveal-d1">想继续做的事。</h2>
+        <div class="next-grid">
+          <article class="next-card reveal reveal-d1">
+            <div class="label">near term</div>
+            <h3>让“机会挖掘”真正上线</h3>
+            <ul class="next-items">
+              <li>短视频和长视频分开展示，避免信号混在一起。</li>
+              <li>在对标组内加入拆解记录：标题、开头、情绪钩子、叙事结构。</li>
+              <li>更精细的阈值设置，目标锁定千万级内容信号。</li>
+            </ul>
+          </article>
+          <article class="next-card reveal reveal-d2">
+            <div class="label">further</div>
+            <h3>从“已知频道监控”到“全网发现”</h3>
+            <ul class="next-items">
+              <li>自动检索 5k-10k 订阅小频道的异常增长。</li>
+              <li>支持多用户与并发处理，让监控池真正扩大。</li>
+              <li>加入 AI 辅助趋势判断，但不把判断权完全交出去。</li>
+            </ul>
+          </article>
+        </div>
+        <div class="boundary reveal reveal-d3">
+          <p>当前版本做到的是：把已知对标频道的监控、判断、通知、样本沉淀串成一条链。“全网低粉爆款发现”是产品目标，但前一条链跑通了，才知道下一条要怎么搭。</p>
+          <small>product boundary · say exactly what has been solved</small>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <strong>Serena</strong>
+      <p>YOUTUBE SIGNAL HUB · SIDE PROJECT · 2026</p>
+      <a href="#top">回到顶部</a>
+    </div>
+  </footer>
+
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.08 });
+
+    document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
+  </script>
+</body>
+</html>
