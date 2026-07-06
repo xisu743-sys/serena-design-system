@@ -90,7 +90,8 @@ img{display:block;max-width:100%}
 .chair-dash .lb{position:absolute;top:-10px;left:14px;font-family:'Schoolbell',cursive;font-size:.92rem;font-weight:700;background:var(--cream);padding:0 7px}
 .chair-dash h3{font-family:'Noto Serif SC',serif;font-size:1rem;font-weight:700;margin-bottom:6px;margin-top:4px}
 .chair-dash p{font-size:.82rem;color:var(--ink-light);line-height:1.7}
-.chair-grad{border-radius:18px;padding:28px 22px;box-shadow:inset 0 3px 0 var(--card-accent,transparent),0 1px 0 rgba(0,0,0,.03)}
+.chair-grad{position:relative;border-radius:18px;padding:28px 22px;box-shadow:0 1px 0 rgba(0,0,0,.03);overflow:hidden}
+.chair-grad::before{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;opacity:.72;background:linear-gradient(var(--card-accent),var(--card-accent)) top left/18px 3px no-repeat,linear-gradient(var(--card-accent),var(--card-accent)) top left/3px 18px no-repeat,linear-gradient(var(--card-accent),var(--card-accent)) top right/18px 3px no-repeat,linear-gradient(var(--card-accent),var(--card-accent)) top right/3px 18px no-repeat,linear-gradient(var(--card-accent),var(--card-accent)) bottom left/18px 3px no-repeat,linear-gradient(var(--card-accent),var(--card-accent)) bottom left/3px 18px no-repeat,linear-gradient(var(--card-accent),var(--card-accent)) bottom right/18px 3px no-repeat,linear-gradient(var(--card-accent),var(--card-accent)) bottom right/3px 18px no-repeat}
 .chair-grad .em{font-size:1.8rem;margin-bottom:12px}
 .chair-grad h3{font-family:'Noto Serif SC',serif;font-size:1rem;font-weight:700;margin-bottom:8px}
 .chair-grad p{font-size:.82rem;color:var(--ink-light);line-height:1.7}
