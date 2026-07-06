@@ -8,11 +8,11 @@
 
 | 用途 | 变量名 | 色值 | 说明 |
 |------|--------|------|------|
-| 主色 | `--coral` | `#F07040` | 标题、强调、装饰圆圈、连接线、badges |
-| 主色浅底 | `--coral-soft` | `#FFF3EE` | 背景块、气泡底色 |
-| 点缀蓝 | `--sky-blue` | `#2B7FD8` | 超链、重点下划线、CTA、少量标签 |
-| 深蓝 | `--blue-deep` | `#1E5BA8` | 大装饰字、section数字编号 |
-| 强调红 | `--newyork-red` | `#CC2936` | 强调、badges、连接线、高亮 |
+| 主色 | `--primary` | `#F07040` | 标题、强调、装饰圆圈、连接线、badges |
+| 主色浅底 | `--primary-soft` | `#FFF3EE` | 背景块、气泡底色 |
+| 点缀色 | `--decor` | `#2B7FD8` | 超链、重点下划线、CTA、少量标签 |
+| 点缀深色 | `--decor-deep` | `#1E5BA8` | 大装饰字、section数字编号 |
+| 强调色 | `--accent` | `#CC2936` | 强调、badges、连接线、高亮 |
 | 奶白底 | `--cream` | `#fefcf6` | 页面主背景 |
 | 深奶底 | `--cream-dark` | `#faf6eb` | section间交替背景 |
 | 墨色 | `--ink` | `#1A1A2E` | 正文主色（非纯黑） |
@@ -21,7 +21,7 @@
 
 ### 色彩原则
 - 绝不用纯黑 `#000` 或纯白 `#fff`——总是带暖调
-- 主色永远是珊瑚橙，纽约客红做强调，天蓝只做少量点缀
+- 主色永远是主色，强调色做强调，点缀色只做少量点缀
 - 背景用径向渐变制造层次感，不要纯平色
 
 ---
@@ -70,7 +70,7 @@
 7. **产品出血型Hero**: 左侧40%紧凑文字（大标题+描述+缩略图），右侧60%大图溢出右边界。图片用 `margin-right: -5vw; border-radius: 24px 0 0 24px`，grid: `grid-template-columns: 0.4fr 0.6fr`
 8. **条纹Editorial**: 条纹分割带（repeating-linear-gradient）做section分隔。内部左图右文，图片可加低饱和度滤镜。标题用Spectral大号italic，正文小号无衬线
 9. **横向滚动时间线**: flex横排 + scroll-snap + 固定宽度卡片，适合经历展示、项目历程
-10. **全宽品牌色面板**: 背景使用珊瑚橙/纽约客红/天蓝纯色，文字反白。一页最多1~2个，用于打破奶白底的节奏。禁忌：不要在品牌色面板上放同色文字
+10. **全宽品牌色面板**: 背景使用主色/点缀色/强调色纯色，文字反白。一页最多1~2个，用于打破奶白底的节奏。禁忌：不要在品牌色面板上放同色文字
 11. **对称双栏（Pain展示）**: `grid-template-columns: 1fr 1fr`，min-height: 100vh。左侧大字标题，右侧列表/解释。适合问题/痛点、before/after对比
 
 ### 间距系统
@@ -84,13 +84,13 @@
 ## 🎭 装饰元素
 
 ### 可用的装饰手法
-- **虚线圆圈**: `border: 2.5px dashed var(--coral); border-radius: 50%`，半透明，大尺寸做背景
+- **虚线圆圈**: `border: 2.5px dashed var(--primary); border-radius: 50%`，半透明，大尺寸做背景
 - **渐变光晕**: `radial-gradient(ellipse, rgba(240,112,64,0.18), transparent)` 做柔和背景
-- **分割线**: `linear-gradient(90deg, transparent, var(--coral), transparent)` 1px渐隐线
+- **分割线**: `linear-gradient(90deg, transparent, var(--primary), transparent)` 1px渐隐线
 - **高亮标记**: `background: linear-gradient(180deg, transparent 50%, rgba(240,112,64,0.24) 50%)` 文字底部高亮
 - **大透明数字**: 超大字号 + `opacity: 0.12~0.2` 做section装饰
 - **SVG简笔画**: 用描边风格的简化示意图，不要写实截图
-- **左侧色条**: `border-left: 4px solid var(--coral/newyork-red/sky-blue)` 给卡片或引用加标识
+- **左侧色条**: `border-left: 4px solid var(--primary)` / `var(--decor)` / `var(--accent)` 给卡片或引用加标识
 
 ### 条纹肌理分割（替代渐隐线做section divider）
 ```css
@@ -137,7 +137,7 @@
 .decorative-frame {
   position: relative;
   padding: 16px;
-  border: 2.5px dashed var(--coral);
+  border: 2.5px dashed var(--primary);
   border-radius: 12px;
 }
 .decorative-frame::before {
@@ -197,7 +197,7 @@
 ### 明确禁止
 - ❌ 不要用 `transform: rotate()` 让元素歪着放——这是廉价的假活泼
 - ❌ 不要故意错位/偏移来制造"手工感"
-- ❌ 不要蓝底面板上放红色文字
+- ❌ 不要蓝底面板上放强调色文字
 
 ---
 
@@ -226,11 +226,11 @@
 
 ## 🧩 可发散方向
 
-- **配色微调**: 内容跟某品牌相关时可替换点缀蓝为品牌色，但珊瑚橙+奶白底不变
+- **配色微调**: 内容跟某品牌相关时可替换点缀色为品牌色，但主色+奶白底不变
 - **布局组合**: 十一种布局模式自由组合
 - **装饰密度**: 轻松内容多装饰，严肃内容减少装饰只保留字体层次
 - **IP出现方式**: 不同姿势（叉腰、放大镜、坐椅子等）
-- **深色section**: 可用一个section用深色底（如 `--blue-deep`），制造节奏对比
+- **深色section**: 可用一个section用深色底（如 `--decor-deep`），制造节奏对比
 - **交互**: 如果内容适合，可加hover状态、tab切换、accordion——但不要为交互而交互
 
 ---

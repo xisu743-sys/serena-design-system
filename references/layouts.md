@@ -127,7 +127,7 @@
   left: 22px;
   top: 40px; bottom: 40px;
   width: 2px;
-  border-left: 2px dashed var(--coral);
+  border-left: 2px dashed var(--primary);
 }
 .step-item {
   position: relative;
@@ -137,7 +137,7 @@
   left: -60px;
   width: 44px; height: 44px;
   border-radius: 50%;
-  background: var(--sky-blue);
+  background: var(--decor);
   color: #fff;
   display: flex;
   align-items: center;
@@ -262,7 +262,7 @@
   top: 28px;
   left: 28px; right: 28px;
   height: 3px;
-  background: linear-gradient(90deg, var(--coral), var(--sky-blue));
+  background: linear-gradient(90deg, var(--primary), var(--decor));
 }
 .step-card {
   text-align: center;
@@ -271,7 +271,7 @@
 .step-dot {
   width: 56px; height: 56px;
   border-radius: 50%;
-  background: var(--sky-blue);
+  background: var(--decor);
   color: #fff;
   display: inline-flex;
   align-items: center;
@@ -399,7 +399,7 @@
 
 ```css
 .section-accent {
-  background: var(--sky-blue);
+  background: var(--decor);
   color: #fff;
   padding: clamp(80px, 12vh, 160px) 0;
   position: relative;
@@ -412,7 +412,7 @@
 }
 ```
 
-⚠️ 注意：一页最多1~2个。可换用珊瑚橙或纽约客红，文字用白色；天蓝只做少量点缀，不要在品牌色面板上放同色文字。
+⚠️ 注意：一页最多1~2个。可换用主色或强调色，文字用白色；点缀色只做少量点缀，不要在品牌色面板上放同色文字。
 
 ---
 
@@ -456,7 +456,7 @@
 .timeline-card .year {
   font-family: 'Spectral', serif;
   font-size: 1.8rem;
-  color: var(--sky-blue);
+  color: var(--decor);
   opacity: 0.6;
 }
 ```
@@ -548,8 +548,8 @@
   margin-bottom: -2px;
 }
 .tab.active {
-  border-bottom-color: var(--sky-blue);
-  color: var(--sky-blue);
+  border-bottom-color: var(--decor);
+  color: var(--decor);
   font-weight: 600;
 }
 .tab-content { display: none; }
@@ -666,7 +666,7 @@
   font-weight: 700;
 }
 .layout-sticky-mag .nav li.active::before {
-  color: var(--sky-blue);
+  color: var(--decor);
   font-size: 1.8rem;
 }
 .steps-content {
@@ -696,9 +696,9 @@
   font-size: 3rem;
   font-weight: 900;
   line-height: 1;
-  color: rgba(43,127,216,0.15);
+  color: rgba(240,112,64,0.24);
 }
-.step-item:nth-child(3n+2) .step-num { color: rgba(240,112,64,0.24); }
+.step-item:nth-child(3n+2) .step-num { color: rgba(43,127,216,0.15); }
 .step-item:nth-child(3n) .step-num { color: rgba(204,41,54,0.2); }
 .step-item .step-info h4 {
   font-family: 'Noto Serif SC', serif;
@@ -734,4 +734,4 @@ const stepObserver = new IntersectionObserver((entries) => {
 document.querySelectorAll('.step-observe').forEach(el => stepObserver.observe(el));
 ```
 
-⚠️ 注意：步骤5~10个最合适。超过10个太长，少于5个用横向Step连接线（#7）更紧凑。大图是关键——每一步都必须有一张占满宽度的配图。编号三色轮换（珊瑚橙/纽约客红/天蓝）保持节奏。移动端侧栏隐藏，变成纯纵向滚动。
+⚠️ 注意：步骤5~10个最合适。超过10个太长，少于5个用横向Step连接线（#7）更紧凑。大图是关键——每一步都必须有一张占满宽度的配图。编号三色轮换（主色/点缀色/强调色）保持节奏。移动端侧栏隐藏，变成纯纵向滚动。

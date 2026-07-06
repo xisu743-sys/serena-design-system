@@ -82,10 +82,10 @@ App型页面色彩更简洁：
 |------|------|------|
 | 背景 | `#fefcf6` | 保持品牌暖底 |
 | 卡片 | `#fff` | 白卡片浮于背景上 |
-| Header/Badge | `var(--coral)` | 珊瑚橙做主交互色 |
-| 强调/边框 | `var(--newyork-red)` | 纽约客红做border/badge |
-| 点缀操作 | `var(--sky-blue)` | 天蓝仅用于少量CTA或标签 |
-| 危险操作 | `var(--newyork-red)` | 红色仅用于删除/警告 |
+| Header/Badge | `var(--primary)` | 主色做主交互色 |
+| 强调/边框 | `var(--accent)` | 强调色做border/badge |
+| 点缀操作 | `var(--decor)` | 点缀色仅用于少量CTA或标签 |
+| 危险操作 | `var(--accent)` | 红色仅用于删除/警告 |
 | 绿色板块 | `#2d6a4f` | 特殊功能板块（如梦境/自然） |
 
 ### 分类标签扩展色
@@ -116,8 +116,8 @@ App型页面色彩更简洁：
   transition: all .2s;
 }
 .tab.active {
-  border-bottom-color: var(--sky-blue);
-  color: var(--sky-blue);
+  border-bottom-color: var(--decor);
+  color: var(--decor);
   font-weight: 600;
 }
 ```
@@ -173,7 +173,7 @@ App型页面色彩更简洁：
 }
 .app-input:focus {
   outline: none;
-  border-color: var(--sky-blue, #2B7FD8);
+  border-color: var(--decor, #2B7FD8);
   box-shadow: 0 0 0 3px rgba(43,127,216,0.1);
 }
 ```

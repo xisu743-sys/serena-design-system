@@ -19,17 +19,17 @@
 继承 brand-dna.md 的三色体系，额外规则：
 
 ### 合作品牌色扩展
-当页面涉及合作产品/品牌时，可引入第四色替代红色的点缀位：
-- Cola合作: `#F1752D`（橙色），替代红色作为强调色
+当页面涉及合作产品/品牌时，可引入第四色替代强调色位：
+- Cola合作: `#F1752D`（橙色），替代强调色位置
 - 金橙: `#F7A946`（偏金），用于slogan/时间标识
-- **规则**: 第四色只替代点缀或局部强调位置，不替代珊瑚橙主色
+- **规则**: 第四色只替代点缀或局部强调位置，不替代主色主色
 
 ### 暗色面板色值
 - 标准暗底: `#151821`
 - 深色底: `#0d1117`
-- 品牌珊瑚橙底: `var(--coral)` + 白字
-- 品牌红底: `var(--newyork-red)` + 白字
-- 品牌蓝底: `var(--sky-blue)` + 白字，仅少量使用
+- 主色底: `var(--primary)` + 白字
+- 强调色底: `var(--accent)` + 白字
+- 点缀色底: `var(--decor)` + 白字，仅少量使用
 
 ---
 
@@ -84,7 +84,7 @@ Landing页面高频使用的组件：
   align-items: center;
   gap: 8px;
   padding: 16px 36px;
-  background: var(--coral, #F07040);
+  background: var(--primary, #F07040);
   color: #fff;
   border-radius: 12px;
   text-decoration: none;
@@ -97,12 +97,12 @@ Landing页面高频使用的组件：
   box-shadow: 0 8px 24px rgba(240,112,64,0.3);
 }
 
-/* 天蓝次级变体（少量用于辅助行动） */
-.cta-button--blue {
-  background: var(--sky-blue, #2B7FD8);
+/* 点缀色次级变体（少量用于辅助行动） */
+.cta-button--decor {
+  background: var(--decor, #2B7FD8);
   color: #fff;
 }
-.cta-button--blue:hover {
+.cta-button--decor:hover {
   box-shadow: 0 8px 24px rgba(43,127,216,0.3);
 }
 ```
