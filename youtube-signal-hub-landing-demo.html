@@ -22,11 +22,10 @@
       --decor: #CC2936;
       --cream: #FFFDF9;
       --cream-dark: #F9F8F6;
-      --cream-warm: #FFF3EE;
       --ink: #1A1A2E;
       --ink-light: #4A4A5A;
       --ink-faint: #8A8A9A;
-      --line: rgba(26, 26, 46, .1);
+      --line: rgba(26, 26, 46, .08);
     }
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -38,7 +37,7 @@
       font-family: 'Noto Sans SC', -apple-system, 'PingFang SC', 'Helvetica Neue', sans-serif;
       color: var(--ink);
       background: var(--cream);
-      line-height: 1.6;
+      line-height: 1.65;
       -webkit-font-smoothing: antialiased;
     }
 
@@ -46,141 +45,92 @@
 
     img { display: block; max-width: 100%; }
 
-    .site-shell {
+    .page {
       min-height: 100vh;
-      overflow: hidden;
       background:
-        linear-gradient(90deg, rgba(240,112,64,.05) 1px, transparent 1px),
-        linear-gradient(180deg, rgba(43,127,216,.045) 1px, transparent 1px),
+        radial-gradient(circle at 72% 42%, rgba(43,127,216,.055), transparent 28%),
         var(--cream);
-      background-size: 72px 72px;
     }
 
-    .top-nav {
+    .nav {
       position: sticky;
       top: 0;
-      z-index: 10;
+      z-index: 20;
       display: flex;
       align-items: center;
-      gap: clamp(18px, 3vw, 42px);
-      min-height: 68px;
-      padding: 0 clamp(18px, 4vw, 64px);
-      background: rgba(255, 253, 249, .9);
-      border-bottom: 1px solid rgba(26,26,46,.07);
-      backdrop-filter: blur(14px);
-      overflow-x: auto;
+      justify-content: space-between;
+      gap: 28px;
+      height: 58px;
+      padding: 0 clamp(26px, 4vw, 52px);
+      background: rgba(255,253,249,.88);
+      border-bottom: 1px solid var(--line);
+      backdrop-filter: blur(12px);
     }
 
-    .top-nav::-webkit-scrollbar { display: none; }
-
-    .brand-mark {
-      flex: 0 0 auto;
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      color: var(--ink);
+    .logo {
+      color: var(--accent);
+      font-family: 'ChillHuoFangSong', 'Noto Serif SC', serif;
+      font-size: 1rem;
+      font-weight: 900;
       text-decoration: none;
       white-space: nowrap;
     }
 
-    .brand-mark::before {
-      content: '';
-      width: 12px;
-      height: 12px;
-      border-radius: 50%;
-      background: var(--primary);
-      box-shadow: 16px 0 0 var(--accent), 32px 0 0 var(--decor);
-      margin-right: 28px;
-    }
-
-    .brand-name {
-      font-family: 'ChillHuoFangSong', 'Noto Serif SC', serif;
-      font-size: .98rem;
-      font-weight: 900;
-      letter-spacing: .01em;
-    }
-
-    .nav-tabs {
+    .tabs {
       display: flex;
       align-items: center;
-      gap: 6px;
-      margin-left: auto;
-      flex: 0 0 auto;
+      gap: clamp(18px, 3vw, 34px);
+      overflow-x: auto;
+      scrollbar-width: none;
     }
 
-    .nav-tabs a {
-      display: inline-flex;
-      align-items: center;
-      min-height: 34px;
-      padding: 0 13px;
-      border-radius: 999px;
-      color: var(--ink-light);
-      text-decoration: none;
-      font-size: .76rem;
-      font-weight: 600;
-      transition: background .2s, color .2s, transform .2s;
-    }
+    .tabs::-webkit-scrollbar { display: none; }
 
-    .nav-tabs a:hover {
+    .tabs a {
       color: var(--ink);
-      background: rgba(43,127,216,.08);
-      transform: translateY(-1px);
+      font-size: .78rem;
+      font-weight: 800;
+      line-height: 1;
+      text-decoration: none;
+      white-space: nowrap;
+      transition: color .2s ease;
     }
 
-    .nav-tabs a.active {
-      color: #fff;
-      background: var(--accent);
-    }
+    .tabs a:hover,
+    .tabs a.active { color: var(--accent); }
 
     .hero {
-      position: relative;
       display: grid;
-      grid-template-columns: minmax(0, 1.12fr) minmax(310px, .88fr);
+      grid-template-columns: minmax(0, 1.05fr) minmax(320px, .72fr);
       align-items: center;
-      gap: clamp(42px, 6vw, 92px);
-      min-height: calc(100svh - 108px);
-      max-width: 1380px;
+      gap: clamp(52px, 7vw, 108px);
+      width: min(1120px, calc(100% - 64px));
+      min-height: calc(100svh - 58px);
       margin: 0 auto;
-      padding: clamp(46px, 8vh, 96px) clamp(22px, 5vw, 76px) clamp(34px, 5vh, 54px);
+      padding: clamp(78px, 12vh, 132px) 0 clamp(54px, 8vh, 88px);
     }
 
-    .hero-copy {
-      position: relative;
-      z-index: 2;
-      max-width: 760px;
-    }
-
-    .hero-kicker {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      margin-bottom: clamp(18px, 3vw, 30px);
+    .eyebrow {
+      margin-bottom: clamp(24px, 4vw, 36px);
       color: var(--accent);
-      font-size: .76rem;
-      font-weight: 800;
-      letter-spacing: .12em;
+      font-size: .72rem;
+      font-weight: 900;
+      letter-spacing: .18em;
       text-transform: uppercase;
-    }
-
-    .hero-kicker::before {
-      content: '';
-      width: 40px;
-      height: 3px;
-      background: var(--primary);
     }
 
     .kinetic-title {
       display: flex;
       flex-wrap: wrap;
       align-items: baseline;
-      column-gap: .18em;
-      row-gap: .08em;
-      margin-bottom: clamp(22px, 3vw, 34px);
-      font-family: 'Noto Serif SC', Georgia, serif;
-      font-size: clamp(3.45rem, 8.3vw, 8.8rem);
-      line-height: .88;
-      letter-spacing: 0;
+      column-gap: .22em;
+      row-gap: .05em;
+      margin-bottom: clamp(24px, 4vw, 38px);
       color: var(--ink);
+      font-family: 'Noto Serif SC', Georgia, serif;
+      font-size: clamp(4.1rem, 8.6vw, 7.6rem);
+      line-height: .9;
+      letter-spacing: 0;
     }
 
     .kinetic-title .word {
@@ -188,228 +138,143 @@
       white-space: nowrap;
     }
 
-    .kinetic-title span span {
+    .kinetic-title .char {
       display: inline-block;
-      font-weight: 300;
-      transition: color .35s ease, font-weight .35s ease, transform .35s ease;
+      font-weight: 500;
+      transition: color .35s ease, font-weight .35s ease;
     }
 
-    .kinetic-title span span:hover,
-    .kinetic-title span span.active {
-      color: var(--primary);
-      font-weight: 900;
-      transform: translateY(-.035em);
-    }
-
-    .hero-subtitle {
-      max-width: 610px;
-      font-family: 'ChillHuoFangSong', 'Noto Serif SC', serif;
-      font-size: clamp(1.28rem, 2.2vw, 2.05rem);
-      font-weight: 900;
-      line-height: 1.42;
-      color: var(--ink);
-    }
-
-    .hero-subtitle strong {
+    .kinetic-title .char:hover,
+    .kinetic-title .char.active {
       color: var(--accent);
       font-weight: 900;
     }
 
-    .hero-note {
-      max-width: 520px;
-      margin-top: clamp(18px, 3vw, 30px);
+    .subtitle {
+      max-width: 610px;
+      color: var(--ink);
+      font-family: 'ChillHuoFangSong', 'Noto Serif SC', serif;
+      font-size: clamp(1.32rem, 2vw, 1.75rem);
+      font-weight: 900;
+      line-height: 1.55;
+    }
+
+    .subtitle mark {
+      padding: 0 .14em .02em;
+      color: inherit;
+      background: linear-gradient(180deg, transparent 58%, rgba(43,127,216,.18) 58%);
+    }
+
+    .body-copy {
+      max-width: 540px;
+      margin-top: 22px;
       color: var(--ink-light);
-      font-size: clamp(.95rem, 1.2vw, 1.08rem);
+      font-size: .98rem;
       line-height: 1.9;
     }
 
-    .hero-actions {
+    .proof-line {
       display: flex;
       align-items: center;
-      gap: 14px;
-      flex-wrap: wrap;
-      margin-top: clamp(26px, 4vw, 42px);
+      gap: 16px;
+      margin-top: 34px;
+      color: var(--ink-faint);
+      font-size: .76rem;
+      font-weight: 700;
     }
 
-    .cta-button {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 48px;
-      padding: 0 24px;
-      border: none;
-      border-radius: 12px;
-      background: var(--accent);
-      color: #fff;
-      font: inherit;
-      font-size: .92rem;
-      font-weight: 800;
-      text-decoration: none;
-      cursor: pointer;
-      transition: transform .2s ease, box-shadow .2s ease;
-      box-shadow: 0 14px 30px rgba(43,127,216,.2);
-    }
-
-    .cta-button:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 18px 38px rgba(43,127,216,.28);
-    }
-
-    .text-link {
-      display: inline-flex;
-      align-items: center;
-      min-height: 48px;
-      color: var(--ink);
-      text-decoration: none;
-      font-size: .88rem;
-      font-weight: 800;
-      border-bottom: 2px solid rgba(240,112,64,.45);
-      transition: border-color .2s ease;
-    }
-
-    .text-link:hover { border-color: var(--primary); }
-
-    .hero-visual {
-      position: relative;
-      min-height: clamp(500px, 64vh, 720px);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .screen-stage {
-      position: relative;
-      width: min(500px, 100%);
-      transform: translateX(clamp(0px, 2vw, 26px)) rotate(1.5deg);
-    }
-
-    .screen-stage::before {
+    .proof-line::before {
       content: '';
-      position: absolute;
-      inset: -26px 36px 28px -34px;
-      border: 2px dashed rgba(240,112,64,.36);
-      border-radius: 34px;
-      transform: rotate(-4deg);
+      width: 42px;
+      height: 2px;
+      background: var(--primary);
     }
 
-    .screen-stage::after {
-      content: '20 hits';
+    .visual {
+      position: relative;
+      justify-self: end;
+      width: min(360px, 100%);
+    }
+
+    .visual::before {
+      content: '爆款预警';
       position: absolute;
-      right: -22px;
-      top: 14%;
+      z-index: 2;
+      left: -28px;
+      top: 28%;
       padding: 7px 13px;
       border-radius: 999px;
-      background: var(--decor);
-      color: #fff;
+      background: #fff;
+      color: var(--primary);
       font-family: 'Schoolbell', cursive;
-      font-size: 1rem;
-      transform: rotate(8deg);
-      box-shadow: 0 10px 22px rgba(204,41,54,.18);
+      font-size: .9rem;
+      font-weight: 700;
+      box-shadow: 0 14px 32px rgba(26,26,46,.08);
     }
 
-    .screenshot-frame {
+    .visual::after {
+      content: '20 videos';
+      position: absolute;
+      z-index: 2;
+      right: -22px;
+      top: 8%;
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: #fff;
+      color: var(--decor);
+      font-size: .78rem;
+      font-weight: 900;
+      box-shadow: 0 14px 32px rgba(26,26,46,.08);
+    }
+
+    .shot {
       position: relative;
       overflow: hidden;
-      border-radius: 30px;
-      border: 10px solid #fff;
+      border-radius: 18px;
       background: #fff;
-      box-shadow: 0 32px 80px rgba(26,26,46,.16);
+      box-shadow: 0 30px 80px rgba(26,26,46,.1);
     }
 
-    .screenshot-frame img {
+    .shot img {
       width: 100%;
       aspect-ratio: 1076 / 1556;
       object-fit: cover;
       object-position: center top;
     }
 
-    .signal-card {
-      position: absolute;
-      left: -58px;
-      bottom: 12%;
-      width: min(280px, 54vw);
-      padding: 18px 18px 16px;
-      border-radius: 18px;
-      background: #fff;
-      border: 1px solid rgba(26,26,46,.08);
-      box-shadow: 0 20px 54px rgba(26,26,46,.13);
-      transform: rotate(-4deg);
-    }
-
-    .signal-card .label {
-      display: inline-flex;
-      align-items: center;
-      gap: 7px;
-      margin-bottom: 10px;
-      color: var(--decor);
-      font-size: .68rem;
-      font-weight: 900;
-      letter-spacing: .08em;
-      text-transform: uppercase;
-    }
-
-    .signal-card .label::before {
-      content: '';
-      width: 7px;
-      height: 7px;
-      border-radius: 50%;
-      background: var(--decor);
-    }
-
-    .signal-card p {
-      color: var(--ink);
-      font-size: .88rem;
-      font-weight: 800;
-      line-height: 1.55;
-    }
-
-    .signal-card span {
-      display: block;
-      margin-top: 8px;
-      color: var(--ink-faint);
-      font-size: .72rem;
-      line-height: 1.6;
-    }
-
-    .next-peek {
-      display: grid;
-      grid-template-columns: .38fr 1fr;
-      gap: clamp(22px, 4vw, 56px);
-      align-items: center;
-      max-width: 1380px;
+    .next {
+      width: min(1120px, calc(100% - 64px));
       margin: 0 auto;
-      padding: 18px clamp(22px, 5vw, 76px) 28px;
-      border-top: 1px solid rgba(26,26,46,.08);
+      padding: 18px 0 30px;
+      border-top: 1px solid var(--line);
     }
 
-    .next-peek .index {
-      font-family: 'Schoolbell', cursive;
-      color: var(--primary);
-      font-size: 1rem;
-    }
-
-    .peek-row {
+    .next-list {
       display: flex;
       gap: 10px;
       overflow: hidden;
     }
 
-    .peek-pill {
+    .next-list span {
       flex: 0 0 auto;
-      display: inline-flex;
-      align-items: center;
-      min-height: 34px;
-      padding: 0 13px;
+      padding: 5px 12px;
       border-radius: 999px;
       background: var(--cream-dark);
       color: var(--ink-light);
-      font-size: .76rem;
-      font-weight: 700;
+      font-size: .72rem;
+      font-weight: 800;
       white-space: nowrap;
     }
 
-    .peek-pill:nth-child(2) { color: var(--accent); background: #F5FAFF; }
-    .peek-pill:nth-child(4) { color: var(--decor); background: #FFF6F7; }
+    .next-list span:nth-child(2) {
+      color: var(--accent);
+      background: #F5FAFF;
+    }
+
+    .next-list span:nth-child(4) {
+      color: var(--decor);
+      background: #FFF6F7;
+    }
 
     @media (prefers-reduced-motion: reduce) {
       html { scroll-behavior: auto; }
@@ -420,137 +285,93 @@
       }
     }
 
-    @media (max-width: 980px) {
-      .top-nav { min-height: 62px; }
-      .nav-tabs { margin-left: 0; }
+    @media (max-width: 900px) {
       .hero {
         grid-template-columns: 1fr;
+        width: min(680px, calc(100% - 42px));
         min-height: auto;
-        padding-top: 42px;
       }
-      .hero-copy { max-width: 100%; }
-      .hero-visual {
-        min-height: auto;
-        justify-content: flex-start;
+      .visual {
+        justify-self: start;
+        width: min(390px, 86vw);
       }
-      .screen-stage {
-        width: min(430px, 82vw);
-        transform: none;
-      }
-      .signal-card {
-        left: auto;
-        right: -18px;
-        bottom: 8%;
-      }
-      .next-peek { grid-template-columns: 1fr; }
+      .next { width: min(680px, calc(100% - 42px)); }
     }
 
     @media (max-width: 620px) {
-      .top-nav {
+      .nav {
+        height: auto;
         align-items: flex-start;
         flex-direction: column;
-        gap: 8px;
-        padding-top: 12px;
-        padding-bottom: 12px;
+        padding-top: 16px;
+        padding-bottom: 14px;
       }
-      .brand-mark::before { transform: scale(.84); transform-origin: left center; }
-      .nav-tabs {
+      .tabs {
         width: 100%;
-        overflow-x: auto;
         padding-bottom: 2px;
       }
       .hero {
-        gap: 34px;
-        padding-inline: 18px;
+        padding-top: 56px;
       }
       .kinetic-title {
-        font-size: clamp(3rem, 18vw, 4.7rem);
+        font-size: clamp(3.1rem, 17vw, 4.6rem);
       }
-      .hero-actions { display: grid; }
-      .cta-button,
-      .text-link { width: 100%; }
-      .text-link { justify-content: center; }
-      .screen-stage { width: min(360px, 86vw); }
-      .screen-stage::before {
-        inset: -16px 22px 20px -18px;
-        border-radius: 24px;
+      .visual::before {
+        left: 14px;
+        top: auto;
+        bottom: 18px;
       }
-      .screen-stage::after {
-        right: -8px;
-        top: 8%;
-      }
-      .signal-card {
-        position: relative;
-        right: auto;
-        bottom: auto;
-        width: 100%;
-        margin-top: 14px;
-        transform: rotate(-2deg);
-      }
-      .next-peek {
-        padding-inline: 18px;
+      .visual::after {
+        right: 12px;
       }
     }
   </style>
 </head>
 <body>
-  <div class="site-shell">
-    <nav class="top-nav" aria-label="Primary">
-      <a class="brand-mark" href="#">
-        <span class="brand-name">YouTube Signal Hub</span>
-      </a>
-      <div class="nav-tabs" role="list">
-        <a class="active" href="#hero" role="listitem">Hero</a>
-        <a href="#rules" role="listitem">监控规则</a>
-        <a href="#signals" role="listitem">爆款信号</a>
-        <a href="#delivery" role="listitem">通知送达</a>
+  <div class="page">
+    <nav class="nav" aria-label="Primary">
+      <a class="logo" href="#hero">YouTube Signal Hub</a>
+      <div class="tabs" role="list">
+        <a class="active" href="#hero" role="listitem">关系</a>
+        <a href="#rules" role="listitem">规则</a>
+        <a href="#signals" role="listitem">被看见</a>
+        <a href="#delivery" role="listitem">通知</a>
       </div>
     </nav>
 
     <main>
       <section class="hero" id="hero">
-        <div class="hero-copy">
-          <p class="hero-kicker">CUSTOM CHANNEL RADAR</p>
+        <div class="copy">
+          <p class="eyebrow">YOUTUBE RADAR × AI</p>
           <h1 class="kinetic-title" aria-label="YouTube Signal Hub">
             <span class="word">YouTube</span>
             <span class="word">Signal</span>
             <span class="word">Hub</span>
           </h1>
-          <p class="hero-subtitle">
-            <strong>你的爆款视频，已送达。</strong><br>
+          <p class="subtitle">
+            <mark>你的爆款视频，已送达。</mark><br>
             定制频道监控规则，让信号主动找上门。
           </p>
-          <p class="hero-note">
-            从频道池、播放量阈值到通知渠道，把“刷榜找灵感”变成一套会主动提醒你的内容雷达。
+          <p class="body-copy">
+            不再反复刷新频道和排行榜。设置频道池、播放量阈值与通知渠道，系统会把值得看的变化安静地送到你面前。
           </p>
-          <div class="hero-actions">
-            <a class="cta-button" href="#rules">配置监控规则</a>
-            <a class="text-link" href="#signals">查看信号样例</a>
-          </div>
+          <p class="proof-line">channel signals, delivered quietly</p>
         </div>
 
-        <div class="hero-visual" aria-label="爆款监测通知截图">
-          <div class="screen-stage">
-            <figure class="screenshot-frame">
-              <img src="./assets/youtube-signal-hub-screenshot.jpg" alt="YouTube Signal Hub 爆款监测通知截图">
-            </figure>
-            <aside class="signal-card">
-              <div class="label">Rule triggered</div>
-              <p>总播放量规则已触发，20 个视频命中阈值。</p>
-              <span>通知不再等你刷新页面，爆款信号会自己抵达。</span>
-            </aside>
+        <figure class="visual" aria-label="爆款监测通知截图">
+          <div class="shot">
+            <img src="./assets/youtube-signal-hub-screenshot.jpg" alt="YouTube Signal Hub 爆款监测通知截图">
           </div>
-        </div>
+        </figure>
       </section>
 
-      <section class="next-peek" id="rules" aria-label="下一段内容预览">
-        <div class="index">Next · monitoring rules</div>
-        <div class="peek-row">
-          <span class="peek-pill">频道池</span>
-          <span class="peek-pill">播放量阈值</span>
-          <span class="peek-pill">关键词命中</span>
-          <span class="peek-pill">异常爆发</span>
-          <span class="peek-pill">通知渠道</span>
+      <section class="next" id="rules" aria-label="下一段内容预览">
+        <div class="next-list">
+          <span>频道池</span>
+          <span>播放量阈值</span>
+          <span>关键词命中</span>
+          <span>异常爆发</span>
+          <span>通知渠道</span>
         </div>
       </section>
     </main>
@@ -562,26 +383,27 @@
       word.textContent = '';
       chars.forEach((char) => {
         const span = document.createElement('span');
+        span.className = 'char';
         span.textContent = char;
         word.appendChild(span);
       });
     });
 
-    const letters = Array.from(document.querySelectorAll('.kinetic-title .word span'));
+    const chars = Array.from(document.querySelectorAll('.kinetic-title .char'));
     let activeIndex = 0;
 
-    function activateLetter(index) {
-      letters.forEach((letter, i) => letter.classList.toggle('active', i === index));
+    function activate(index) {
+      chars.forEach((char, i) => char.classList.toggle('active', i === index));
     }
 
-    letters.forEach((letter, index) => {
-      letter.addEventListener('mouseenter', () => activateLetter(index));
+    chars.forEach((char, index) => {
+      char.addEventListener('mouseenter', () => activate(index));
     });
 
     window.setInterval(() => {
-      activeIndex = (activeIndex + 1) % letters.length;
-      activateLetter(activeIndex);
-    }, 950);
+      activeIndex = (activeIndex + 1) % chars.length;
+      activate(activeIndex);
+    }, 1100);
   </script>
 </body>
 </html>
