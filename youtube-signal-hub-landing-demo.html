@@ -6,7 +6,7 @@
   <title>YouTube Signal Hub · Landing Demo</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700;900&family=Noto+Serif+SC:wght@400;700;900&family=Schoolbell&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,700;0,9..144,900&family=Noto+Sans+SC:wght@300;400;500;700;900&family=Noto+Serif+SC:wght@300;400;700;900&family=Schoolbell&display=swap" rel="stylesheet">
   <style>
     @font-face {
       font-family: 'ChillHuoFangSong';
@@ -41,7 +41,7 @@
       -webkit-font-smoothing: antialiased;
     }
 
-    ::selection { background: var(--accent); color: #fff; }
+    ::selection { background: rgba(240,112,64,.18); color: var(--ink); }
 
     img { display: block; max-width: 100%; }
 
@@ -68,10 +68,10 @@
     }
 
     .logo {
-      color: var(--accent);
-      font-family: 'ChillHuoFangSong', 'Noto Serif SC', serif;
-      font-size: 1rem;
-      font-weight: 900;
+      color: var(--ink);
+      font-family: 'Fraunces', 'Noto Serif SC', serif;
+      font-size: 1.05rem;
+      font-weight: 700;
       text-decoration: none;
       white-space: nowrap;
     }
@@ -97,7 +97,7 @@
     }
 
     .tabs a:hover,
-    .tabs a.active { color: var(--accent); }
+    .tabs a.active { color: var(--primary); }
 
     .hero {
       display: grid;
@@ -112,7 +112,7 @@
 
     .eyebrow {
       margin-bottom: clamp(24px, 4vw, 36px);
-      color: var(--accent);
+      color: var(--primary);
       font-size: .72rem;
       font-weight: 900;
       letter-spacing: .18em;
@@ -127,9 +127,9 @@
       row-gap: .05em;
       margin-bottom: clamp(24px, 4vw, 38px);
       color: var(--ink);
-      font-family: 'Noto Serif SC', Georgia, serif;
-      font-size: clamp(4.1rem, 8.6vw, 7.6rem);
-      line-height: .9;
+      font-family: 'Noto Serif SC', serif;
+      font-size: clamp(2.4rem, 6.5vw, 4.8rem);
+      line-height: 1.2;
       letter-spacing: 0;
     }
 
@@ -140,14 +140,16 @@
 
     .kinetic-title .char {
       display: inline-block;
-      font-weight: 500;
-      transition: color .35s ease, font-weight .35s ease;
+      font-weight: 300;
+      transition: font-weight .4s, color .4s, padding .4s;
+      cursor: default;
     }
 
     .kinetic-title .char:hover,
     .kinetic-title .char.active {
-      color: var(--accent);
+      color: var(--primary);
       font-weight: 900;
+      padding-inline: .06em;
     }
 
     .subtitle {
@@ -162,15 +164,7 @@
     .subtitle mark {
       padding: 0 .14em .02em;
       color: inherit;
-      background: linear-gradient(180deg, transparent 58%, rgba(43,127,216,.18) 58%);
-    }
-
-    .body-copy {
-      max-width: 540px;
-      margin-top: 22px;
-      color: var(--ink-light);
-      font-size: .98rem;
-      line-height: 1.9;
+      background: linear-gradient(180deg, transparent 58%, rgba(240,112,64,.18) 58%);
     }
 
     .proof-line {
@@ -352,9 +346,6 @@
             <mark>你的爆款视频，已送达。</mark><br>
             定制频道监控规则，让信号主动找上门。
           </p>
-          <p class="body-copy">
-            不再反复刷新频道和排行榜。设置频道池、播放量阈值与通知渠道，系统会把值得看的变化安静地送到你面前。
-          </p>
           <p class="proof-line">channel signals, delivered quietly</p>
         </div>
 
@@ -389,21 +380,15 @@
       });
     });
 
-    const chars = Array.from(document.querySelectorAll('.kinetic-title .char'));
-    let activeIndex = 0;
-
     function activate(index) {
+      const chars = Array.from(document.querySelectorAll('.kinetic-title .char'));
       chars.forEach((char, i) => char.classList.toggle('active', i === index));
     }
 
-    chars.forEach((char, index) => {
+    document.querySelectorAll('.kinetic-title .char').forEach((char, index) => {
       char.addEventListener('mouseenter', () => activate(index));
+      char.addEventListener('mouseleave', () => char.classList.remove('active'));
     });
-
-    window.setInterval(() => {
-      activeIndex = (activeIndex + 1) % chars.length;
-      activate(activeIndex);
-    }, 1100);
   </script>
 </body>
 </html>
