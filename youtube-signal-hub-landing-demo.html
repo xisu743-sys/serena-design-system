@@ -162,29 +162,14 @@
     }
 
     .kinetic-title .word-signal {
-      position: relative;
-      z-index: 0;
-    }
-
-    .kinetic-title .word-signal::after {
-      content: "";
-      position: absolute;
-      left: -.03em;
-      right: -.04em;
-      bottom: .07em;
-      height: .38em;
-      background: rgba(240,112,64,.2);
-      border-radius: 2px;
-      z-index: -1;
+      color: var(--decor);
     }
 
     .kinetic-title .char {
-      position: relative;
       display: inline-block;
       font-weight: 700;
       transition: font-weight .4s, color .4s, padding .4s;
       cursor: default;
-      z-index: 1;
     }
 
     .kinetic-title .char:hover,
@@ -196,7 +181,7 @@
 
     .kinetic-title .word-signal .char:hover,
     .kinetic-title .word-signal .char.active {
-      color: var(--ink);
+      color: var(--decor);
     }
 
     .subtitle {
