@@ -161,15 +161,32 @@
       flex-basis: 100%;
     }
 
-    .kinetic-title .word-signal .char {
-      color: var(--decor);
+    .kinetic-title .word-signal {
+      position: relative;
+      z-index: 0;
+    }
+
+    .kinetic-title .word-signal::after {
+      content: "";
+      position: absolute;
+      left: .03em;
+      right: -.02em;
+      bottom: -.08em;
+      height: .12em;
+      background: var(--primary);
+      border-radius: 999px;
+      transform: rotate(-1.5deg);
+      opacity: .9;
+      z-index: -1;
     }
 
     .kinetic-title .char {
+      position: relative;
       display: inline-block;
       font-weight: 700;
       transition: font-weight .4s, color .4s, padding .4s;
       cursor: default;
+      z-index: 1;
     }
 
     .kinetic-title .char:hover,
@@ -181,7 +198,7 @@
 
     .kinetic-title .word-signal .char:hover,
     .kinetic-title .word-signal .char.active {
-      color: var(--decor);
+      color: var(--ink);
     }
 
     .subtitle {
