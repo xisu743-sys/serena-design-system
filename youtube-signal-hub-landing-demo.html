@@ -128,8 +128,8 @@
       margin-bottom: clamp(24px, 4vw, 38px);
       color: var(--ink);
       font-family: 'Noto Serif SC', serif;
-      font-size: clamp(2.4rem, 6.5vw, 4.8rem);
-      line-height: 1.2;
+      font-size: clamp(3rem, 7.8vw, 6rem);
+      line-height: 1.08;
       letter-spacing: 0;
     }
 
@@ -138,9 +138,17 @@
       white-space: nowrap;
     }
 
+    .kinetic-title .word:first-child {
+      flex-basis: 100%;
+    }
+
+    .kinetic-title .word-signal .char {
+      color: var(--decor);
+    }
+
     .kinetic-title .char {
       display: inline-block;
-      font-weight: 300;
+      font-weight: 700;
       transition: font-weight .4s, color .4s, padding .4s;
       cursor: default;
     }
@@ -152,19 +160,18 @@
       padding-inline: .06em;
     }
 
+    .kinetic-title .word-signal .char:hover,
+    .kinetic-title .word-signal .char.active {
+      color: var(--decor);
+    }
+
     .subtitle {
       max-width: 610px;
       color: var(--ink);
-      font-family: 'ChillHuoFangSong', 'Noto Serif SC', serif;
-      font-size: clamp(1.32rem, 2vw, 1.75rem);
-      font-weight: 900;
-      line-height: 1.55;
-    }
-
-    .subtitle mark {
-      padding: 0 .14em .02em;
-      color: inherit;
-      background: linear-gradient(180deg, transparent 58%, rgba(240,112,64,.18) 58%);
+      font-family: 'Noto Sans SC', -apple-system, 'PingFang SC', sans-serif;
+      font-size: 1.05rem;
+      font-weight: 400;
+      line-height: 1.9;
     }
 
     .proof-line {
@@ -187,38 +194,7 @@
     .visual {
       position: relative;
       justify-self: end;
-      width: min(360px, 100%);
-    }
-
-    .visual::before {
-      content: '爆款预警';
-      position: absolute;
-      z-index: 2;
-      left: -28px;
-      top: 28%;
-      padding: 7px 13px;
-      border-radius: 999px;
-      background: #fff;
-      color: var(--primary);
-      font-family: 'Schoolbell', cursive;
-      font-size: .9rem;
-      font-weight: 700;
-      box-shadow: 0 14px 32px rgba(26,26,46,.08);
-    }
-
-    .visual::after {
-      content: '20 videos';
-      position: absolute;
-      z-index: 2;
-      right: -22px;
-      top: 8%;
-      padding: 8px 14px;
-      border-radius: 999px;
-      background: #fff;
-      color: var(--decor);
-      font-size: .78rem;
-      font-weight: 900;
-      box-shadow: 0 14px 32px rgba(26,26,46,.08);
+      width: min(320px, 100%);
     }
 
     .shot {
@@ -287,7 +263,7 @@
       }
       .visual {
         justify-self: start;
-        width: min(390px, 86vw);
+        width: min(340px, 82vw);
       }
       .next { width: min(680px, calc(100% - 42px)); }
     }
@@ -308,15 +284,7 @@
         padding-top: 56px;
       }
       .kinetic-title {
-        font-size: clamp(3.1rem, 17vw, 4.6rem);
-      }
-      .visual::before {
-        left: 14px;
-        top: auto;
-        bottom: 18px;
-      }
-      .visual::after {
-        right: 12px;
+        font-size: clamp(3.35rem, 18vw, 5.1rem);
       }
     }
   </style>
@@ -339,11 +307,11 @@
           <p class="eyebrow">YOUTUBE RADAR × AI</p>
           <h1 class="kinetic-title" aria-label="YouTube Signal Hub">
             <span class="word">YouTube</span>
-            <span class="word">Signal</span>
+            <span class="word word-signal">Signal</span>
             <span class="word">Hub</span>
           </h1>
           <p class="subtitle">
-            <mark>你的爆款视频，已送达。</mark><br>
+            你的爆款视频已送达。<br>
             定制频道监控规则，让信号主动找上门。
           </p>
           <p class="proof-line">channel signals, delivered quietly</p>
