@@ -214,6 +214,91 @@
       object-position: center top;
     }
 
+    .scene {
+      display: flex;
+      align-items: center;
+      min-height: calc(100svh - 58px);
+      scroll-margin-top: 58px;
+      background: var(--cream-dark);
+      border-top: 1px solid rgba(26,26,46,.05);
+      padding: clamp(78px, 11vw, 132px) 0;
+    }
+
+    .scene-inner {
+      display: grid;
+      grid-template-columns: minmax(220px, .45fr) minmax(0, 1fr);
+      gap: clamp(40px, 7vw, 92px);
+      width: min(1120px, calc(100% - 64px));
+      margin: 0 auto;
+      align-items: start;
+    }
+
+    .section-kicker {
+      display: block;
+      margin-bottom: 16px;
+      color: var(--primary);
+      font-family: 'Schoolbell', cursive;
+      font-size: clamp(2.6rem, 6vw, 5rem);
+      font-weight: 700;
+      line-height: .9;
+    }
+
+    .section-title {
+      font-family: 'Noto Serif SC', serif;
+      font-size: clamp(2.8rem, 6vw, 5rem);
+      font-weight: 900;
+      line-height: 1.05;
+      letter-spacing: 0;
+    }
+
+    .scene-lead {
+      max-width: 280px;
+      margin-top: 28px;
+      color: var(--ink-light);
+      font-size: .95rem;
+      line-height: 1.9;
+    }
+
+    .pain-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .pain-card {
+      min-height: 238px;
+      padding: 28px 24px;
+      background: #fff;
+      border: 1px solid rgba(26,26,46,.06);
+      border-radius: 8px;
+      box-shadow: 0 14px 42px rgba(26,26,46,.045);
+    }
+
+    .pain-num {
+      display: block;
+      margin-bottom: 28px;
+      color: rgba(240,112,64,.62);
+      font-family: 'Schoolbell', cursive;
+      font-size: 1.25rem;
+      font-weight: 700;
+      line-height: 1;
+    }
+
+    .pain-card h3 {
+      margin-bottom: 14px;
+      color: var(--ink);
+      font-family: 'Noto Serif SC', serif;
+      font-size: 1.32rem;
+      font-weight: 900;
+      line-height: 1.3;
+    }
+
+    .pain-card p {
+      color: var(--ink-light);
+      font-size: .88rem;
+      line-height: 1.85;
+    }
+
     @media (prefers-reduced-motion: reduce) {
       html { scroll-behavior: auto; }
       *, *::before, *::after {
@@ -228,6 +313,16 @@
         grid-template-columns: 1fr;
         width: min(680px, calc(100% - 42px));
         min-height: auto;
+      }
+      .scene-inner {
+        grid-template-columns: 1fr;
+        width: min(680px, calc(100% - 42px));
+      }
+      .scene-lead {
+        max-width: 520px;
+      }
+      .pain-grid {
+        grid-template-columns: 1fr;
       }
       .visual {
         justify-self: start;
@@ -253,6 +348,12 @@
       .kinetic-title {
         font-size: clamp(3.35rem, 18vw, 5.1rem);
       }
+      .scene {
+        padding: 70px 0;
+      }
+      .pain-card {
+        min-height: auto;
+      }
     }
   </style>
 </head>
@@ -261,7 +362,7 @@
     <nav class="nav" aria-label="Primary">
       <a class="logo" href="#hero">YouTube Signal Hub</a>
       <div class="tabs" role="list">
-        <a class="active" href="#hero" role="listitem">关系</a>
+        <a class="active" href="#scene" role="listitem">现场</a>
         <a href="#rules" role="listitem">规则</a>
         <a href="#signals" role="listitem">被看见</a>
         <a href="#delivery" role="listitem">通知</a>
@@ -288,6 +389,36 @@
             <img src="./assets/youtube-signal-hub-screenshot.jpg" alt="YouTube Signal Hub 爆款监测通知截图">
           </div>
         </figure>
+      </section>
+
+      <section class="scene" id="scene" aria-labelledby="scene-title">
+        <div class="scene-inner">
+          <div>
+            <span class="section-kicker">01</span>
+            <h2 class="section-title" id="scene-title">现场</h2>
+            <p class="scene-lead">做频道定位时，我需要快速判断哪些对标内容真的在起势。</p>
+          </div>
+
+          <div class="pain-grid" aria-label="频道定位阶段的三个痛点">
+            <article class="pain-card">
+              <span class="pain-num">01</span>
+              <h3>增量只能猜</h3>
+              <p>免费插件只显示更新时间，看不到播放量增量，只能用发布时间和当前播放量粗略判断。</p>
+            </article>
+
+            <article class="pain-card">
+              <span class="pain-num">02</span>
+              <h3>数据逐条查</h3>
+              <p>付费工具把信息堆在侧边栏里，高峰时要同时打开十几个视频标签页来回确认。</p>
+            </article>
+
+            <article class="pain-card">
+              <span class="pain-num">03</span>
+              <h3>低粉爆款会错过</h3>
+              <p>真正有价值的信号随时可能爆发，靠人工刷视频很难稳定捕捉。</p>
+            </article>
+          </div>
+        </div>
       </section>
 
     </main>
