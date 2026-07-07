@@ -214,40 +214,6 @@
       object-position: center top;
     }
 
-    .next {
-      width: min(1120px, calc(100% - 64px));
-      margin: 0 auto;
-      padding: 18px 0 30px;
-      border-top: 1px solid var(--line);
-    }
-
-    .next-list {
-      display: flex;
-      gap: 10px;
-      overflow: hidden;
-    }
-
-    .next-list span {
-      flex: 0 0 auto;
-      padding: 5px 12px;
-      border-radius: 999px;
-      background: var(--cream-dark);
-      color: var(--ink-light);
-      font-size: .72rem;
-      font-weight: 800;
-      white-space: nowrap;
-    }
-
-    .next-list span:nth-child(2) {
-      color: var(--accent);
-      background: #F5FAFF;
-    }
-
-    .next-list span:nth-child(4) {
-      color: var(--decor);
-      background: #FFF6F7;
-    }
-
     @media (prefers-reduced-motion: reduce) {
       html { scroll-behavior: auto; }
       *, *::before, *::after {
@@ -267,7 +233,6 @@
         justify-self: start;
         width: min(340px, 82vw);
       }
-      .next { width: min(680px, calc(100% - 42px)); }
     }
 
     @media (max-width: 620px) {
@@ -325,15 +290,6 @@
         </figure>
       </section>
 
-      <section class="next" id="rules" aria-label="下一段内容预览">
-        <div class="next-list">
-          <span>频道池</span>
-          <span>播放量阈值</span>
-          <span>关键词命中</span>
-          <span>异常爆发</span>
-          <span>通知渠道</span>
-        </div>
-      </section>
     </main>
   </div>
 
