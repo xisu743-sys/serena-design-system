@@ -69,9 +69,10 @@
 
     .logo {
       color: var(--ink);
-      font-family: 'Fraunces', 'Noto Serif SC', serif;
-      font-size: 1.05rem;
-      font-weight: 700;
+      font-family: 'Schoolbell', cursive;
+      font-size: 1.16rem;
+      font-weight: 400;
+      line-height: 1;
       text-decoration: none;
       white-space: nowrap;
     }
@@ -87,17 +88,35 @@
     .tabs::-webkit-scrollbar { display: none; }
 
     .tabs a {
-      color: var(--ink);
-      font-size: .78rem;
-      font-weight: 800;
-      line-height: 1;
+      position: relative;
+      color: var(--ink-light);
+      font-size: .76rem;
+      font-weight: 500;
+      line-height: 1.2;
       text-decoration: none;
       white-space: nowrap;
       transition: color .2s ease;
     }
 
+    .tabs a::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: -8px;
+      height: 2px;
+      border-radius: 999px;
+      background: var(--primary);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform .22s ease;
+    }
+
     .tabs a:hover,
     .tabs a.active { color: var(--primary); }
+
+    .tabs a:hover::after,
+    .tabs a.active::after { transform: scaleX(1); }
 
     .hero {
       display: grid;
