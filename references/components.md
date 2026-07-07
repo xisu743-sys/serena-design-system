@@ -118,7 +118,7 @@
 }
 ```
 
-**变体**: 编号颜色按品牌三色轮换（主色/点缀色/强调色）
+**变体**: 编号颜色按品牌三色轮换（主色/强调色/点缀色）
 ```css
 .number-card:nth-child(3n+1) .card-number { color: rgba(240, 112, 64, 0.14); }
 .number-card:nth-child(3n+2) .card-number { color: rgba(43, 127, 216, 0.08); }
@@ -155,9 +155,9 @@
   margin-bottom: 14px;
 }
 /* pill颜色变体 */
-.tag-card .card-pill--decor { background: rgba(43,127,216,0.1); color: var(--decor); }
+.tag-card .card-pill--decor { background: rgba(204,41,54,0.1); color: var(--decor); }
 .tag-card .card-pill--primary { background: rgba(240,112,64,0.16); color: #B84A24; }
-.tag-card .card-pill--accent { background: rgba(204,41,54,0.1); color: var(--accent); }
+.tag-card .card-pill--accent { background: rgba(43,127,216,0.1); color: var(--accent); }
 .tag-card .card-title {
   font-family: 'Noto Serif SC', serif;
   font-size: 1.05rem;
@@ -494,7 +494,7 @@
   font-family: 'Spectral', serif;
   font-style: italic;
   font-size: clamp(1.4rem, 3vw, 2rem);
-  color: var(--decor, #2B7FD8);
+  color: var(--decor, #CC2936);
   opacity: 0.3;
   display: block;
   margin-bottom: 0.25rem;
@@ -551,7 +551,7 @@
   font-family: 'Noto Serif SC', serif;
   font-size: 1.2rem;
   font-weight: 900;
-  color: var(--decor, #2B7FD8);
+  color: var(--decor, #CC2936);
   line-height: 1.7;
 }
 ```
@@ -581,8 +581,8 @@
   left: 20px;
   font-family: 'Schoolbell', cursive;
   font-size: 1rem;
-  color: var(--decor, #2B7FD8);
-  background: var(--cream, #fefcf6);
+  color: var(--decor, #CC2936);
+  background: var(--cream, #FFFDF9);
   padding: 0 8px;
   font-weight: 700;
 }
@@ -921,7 +921,7 @@ document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 ```css
 .viral-pullquote {
   padding: 36px 40px;
-  background: var(--cream, #fefcf6);
+  background: var(--cream, #FFFDF9);
   border-radius: 16px;
   border: 2px solid var(--primary, #F07040);
   position: relative;
@@ -978,8 +978,8 @@ document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
   border-bottom-right-radius: 4px;
 }
 .chat-bubble.ai {
-  background: var(--decor, #2B7FD8);
-  color: #fefcf6;
+  background: var(--decor, #CC2936);
+  color: #FFFDF9;
   align-self: flex-start;
   border-bottom-left-radius: 4px;
 }
@@ -1003,7 +1003,7 @@ document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
   font-family: 'Spectral', serif;
   font-size: clamp(3rem, 8vw, 7rem);
   font-weight: 900;
-  color: var(--decor, #2B7FD8);
+  color: var(--decor, #CC2936);
   opacity: 0.15;
   line-height: 0.85;
   display: block;
@@ -1422,7 +1422,7 @@ nav.scrolled {
   align-items: center;
   gap: 12px;
   padding: 24px 32px;
-  background: var(--cream, #fefcf6);
+  background: var(--cream, #FFFDF9);
   border-radius: 14px;
   border: 1px solid rgba(43, 127, 216, 0.1);
 }
@@ -1434,7 +1434,7 @@ nav.scrolled {
   box-shadow: 0 2px 8px rgba(0,0,0,.04);
 }
 .flow-arrow {
-  color: var(--decor, #2B7FD8);
+  color: var(--decor, #CC2936);
   font-size: 1.2rem;
   background: transparent !important;
   box-shadow: none !important;
@@ -1774,7 +1774,7 @@ Hover时出现品牌渐变顶条。
   position: absolute;
   top: 0; left: 0; right: 0;
   height: 3px;
-  background: linear-gradient(90deg, var(--primary, #F07040), var(--decor, #2B7FD8));
+  background: linear-gradient(90deg, var(--primary, #F07040), var(--decor, #CC2936));
   opacity: 0;
   transition: opacity .3s;
 }
@@ -1914,7 +1914,7 @@ Hover时出现品牌渐变顶条。
 }
 .filter-tag.active {
   color: #fff;
-  background: var(--decor, #2B7FD8);
+  background: var(--decor, #CC2936);
 }
 .filter-tag:hover:not(.active) {
   background: rgba(0,0,0,.1);
@@ -1959,11 +1959,11 @@ Hover时出现品牌渐变顶条。
   border-radius: 12px;
   font-size: 0.7rem;
   background: rgba(43,127,216,0.1);
-  color: var(--decor, #2B7FD8);
+  color: var(--decor, #CC2936);
   margin-bottom: 0.75rem;
 }
 .verdict {
-  border-left: 3px solid var(--decor, #2B7FD8);
+  border-left: 3px solid var(--decor, #CC2936);
   padding-left: 12px;
   font-size: 0.85rem;
   color: var(--ink-light, #4A4A5A);
@@ -1974,7 +1974,7 @@ Hover时出现品牌渐变顶条。
   padding: 2px 8px;
   border-radius: 8px;
   font-size: 0.7rem;
-  background: var(--cream-dark, #faf6eb);
+  background: var(--cream-dark, #F9F8F6);
 }
 ```
 
@@ -2026,7 +2026,7 @@ Hover时出现品牌渐变顶条。
   margin: 0 auto;
 }
 .book-section {
-  background: var(--cream, #fefcf6);
+  background: var(--cream, #FFFDF9);
   padding: 48px 44px;
   margin-bottom: 2px;
   border-radius: 16px;
@@ -2090,7 +2090,7 @@ Hover时出现品牌渐变顶条。
   align-items: center;
   gap: 8px;
   padding: 14px 32px;
-  background: var(--decor, #2B7FD8);
+  background: var(--decor, #CC2936);
   color: #fff;
   border-radius: 12px;
   text-decoration: none;
@@ -2149,14 +2149,14 @@ Hover时出现品牌渐变顶条。
 ```css
 /* 杂志Editorial对比 */
 .section-editorial {
-  background: #faf6eb;
+  background: #F9F8F6;
   padding: clamp(80px, 12vh, 160px) 0;
 }
 .section-editorial .section-number {
   font-family: 'Spectral', serif;
   font-style: italic;
   font-size: clamp(1.4rem, 3vw, 2rem);
-  color: var(--decor, #2B7FD8);
+  color: var(--decor, #CC2936);
   opacity: 0.3;
   display: block;
   margin-bottom: 0.25rem;
@@ -2181,7 +2181,7 @@ Hover时出现品牌渐变顶条。
   font-family: 'Spectral', serif;
   font-size: clamp(3rem, 8vw, 6rem);
   font-weight: 900;
-  color: var(--decor, #2B7FD8);
+  color: var(--decor, #CC2936);
   opacity: 0.1;
   line-height: 0.85;
   display: block;
@@ -2301,8 +2301,8 @@ Hover时出现品牌渐变顶条。
   border-radius: 50%;
   background: var(--primary, #F07040);
 }
-.dot-row:nth-child(2n) .dot-dim::before { background: var(--decor, #2B7FD8); }
-.dot-row:nth-child(3n) .dot-dim::before { background: var(--accent, #CC2936); }
+.dot-row:nth-child(2n) .dot-dim::before { background: var(--decor, #CC2936); }
+.dot-row:nth-child(3n) .dot-dim::before { background: var(--accent, #2B7FD8); }
 .dot-val {
   font-size: 0.9rem;
   color: var(--ink, #1A1A2E);
@@ -2365,7 +2365,7 @@ Hover时出现品牌渐变顶条。
 
 ```css
 .ticket-vintage {
-  background: #faf6eb;
+  background: #F9F8F6;
   border: 2px dashed #c4b89a;
   border-radius: 4px;
   padding: 0;
@@ -2411,7 +2411,7 @@ Hover时出现品牌渐变顶条。
 }
 .ticket-vintage .airline-row .badge {
   background: #2B7FD8;
-  color: #fefcf6;
+  color: #FFFDF9;
   padding: 2px 8px;
   font-size: 0.65rem;
   font-weight: 600;
@@ -2446,7 +2446,7 @@ Hover时出现品牌渐变顶条。
   position: absolute;
 }
 .ticket-vintage .route-arrow span {
-  background: #faf6eb;
+  background: #F9F8F6;
   padding: 0 8px;
   position: relative;
   font-family: 'Fira Code', monospace;
@@ -2521,7 +2521,7 @@ Hover时出现品牌渐变顶条。
 
 ```css
 .ticket-editorial {
-  background: #fefcf6;
+  background: #FFFDF9;
   border-top: 3px solid #1A1A2E;
   border-bottom: 1px solid #e8e4dc;
   padding: clamp(28px, 4vw, 48px) clamp(20px, 3vw, 36px);
@@ -2649,7 +2649,7 @@ Hover时出现品牌渐变顶条。
 
 ```css
 .ticket-minimal {
-  background: #fefcf6;
+  background: #FFFDF9;
   border: 1px solid #e8e4dc;
   border-left: 4px solid #1A1A2E;
   padding: clamp(20px, 3vw, 32px);
@@ -3086,7 +3086,7 @@ CSS Grid两栏布局、2px粗边框系统、酒店名跨列、日期用点缀色
 }
 .news-handwrite {
   font-family: 'Schoolbell', cursive;
-  color: var(--accent, #CC2936);
+  color: var(--accent, #2B7FD8);
   font-size: 1.3rem;
   transform: rotate(-2deg);
   margin-top: 12px;
@@ -3368,7 +3368,7 @@ CSS Grid两栏布局、2px粗边框系统、酒店名跨列、日期用点缀色
   height: 1.2em;
 }
 .type-warn {
-  color: var(--accent, #CC2936);
+  color: var(--accent, #2B7FD8);
   font-weight: 700;
 }
 .type-cursor {
@@ -3425,7 +3425,7 @@ CSS Grid两栏布局、2px粗边框系统、酒店名跨列、日期用点缀色
   padding: 20px 0; -webkit-overflow-scrolling: touch;
 }
 .hscroll-track::-webkit-scrollbar { height: 4px; }
-.hscroll-track::-webkit-scrollbar-thumb { background: var(--decor, #2B7FD8); border-radius: 2px; }
+.hscroll-track::-webkit-scrollbar-thumb { background: var(--decor, #CC2936); border-radius: 2px; }
 .hscroll-card {
   min-width: 340px; max-width: 380px; flex-shrink: 0; scroll-snap-align: center;
   background: #fff; border-radius: 16px; padding: 32px 28px;
@@ -3433,7 +3433,7 @@ CSS Grid两栏布局、2px粗边框系统、酒店名跨列、日期用点缀色
 }
 .hscroll-card .hscroll-num {
   position: absolute; top: 16px; right: 20px; font-family: 'Schoolbell', cursive;
-  font-size: 2rem; color: var(--decor, #2B7FD8); opacity: 0.4;
+  font-size: 2rem; color: var(--decor, #CC2936); opacity: 0.4;
 }
 .hscroll-card h3 { font-size: 1.1rem; font-weight: 700; margin-bottom: 12px; }
 .hscroll-card p { font-size: 0.82rem; color: var(--ink-light, #4A4A5A); line-height: 1.9; }
@@ -3491,7 +3491,7 @@ function switchTab(el, idx) {
 ```
 
 ```css
-.tab-bar { display: flex; gap: 0; margin-bottom: 2rem; border-bottom: 2px solid var(--decor, #2B7FD8); }
+.tab-bar { display: flex; gap: 0; margin-bottom: 2rem; border-bottom: 2px solid var(--decor, #CC2936); }
 .tab-item {
   padding: 10px 20px; font-size: 0.82rem; font-weight: 500; cursor: pointer;
   border-bottom: 3px solid transparent; margin-bottom: -2px; transition: all 0.2s;
@@ -3504,7 +3504,7 @@ function switchTab(el, idx) {
 .tab-panel.active { display: block; }
 .tab-panel h3 { font-size: 1.3rem; font-weight: 700; margin-bottom: 12px; }
 .tab-panel p { font-size: 0.88rem; color: var(--ink-light, #4A4A5A); line-height: 2; max-width: 550px; }
-.tab-example { margin-top: 1rem; background: #fff; border-radius: 10px; padding: 16px 20px; font-size: 0.9rem; color: var(--primary, #F07040); border-left: 3px solid var(--decor, #2B7FD8); }
+.tab-example { margin-top: 1rem; background: #fff; border-radius: 10px; padding: 16px 20px; font-size: 0.9rem; color: var(--primary, #F07040); border-left: 3px solid var(--decor, #CC2936); }
 @keyframes tabFadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
 ```
 
@@ -3631,12 +3631,12 @@ function moveSlide(dir) {
 .carousel-slide p { font-size: 0.85rem; color: var(--ink-light, #4A4A5A); line-height: 2; max-width: 450px; margin: 0 auto; }
 .carousel-arrows { display: flex; justify-content: center; gap: 16px; margin-top: 2rem; }
 .carousel-arrow {
-  width: 40px; height: 40px; border-radius: 50%; border: 1.5px solid var(--decor, #2B7FD8);
+  width: 40px; height: 40px; border-radius: 50%; border: 1.5px solid var(--decor, #CC2936);
   background: transparent; cursor: pointer; font-size: 1rem; color: var(--primary, #F07040); transition: all 0.2s;
 }
 .carousel-arrow:hover { background: var(--primary, #F07040); color: #fff; }
 .carousel-dots { display: flex; justify-content: center; gap: 8px; margin-top: 1rem; }
-.carousel-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--decor, #2B7FD8); opacity: 0.4; transition: all 0.2s; }
+.carousel-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--decor, #CC2936); opacity: 0.4; transition: all 0.2s; }
 .carousel-dot.active { opacity: 1; transform: scale(1.3); background: var(--primary, #F07040); }
 ```
 
@@ -3835,7 +3835,7 @@ function flipStack() {
 ```
 
 ```css
-/* 需要深色背景容器 background: #1A1A2E; color: #faf6eb; */
+/* 需要深色背景容器 background: #1A1A2E; color: #F9F8F6; */
 .dark-reveal-bgchar {
   position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
   font-size: clamp(20rem, 40vw, 35rem); color: rgba(255,255,255,0.03);
@@ -3845,18 +3845,18 @@ function flipStack() {
 .dark-reveal-content h2 {
   font-size: clamp(2.5rem, 7vw, 4rem); line-height: 1.6; color: #fff; margin-bottom: 2rem;
 }
-.dark-reveal-divider { width: 40px; height: 2px; background: var(--decor, #2B7FD8); margin: 0 auto 2rem; }
+.dark-reveal-divider { width: 40px; height: 2px; background: var(--decor, #CC2936); margin: 0 auto 2rem; }
 .dark-reveal-trans {
   font-size: 0.88rem; color: rgba(255,255,255,0.6); line-height: 2;
   opacity: 0; transition: opacity 0.5s;
 }
 .dark-reveal-trans.show { opacity: 1; }
 .dark-reveal-btn {
-  margin-top: 2rem; padding: 8px 20px; border: 1px solid var(--decor, #2B7FD8);
-  background: transparent; color: var(--decor, #2B7FD8); border-radius: 20px;
+  margin-top: 2rem; padding: 8px 20px; border: 1px solid var(--decor, #CC2936);
+  background: transparent; color: var(--decor, #CC2936); border-radius: 20px;
   font-size: 0.78rem; cursor: pointer; transition: all 0.2s;
 }
-.dark-reveal-btn:hover { background: var(--decor, #2B7FD8); color: #1A1A2E; }
+.dark-reveal-btn:hover { background: var(--decor, #CC2936); color: #1A1A2E; }
 ```
 
 **使用原则**：
@@ -3913,8 +3913,8 @@ function flipStack() {
 }
 .split-qa-right h3 { font-size: 0.85rem; font-weight: 700; color: var(--primary, #F07040); margin-bottom: 12px; }
 .split-qa-flow { display: flex; align-items: center; flex-wrap: wrap; gap: 8px; }
-.split-qa-step { background: var(--cream-dark, #faf6eb); padding: 6px 14px; border-radius: 20px; font-size: 0.78rem; color: var(--ink-light, #4A4A5A); }
-.split-qa-arrow { font-size: 0.7rem; color: var(--decor, #2B7FD8); }
+.split-qa-step { background: var(--cream-dark, #F9F8F6); padding: 6px 14px; border-radius: 20px; font-size: 0.78rem; color: var(--ink-light, #4A4A5A); }
+.split-qa-arrow { font-size: 0.7rem; color: var(--decor, #CC2936); }
 @media (max-width: 768px) { .split-qa { grid-template-columns: 1fr; } }
 ```
 
@@ -3956,7 +3956,7 @@ function flipStack() {
 .numgrid-card:hover { transform: translateY(-3px); }
 .numgrid-card::before {
   content: attr(data-num); position: absolute; top: -8px; right: 12px;
-  font-family: 'Schoolbell', cursive; font-size: 3rem; color: var(--decor, #2B7FD8); opacity: 0.2;
+  font-family: 'Schoolbell', cursive; font-size: 3rem; color: var(--decor, #CC2936); opacity: 0.2;
 }
 .numgrid-card h4 { font-size: 0.82rem; font-weight: 700; margin-bottom: 6px; color: var(--primary, #F07040); }
 .numgrid-card p { font-size: 0.78rem; color: var(--ink-light, #4A4A5A); line-height: 1.8; }
@@ -4004,7 +4004,7 @@ function flipStack() {
   border-bottom: 1px solid rgba(240,112,64,0.14);
 }
 .checklist-check {
-  width: 22px; height: 22px; border-radius: 6px; border: 2px solid var(--decor, #2B7FD8);
+  width: 22px; height: 22px; border-radius: 6px; border: 2px solid var(--decor, #CC2936);
   flex-shrink: 0; margin-top: 2px; cursor: pointer; transition: all 0.2s;
   display: flex; align-items: center; justify-content: center;
 }
@@ -4012,7 +4012,7 @@ function flipStack() {
 .checklist-check.checked::after { content: '✓'; color: #fff; font-size: 0.7rem; }
 .checklist-content h4 { font-size: 0.85rem; font-weight: 600; margin-bottom: 2px; }
 .checklist-content p { font-size: 0.78rem; color: var(--ink-light, #4A4A5A); line-height: 1.7; }
-.checklist-tag { display: inline-block; font-size: 0.65rem; background: var(--cream-dark, #faf6eb); color: var(--ink-faint, #8A8A9A); padding: 2px 8px; border-radius: 3px; margin-top: 4px; }
+.checklist-tag { display: inline-block; font-size: 0.65rem; background: var(--cream-dark, #F9F8F6); color: var(--ink-faint, #8A8A9A); padding: 2px 8px; border-radius: 3px; margin-top: 4px; }
 ```
 
 **使用原则**：
@@ -4052,7 +4052,7 @@ function flipStack() {
 }
 .postcard::before {
   content: ''; position: absolute; top: 20px; right: 20px;
-  width: 50px; height: 50px; border: 2px solid var(--decor, #2B7FD8); opacity: 0.3;
+  width: 50px; height: 50px; border: 2px solid var(--decor, #CC2936); opacity: 0.3;
 }
 .postcard-title {
   font-family: 'Ma Shan Zheng', cursive; font-size: 1.8rem;
@@ -4063,7 +4063,7 @@ function flipStack() {
   color: var(--ink-light, #4A4A5A);
 }
 .postcard-num { color: var(--primary, #F07040); font-weight: 700; }
-.postcard-divider { border: none; border-top: 1px dashed var(--decor, #2B7FD8); margin: 1.5rem 0; }
+.postcard-divider { border: none; border-top: 1px dashed var(--decor, #CC2936); margin: 1.5rem 0; }
 .postcard-footer { font-size: 0.8rem; color: var(--ink-faint, #8A8A9A); line-height: 2; }
 .postcard-footer strong { color: var(--primary, #F07040); }
 .postcard-stamp {
@@ -4101,11 +4101,11 @@ function flipStack() {
 <!-- Modal -->
 <div class="modal-overlay" id="modal" onclick="closeModal(event)" style="display: none; position: fixed; inset: 0; z-index: 1000; background: rgba(0,0,0,0.88); align-items: center; justify-content: center; padding: 24px;">
   <span onclick="closeModal()" style="position: fixed; top: 20px; right: 24px; font-size: 2rem; color: #fff; cursor: pointer; z-index: 1001;">&times;</span>
-  <div style="background: #fefcf6; border-radius: 16px; max-width: 900px; width: 100%; max-height: 90vh; overflow-y: auto;" onclick="event.stopPropagation()">
+  <div style="background: #FFFDF9; border-radius: 16px; max-width: 900px; width: 100%; max-height: 90vh; overflow-y: auto;" onclick="event.stopPropagation()">
     <img src="[hero-image]" style="width: 100%; aspect-ratio: 21/9; object-fit: cover; border-radius: 16px 16px 0 0;">
     <div style="padding: 28px 32px 32px;">
       <h2>Title</h2>
-      <span style="font-size: 0.75rem; color: var(--accent, #CC2936);">Year · Location</span>
+      <span style="font-size: 0.75rem; color: var(--accent, #2B7FD8);">Year · Location</span>
       <p>Description with rich detail...</p>
       <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin: 16px 0;">
         <img src="[gallery-1]" style="width: 100%; aspect-ratio: 4/3; object-fit: cover; border-radius: 8px;">
@@ -4113,7 +4113,7 @@ function flipStack() {
         <img src="[gallery-3]" style="...">
       </div>
       <div style="display: flex; gap: 6px; flex-wrap: wrap; margin-top: 16px;">
-        <span style="font-size: 0.65rem; background: #faf6eb; color: #F07040; padding: 4px 10px; border-radius: 4px; font-weight: 600;">Tag</span>
+        <span style="font-size: 0.65rem; background: #F9F8F6; color: #F07040; padding: 4px 10px; border-radius: 4px; font-weight: 600;">Tag</span>
       </div>
     </div>
   </div>
@@ -4148,7 +4148,7 @@ function flipStack() {
     <img src="[full-2]" style="...opacity: 0; transition: opacity 0.4s;">
   </div>
   <!-- Side panel -->
-  <div style="width: 280px; background: #fff; padding: 28px 20px; overflow-y: auto; flex-shrink: 0; border-left: 1px solid #faf6eb;">
+  <div style="width: 280px; background: #fff; padding: 28px 20px; overflow-y: auto; flex-shrink: 0; border-left: 1px solid #F9F8F6;">
     <h3 style="font-size: 1rem; font-weight: 800;">Title</h3>
     <p style="font-size: 0.72rem; color: #CC2936; font-weight: 600;">Year · Location</p>
     <p style="font-size: 0.78rem; color: #4A4A5A; line-height: 1.8;">Description text...</p>
@@ -4208,7 +4208,7 @@ function flipStack() {
 **用途**：结尾页/金句页。奶油底色+大字号引号居中，极简但有力。
 
 ```html
-<section style="min-height: 100vh; display: flex; align-items: center; justify-content: center; background: #faf6eb; text-align: center; padding: 60px;">
+<section style="min-height: 100vh; display: flex; align-items: center; justify-content: center; background: #F9F8F6; text-align: center; padding: 60px;">
   <div>
     <p style="font-family: 'Spectral', serif; font-style: italic; font-size: clamp(1.5rem, 3.5vw, 2.5rem); line-height: 1.8; max-width: 750px; color: #1A1A2E;">"Quote text here."</p>
     <p style="font-size: 0.75rem; color: #8A8A9A; margin-top: 24px; letter-spacing: 0.15em; text-transform: uppercase;">— Attribution</p>
@@ -4261,7 +4261,7 @@ function flipStack() {
 **用途**：纯白底+左对齐引号+巨大留白。最克制的结尾方式。
 
 ```html
-<section style="min-height: 100vh; display: flex; align-items: center; justify-content: center; background: #fefcf6; padding: 60px;">
+<section style="min-height: 100vh; display: flex; align-items: center; justify-content: center; background: #FFFDF9; padding: 60px;">
   <div style="max-width: 500px; text-align: left;">
     <p style="font-family: 'Spectral', serif; font-size: 1.1rem; line-height: 2.2; color: #1A1A2E;">"Quote text here."</p>
     <div style="display: flex; align-items: center; gap: 12px; margin-top: 32px;">

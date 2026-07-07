@@ -28,8 +28,8 @@
 - 标准暗底: `#151821`
 - 深色底: `#0d1117`
 - 主色底: `var(--primary)` + 白字
-- 强调色底: `var(--accent)` + 白字
-- 点缀色底: `var(--decor)` + 白字，仅少量使用
+- 强调色底: `var(--accent)` + 白字，适合CTA、活跃状态、流程节点
+- 点缀色底: `var(--decor)` + 白字，仅用于异常信号、badge、小面积提醒
 
 ---
 
@@ -97,12 +97,12 @@ Landing页面高频使用的组件：
   box-shadow: 0 8px 24px rgba(240,112,64,0.3);
 }
 
-/* 点缀色次级变体（少量用于辅助行动） */
-.cta-button--decor {
-  background: var(--decor, #2B7FD8);
+/* 强调色次级变体（用于辅助行动） */
+.cta-button--accent {
+  background: var(--accent, #2B7FD8);
   color: #fff;
 }
-.cta-button--decor:hover {
+.cta-button--accent:hover {
   box-shadow: 0 8px 24px rgba(43,127,216,0.3);
 }
 ```

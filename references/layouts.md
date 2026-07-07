@@ -734,4 +734,4 @@ const stepObserver = new IntersectionObserver((entries) => {
 document.querySelectorAll('.step-observe').forEach(el => stepObserver.observe(el));
 ```
 
-⚠️ 注意：步骤5~10个最合适。超过10个太长，少于5个用横向Step连接线（#7）更紧凑。大图是关键——每一步都必须有一张占满宽度的配图。编号三色轮换（主色/点缀色/强调色）保持节奏。移动端侧栏隐藏，变成纯纵向滚动。
+⚠️ 注意：步骤5~10个最合适。超过10个太长，少于5个用横向Step连接线（#7）更紧凑。大图是关键——每一步都必须有一张占满宽度的配图。编号三色轮换（主色/强调色/点缀色）保持节奏。移动端侧栏隐藏，变成纯纵向滚动。
