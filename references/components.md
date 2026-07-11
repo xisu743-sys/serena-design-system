@@ -2320,11 +2320,11 @@ Hover时出现品牌渐变顶条。
 
 ---
 
-## 21. 机票/航班卡片（3种变体）
+## 46. 机票/航班卡片（3种变体）
 
 用于展示航班、交通等行程信息。三种风格适配不同场景。
 
-### §21A — 复古登机牌风
+### §46A — 复古登机牌风
 
 模拟真实纸质登机牌，撕裂边缘/穿孔线，monospace字体，vintage质感。适合旅行主题页面。
 
@@ -2490,7 +2490,7 @@ Hover时出现品牌渐变顶条。
 
 ---
 
-### §21B — 杂志排版风
+### §46B — 杂志排版风
 
 大字号对比、editorial layout，留白多，时间数字特别大。适合强调时间感的行程展示。
 
@@ -2615,7 +2615,7 @@ Hover时出现品牌渐变顶条。
 
 ---
 
-### §21C — 极简信息卡
+### §46C — 极简信息卡
 
 黑白为主+强调色圆点点缀，信息紧凑。适合密集行程列表。
 
@@ -2735,11 +2735,11 @@ Hover时出现品牌渐变顶条。
 
 ---
 
-## 22. 住宿/酒店卡片（3种变体）
+## 47. 住宿/酒店卡片（3种变体）
 
 用于展示酒店、民宿等住宿信息。三种风格适配不同场景。
 
-### §22A — 杂志排版风
+### §47A — 杂志排版风
 
 顶部粗黑线、大衬线酒店名、底部meta细线分隔、大量留白。适合高端酒店展示。
 
@@ -2785,7 +2785,7 @@ Hover时出现品牌渐变顶条。
   font-family: 'Spectral', serif;
   font-style: italic;
   font-size: 0.85rem;
-  color: var(--sub);
+  color: var(--ink-light, #4A4A5A);
   margin-bottom: clamp(20px, 3vw, 32px);
 }
 .hotel-editorial .detail-row {
@@ -2807,7 +2807,7 @@ Hover时出现品牌渐变顶条。
   font-size: 0.7rem;
   text-transform: uppercase;
   letter-spacing: 0.1em;
-  color: var(--muted);
+  color: var(--ink-faint, #8A8A9A);
   margin-bottom: 2px;
 }
 .hotel-editorial .detail-value {
@@ -2817,7 +2817,7 @@ Hover时出现品牌渐变顶条。
 .hotel-editorial .note {
   margin-top: 16px;
   font-size: 0.78rem;
-  color: var(--muted);
+  color: var(--ink-faint, #8A8A9A);
   padding-top: 12px;
   border-top: 1px solid #e0ddd4;
 }
@@ -2825,7 +2825,7 @@ Hover时出现品牌渐变顶条。
 
 ---
 
-### §22B — 明信片/邮票风
+### §47B — 明信片/邮票风
 
 邮戳装饰+手写字体+虚线边框。适合旅行日记风格页面。
 
@@ -2888,7 +2888,7 @@ Hover时出现品牌渐变顶条。
   font-family: 'Schoolbell', cursive;
   font-size: 1.1rem;
   line-height: 1.8;
-  color: var(--sub);
+  color: var(--ink-light, #4A4A5A);
   margin-top: 12px;
 }
 .hotel-postcard .postcard-meta {
@@ -2899,7 +2899,7 @@ Hover时出现品牌渐变顶条。
   flex-wrap: wrap;
   gap: 16px;
   font-size: 0.8rem;
-  color: var(--sub);
+  color: var(--ink-light, #4A4A5A);
 }
 .hotel-postcard .postcard-meta span::before {
   content: '✦ ';
@@ -2909,7 +2909,7 @@ Hover时出现品牌渐变顶条。
 
 ---
 
-### §22C — 杂志格栅
+### §47C — 杂志格栅
 
 CSS Grid两栏布局、2px粗边框系统、酒店名跨列、日期用点缀色大字高亮。适合信息密度高的行程总览。
 
@@ -2970,7 +2970,7 @@ CSS Grid两栏布局、2px粗边框系统、酒店名跨列、日期用点缀色
   font-family: 'Spectral', serif;
   font-style: italic;
   font-size: 0.75rem;
-  color: var(--sub);
+  color: var(--ink-light, #4A4A5A);
   margin-top: 4px;
 }
 .hotel-grid .eg-col-left {
@@ -2987,7 +2987,7 @@ CSS Grid两栏布局、2px粗边框系统、酒店名跨列、日期用点缀色
   font-size: 0.65rem;
   text-transform: uppercase;
   letter-spacing: 0.12em;
-  color: var(--muted);
+  color: var(--ink-faint, #8A8A9A);
   margin-bottom: 2px;
 }
 .hotel-grid .eg-field-value {
@@ -2999,8 +2999,8 @@ CSS Grid两栏布局、2px粗边框系统、酒店名跨列、日期用点缀色
   padding: 12px clamp(16px, 2.5vw, 28px);
   border-top: 2px solid var(--ink);
   font-size: 0.72rem;
-  color: var(--muted);
-  background: var(--bg-deep);
+  color: var(--ink-faint, #8A8A9A);
+  background: var(--cream-dark, #F9F8F6);
 }
 .hotel-grid .eg-date-highlight {
   font-family: 'Spectral', serif;
@@ -3018,7 +3018,7 @@ CSS Grid两栏布局、2px粗边框系统、酒店名跨列、日期用点缀色
 
 ---
 
-## 21. 报纸多栏排版
+## 48. 报纸多栏排版
 
 适用场景：信息密度高的科普内容、长篇摘要、多角度并列信息展示。模拟传统报纸的多栏 + 分隔线 + 手写批注风格。
 
@@ -3105,7 +3105,7 @@ CSS Grid两栏布局、2px粗边框系统、酒店名跨列、日期用点缀色
 
 ---
 
-## 22. 极简日式留白
+## 49. 极简日式留白
 
 适用场景：需要高级感、冥想感的封面或过渡页。大量留白 + 竖线 + 单个视觉焦点 + 极细字体。
 
@@ -3867,7 +3867,7 @@ function flipStack() {
 
 ---
 
-## 34. 左右分栏问答（Split Q&A）
+## 53. 左右分栏问答（Split Q&A）
 
 适用场景：左侧放问题/任务列表，右侧放辅助信息（结构图、流程、提示）。适合课后练习、FAQ+Tips、任务+参考。
 
@@ -4023,7 +4023,7 @@ function flipStack() {
 
 ---
 
-## 37. 手写明信片（Handwritten Postcard）
+## 54. 手写明信片（Handwritten Postcard）
 
 适用场景：结尾页、寄语、课后总结。模拟手写卡片的温暖感，微歪旋转+虚线分隔+邮票装饰。
 
@@ -4055,7 +4055,7 @@ function flipStack() {
   width: 50px; height: 50px; border: 2px solid var(--decor, #CC2936); opacity: 0.3;
 }
 .postcard-title {
-  font-family: 'Ma Shan Zheng', cursive; font-size: 1.8rem;
+  font-family: 'ChillHuoFangSong', serif; font-size: 1.8rem;
   margin-bottom: 1.5rem; transform: rotate(0.5deg);
 }
 .postcard-body {
@@ -4081,7 +4081,7 @@ function flipStack() {
 
 ---
 
-## #38 点击弹窗详情（Click-to-Modal Detail）
+## #55 点击弹窗详情（Click-to-Modal Detail）
 
 **用途**：点击卡片/图片弹出大型Modal，展示详细信息+多图gallery+标签。适合作品集、建筑项目、案例展示。
 
@@ -4090,7 +4090,7 @@ function flipStack() {
 <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; max-width: 760px;">
   <div class="work-card" onclick="openModal(0)" style="border-radius: 14px; overflow: hidden; cursor: pointer; position: relative; aspect-ratio: 16/10;">
     <img src="[image-url]" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s;">
-    <div style="position: absolute; top: 12px; right: 12px; background: rgba(255,255,255,0.15); backdrop-filter: blur(4px); padding: 4px 10px; border-radius: 12px; font-size: 0.6rem; color: #fff;">Click to explore →</div>
+    <div style="position: absolute; top: 12px; right: 12px; background: rgba(26,26,46,0.55); padding: 4px 10px; border-radius: 12px; font-size: 0.6rem; color: #fff;">Click to explore →</div>
     <div style="position: absolute; bottom: 0; left: 0; right: 0; padding: 16px 18px; background: linear-gradient(to top, rgba(0,0,0,0.8), transparent); color: #fff;">
       <h3 style="font-size: 0.9rem; font-weight: 700;">Project Name</h3>
       <span style="font-size: 0.68rem; opacity: 0.8;">Year · Category</span>
@@ -4118,6 +4118,19 @@ function flipStack() {
     </div>
   </div>
 </div>
+
+<script>
+function openModal(idx) {
+  document.getElementById('modal').style.display = 'flex';
+  document.body.style.overflow = 'hidden';
+}
+function closeModal(event) {
+  if (event && event.target !== event.currentTarget) return;
+  document.getElementById('modal').style.display = 'none';
+  document.body.style.overflow = '';
+}
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+</script>
 ```
 
 **设计要点**：
@@ -4127,6 +4140,8 @@ function flipStack() {
 - Gallery 3列网格展示多角度
 - 底部标签列表标注关键词
 - body overflow: hidden 防止背景滚动
+- 原稿的 `openModal`/`closeModal` 只在 onclick 里被引用、从未真正写出来过，直接照抄会点了没反应，务必带上上面的 `<script>` 一起使用
+- 右上角标签原本用了 `backdrop-filter: blur`（glassmorphism），已按 brand-dna 禁忌清单去掉，改为纯色半透明底
 
 ---
 
@@ -4239,7 +4254,7 @@ function flipStack() {
 
 ---
 
-## #43 深色字幕式结尾（Dark Typographic Ending）
+## #56 深色字幕式结尾（Dark Typographic Ending）
 
 **用途**：深色全屏+巨大水印文字背景+居中引号，电影感结尾。
 
@@ -4274,7 +4289,7 @@ function flipStack() {
 
 ---
 
-## #45 暗化肖像+居中引号（Portrait Overlay Quote）
+## #57 暗化肖像+居中引号（Portrait Overlay Quote）
 
 **用途**：结尾页。全铺人物照暗化+灰度处理，白色引号居中叠加。
 
