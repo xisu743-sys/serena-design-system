@@ -60,7 +60,7 @@
 ## 🧩 卡片结构模板
 
 ### P1 封面
-- 大标题（84px）用寒蝉活楷体（ChillHuoKai Con），关键词优先用主色高亮块（`background: #F07040; color: #fff; padding: 4px 16px; border-radius: 6px`），点缀色只做少量点缀
+- 大标题（84px）用寒蝉活方宋（ChillHuoFangSong），关键词优先用主色高亮块（`background: #F07040; color: #fff; padding: 4px 16px; border-radius: 6px`），点缀色只做少量点缀
 - 副标题（44px）一行显示，紧跟标题下方，`white-space: nowrap`
 - 圆形头像（`avatar.jpg`，120px，`border: 4px solid #F07040`）
 - 署名「Serena」44px + 介绍34px

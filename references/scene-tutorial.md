@@ -32,8 +32,8 @@
 | 用途 | 字体 | 备注 |
 |------|------|------|
 | 英文标题/装饰 | `Spectral` (Google Fonts) | italic用于副标题、accent文字 |
-| 中文标题首选 | `ChillHuoKai Con`（寒蝉活楷体） | 品牌真正用的标题字体；已随 skill 打包在 `assets/ChillHuoKai_ConRegular.otf` |
-| 中文标题备选 | `Noto Serif SC` (Google Fonts) | 当无寒蝉活楷体时使用 |
+| 中文标题首选 | `ChillHuoFangSong`（寒蝉活方宋） | 品牌真正用的标题字体；已随 skill 打包在 `assets/ChillHuoFangSong_Regular.otf` |
+| 中文标题备选 | `Noto Serif SC` (Google Fonts) | 当无寒蝉活方宋时使用 |
 | 正文/UI | `Noto Sans SC` + 系统栈 `-apple-system, 'PingFang SC', 'Helvetica Neue', sans-serif` | 无衬线保证可读性 |
 | 手写装饰 | `Schoolbell` (Google Fonts) | 轻松标注、注释性文字 |
 
