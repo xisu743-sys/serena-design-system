@@ -6,7 +6,7 @@
   <title>个人仪表盘 — Demo</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700;900&family=Noto+Serif+SC:wght@400;700;900&family=Schoolbell&family=Fira+Code:wght@400;500;600&family=Bangers&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700;900&family=Noto+Serif+SC:wght@400;700;900&family=Schoolbell&family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet">
   <style>
 @font-face{font-family:'ChillHuoFangSong';src:url('./assets/ChillHuoFangSong_Regular.otf') format('opentype');font-weight:400;font-style:normal;font-display:swap;}
     /* === CSS变量 === */
@@ -37,7 +37,7 @@
       color: var(--ink);
     }
 
-    /* === 三色装饰条 === */
+    /* === 顶部品牌细线 === */
     body::before {
       content: '';
       position: fixed;
@@ -45,28 +45,8 @@
       left: 0;
       right: 0;
       height: 3px;
-      background: var(--decor);
-      z-index: 9999;
-    }
-    body::after {
-      content: '';
-      position: fixed;
-      top: 3px;
-      left: 0;
-      width: 33.3%;
-      height: 2px;
       background: var(--primary);
       z-index: 9999;
-    }
-    .tricolor-accent {
-      position: fixed;
-      top: 3px;
-      right: 0;
-      width: 33.3%;
-      height: 2px;
-      background: var(--accent);
-      z-index: 9999;
-      pointer-events: none;
     }
 
     /* === Fixed Header === */
@@ -110,15 +90,15 @@
     }
 
     .btn-icon:hover {
-      border-color: var(--decor);
-      color: var(--decor);
+      border-color: var(--primary);
+      color: var(--primary);
     }
 
     .avatar {
       width: 32px;
       height: 32px;
       border-radius: 50%;
-      background: var(--decor);
+      background: var(--primary);
       color: #fff;
       display: flex;
       align-items: center;
@@ -155,8 +135,8 @@
     }
 
     .tab.active {
-      border-bottom-color: var(--decor);
-      color: var(--decor);
+      border-bottom-color: var(--primary);
+      color: var(--primary);
       font-weight: 600;
     }
 
@@ -241,24 +221,19 @@
       padding: 2px 8px;
       border-radius: 8px;
       font-size: 0.7rem;
-      background: rgba(43,127,216,0.1);
-      color: var(--decor);
+      background: rgba(240,112,64,0.10);
+      color: var(--primary);
       margin-bottom: 0.5rem;
     }
 
-    .card-badge.primary {
-      background: rgba(240,112,64,0.14);
-      color: #B84A24;
-    }
-
     .card-badge.accent {
-      background: rgba(204,41,54,0.10);
+      background: rgba(43,127,216,0.10);
       color: var(--accent);
     }
 
-    .card-badge.green {
-      background: rgba(40,167,69,0.1);
-      color: #28a745;
+    .card-badge.decor {
+      background: rgba(204,41,54,0.10);
+      color: var(--decor);
     }
 
     /* === 卡片内列表 === */
@@ -290,8 +265,8 @@
     }
 
     .card-list .check.done {
-      background: var(--decor);
-      border-color: var(--decor);
+      background: var(--primary);
+      border-color: var(--primary);
       position: relative;
     }
 
@@ -323,11 +298,10 @@
     .progress-bar .fill {
       height: 100%;
       border-radius: 3px;
-      background: var(--decor);
+      background: var(--primary);
       transition: width .3s;
     }
 
-    .progress-bar .fill.primary { background: var(--primary); }
     .progress-bar .fill.accent { background: var(--accent); }
 
     .progress-label {
@@ -371,7 +345,7 @@
       justify-content: center;
       font-size: 1.2rem;
       flex-shrink: 0;
-      background: rgba(43,127,216,0.08);
+      background: rgba(240,112,64,0.08);
     }
 
     .list-item-body {
@@ -430,13 +404,13 @@
       width: 12px;
       height: 12px;
       border-radius: 50%;
-      background: var(--decor);
+      background: var(--primary);
       flex-shrink: 0;
       margin-top: 4px;
     }
 
-    .timeline-dot.primary { background: var(--primary); }
     .timeline-dot.accent { background: var(--accent); }
+    .timeline-dot.decor { background: var(--decor); }
 
     .timeline-body {
       flex: 1;
@@ -471,8 +445,7 @@
       position: fixed;
       inset: 0;
       z-index: 1000;
-      background: rgba(0,0,0,.6);
-      backdrop-filter: blur(4px);
+      background: rgba(26,26,46,.72);
       display: none;
       align-items: center;
       justify-content: center;
@@ -531,13 +504,13 @@
 
     .app-input:focus {
       outline: none;
-      border-color: var(--decor);
-      box-shadow: 0 0 0 3px rgba(43,127,216,0.1);
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(240,112,64,0.12);
     }
 
     /* === 按钮 === */
     .btn-primary {
-      background: var(--decor);
+      background: var(--primary);
       color: #fff;
       border: none;
       border-radius: 8px;
@@ -574,16 +547,13 @@
 </head>
 <body>
 
-  <!-- 三色装饰条（强调色） -->
-  <div class="tricolor-accent"></div>
-
   <!-- ====== Fixed Header ====== -->
   <header class="app-header">
     <h1>我的仪表盘</h1>
     <div class="header-actions">
       <button class="btn-icon" onclick="openModal()" title="新建任务">＋</button>
       <button class="btn-icon" title="通知">🔔</button>
-      <div class="avatar">E</div>
+      <div class="avatar">S</div>
     </div>
   </header>
 
@@ -604,15 +574,15 @@
       <!-- 统计数据 -->
       <div class="stats-row">
         <div class="stat-card">
-          <div class="stat-number decor">7</div>
+          <div class="stat-number primary">7</div>
           <div class="stat-label">今日待办</div>
         </div>
         <div class="stat-card">
-          <div class="stat-number primary">68%</div>
+          <div class="stat-number accent">68%</div>
           <div class="stat-label">本周进度</div>
         </div>
         <div class="stat-card">
-          <div class="stat-number accent">3</div>
+          <div class="stat-number decor">3</div>
           <div class="stat-label">即将到期</div>
         </div>
         <div class="stat-card">
@@ -641,7 +611,7 @@
 
         <!-- 本周进度 -->
         <div class="app-card">
-          <span class="card-badge primary">进行中</span>
+          <span class="card-badge accent">进行中</span>
           <h3>本周目标</h3>
           <p style="margin-bottom: 0.75rem;">产品 v2.0 发布准备</p>
           <div class="progress-bar"><div class="fill" style="width: 68%;"></div></div>
@@ -653,31 +623,31 @@
 
         <!-- 最近笔记 -->
         <div class="app-card">
-          <span class="card-badge green">笔记</span>
+          <span class="card-badge accent">笔记</span>
           <h3>最近笔记</h3>
           <ul class="card-list">
-            <li><span style="color: var(--decor);">📝</span> 用户访谈总结 — 今天</li>
-            <li><span style="color: var(--decor);">📝</span> 竞品分析报告 — 昨天</li>
-            <li><span style="color: var(--decor);">📝</span> Q3 规划草案 — 周一</li>
-            <li><span style="color: var(--decor);">📝</span> 设计系统规范 v2 — 周一</li>
+            <li><span style="color: var(--primary);">📝</span> 用户访谈总结 — 今天</li>
+            <li><span style="color: var(--primary);">📝</span> 竞品分析报告 — 昨天</li>
+            <li><span style="color: var(--primary);">📝</span> Q3 规划草案 — 周一</li>
+            <li><span style="color: var(--primary);">📝</span> 设计系统规范 v2 — 周一</li>
           </ul>
         </div>
 
         <!-- 即将到期 -->
         <div class="app-card">
-          <span class="card-badge accent">紧急</span>
+          <span class="card-badge decor">紧急</span>
           <h3>即将到期</h3>
           <ul class="card-list">
             <li>
-              <span style="color: var(--accent); font-size: 0.8rem;">●</span>
+              <span style="color: var(--decor); font-size: 0.8rem;">●</span>
               <span>提交季度报告 — <strong>明天</strong></span>
             </li>
             <li>
-              <span style="color: var(--accent); font-size: 0.8rem;">●</span>
+              <span style="color: var(--decor); font-size: 0.8rem;">●</span>
               <span>更新落地页文案 — 后天</span>
             </li>
             <li>
-              <span style="color: var(--primary); font-size: 0.8rem;">●</span>
+              <span style="color: var(--accent); font-size: 0.8rem;">●</span>
               <span>产品Demo录制 — 周五</span>
             </li>
           </ul>
@@ -692,7 +662,7 @@
             <li><span>📖</span>《Thinking in Systems》进度 60%</li>
             <li><span>🎧</span> Lenny's Podcast #204</li>
           </ul>
-          <div class="progress-bar"><div class="fill primary" style="width: 55%;"></div></div>
+          <div class="progress-bar"><div class="fill accent" style="width: 55%;"></div></div>
           <div class="progress-label"><span>月目标 3/5 本</span><span>55%</span></div>
         </div>
 
@@ -789,13 +759,13 @@
           <p style="font-size: 0.75rem; color: var(--ink-faint); margin-top: 0.5rem;">今天 10:30 · 1,240字</p>
         </div>
         <div class="app-card">
-          <span class="card-badge primary">分析</span>
+          <span class="card-badge accent">分析</span>
           <h3>竞品分析报告</h3>
           <p>对比了 Notion、Linear、Craft 三款产品的信息架构和交互模式，提炼出 6 个可借鉴的设计点…</p>
           <p style="font-size: 0.75rem; color: var(--ink-faint); margin-top: 0.5rem;">昨天 16:20 · 3,800字</p>
         </div>
         <div class="app-card">
-          <span class="card-badge green">规划</span>
+          <span class="card-badge accent">规划</span>
           <h3>Q3 规划草案</h3>
           <p>核心目标：用户留存率提升 15%、完成 v2.0 发布、建立设计系统完整文档库…</p>
           <p style="font-size: 0.75rem; color: var(--ink-faint); margin-top: 0.5rem;">周一 09:00 · 2,100字</p>
@@ -807,7 +777,7 @@
           <p style="font-size: 0.75rem; color: var(--ink-faint); margin-top: 0.5rem;">周一 14:00 · 5,600字</p>
         </div>
         <div class="app-card">
-          <span class="card-badge accent">思考</span>
+          <span class="card-badge">思考</span>
           <h3>关于简洁的思考</h3>
           <p>Less is more 不是去掉东西，是找到那个"刚好"的点。像日本料理一样，每一刀都有意义…</p>
           <p style="font-size: 0.75rem; color: var(--ink-faint); margin-top: 0.5rem;">上周五 22:10 · 680字</p>
@@ -834,7 +804,7 @@
             </div>
           </div>
           <div class="timeline-item">
-            <div class="timeline-dot primary"></div>
+            <div class="timeline-dot accent"></div>
             <div class="timeline-body">
               <div class="time">09:45</div>
               <div class="desc">将「回复客户邮件」标记为已完成</div>
@@ -848,7 +818,7 @@
             </div>
           </div>
           <div class="timeline-item">
-            <div class="timeline-dot accent"></div>
+            <div class="timeline-dot decor"></div>
             <div class="timeline-body">
               <div class="time">08:30</div>
               <div class="desc">新增任务「提交季度报告」，截止明天</div>
@@ -868,7 +838,7 @@
             </div>
           </div>
           <div class="timeline-item">
-            <div class="timeline-dot primary"></div>
+            <div class="timeline-dot accent"></div>
             <div class="timeline-body">
               <div class="time">14:00</div>
               <div class="desc">本周目标进度更新至 60%</div>
