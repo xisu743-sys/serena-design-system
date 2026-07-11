@@ -2871,7 +2871,7 @@ Hover时出现品牌渐变顶条。
   font-size: 0.7rem;
   letter-spacing: 0.15em;
   text-transform: uppercase;
-  color: var(--decor);
+  color: var(--primary);
   border-bottom: 1.5px solid var(--primary);
   padding-bottom: 2px;
   margin-bottom: 16px;
@@ -3006,7 +3006,7 @@ CSS Grid两栏布局、2px粗边框系统、酒店名跨列、日期用点缀色
   font-family: 'Spectral', serif;
   font-size: 1.8rem;
   font-weight: 900;
-  color: var(--decor);
+  color: var(--primary);
   line-height: 1;
   margin-bottom: 4px;
 }
